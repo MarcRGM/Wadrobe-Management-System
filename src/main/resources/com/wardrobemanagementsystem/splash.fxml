@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wardrobemanagementsystem.splash.SplashController">
+   <children>
+      <Pane id="paneSplash" prefHeight="349.0" prefWidth="557.0" stylesheets="@CSS/Splash.css">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <Label id="lblTitle" layoutX="85.0" layoutY="105.0" prefHeight="70.0" prefWidth="388.0" stylesheets="@CSS/Splash.css" text="Wardrobe Management System">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+
+      </VBox>

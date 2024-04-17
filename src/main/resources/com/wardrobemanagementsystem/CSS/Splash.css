@@ -1,0 +1,10 @@
+#paneSplash {
+    -fx-background-color: #222831;
+}
+
+#lblTitle {
+    -fx-font-size: 30;
+    -fx-font-family: "Tw Cen MT";
+    -fx-text-fill: #EEEEEE;
+    
+}

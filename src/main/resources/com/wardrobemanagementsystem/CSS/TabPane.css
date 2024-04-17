@@ -1,0 +1,150 @@
+.tab-pane .tab:selected .focus-indicator {
+    -fx-border-color: transparent; /* Set border color to transparent */
+}
+
+#tabPane {
+    -fx-tab-min-width: 150px;
+    -fx-tab-min-height: 50px;
+    -fx-focus-traversable: false;
+    -fx-font-size: 15;
+    -fx-font-family: "Tw Cen MT";
+}
+
+#tabPane .tab-header-area {
+    -fx-padding: 10px; /* Adjust the padding as needed */
+}
+
+#tabPane .tab {
+    -fx-padding: 0 0.550em; /* Add padding to the left and right sides of each tab */
+    -fx-background-color: transparent; /* Make the background of the tab label transparent */
+}
+
+#tabPane .tab-header-area .headers-region {
+    -fx-background-color: #31363F; /* Make the background of the headers region transparent */
+    -fx-border-color: #31363F; /* Set the border color of the headers region */
+    -fx-border-width: 1px; /* Set the border width */
+    -fx-border-radius: 5px; /* Set the border radius for rounded edges */
+    -fx-background-radius: 5px; /* Set the background radius to match rounded edges */
+}
+
+#tabPane .tab-pane .tab-header-area .headers-region .tab:selected .focus-indicator {
+    -fx-border-color: transparent; /* Set border color to transparent */
+}
+
+#tabPane .tab-header-background  {
+    -fx-background-color: #222831;
+}
+
+#tabPane .tab-label {
+    -fx-text-fill: #EEEEEE;
+    -fx-alignment: center; /* Align the text in the center of each tab */
+}
+
+#tabPane .tab:selected .tab-label {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #31363F;
+    -fx-border-color: #31363F;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 0 10px;
+}
+
+#clothingTypePane .tab-header-area,
+#accLocPane .tab-header-area {
+    -fx-padding: 0px 10px 10px 10px;
+}
+
+#clothingTypePane,
+#accLocPane {
+    -fx-tab-min-width: 130px;
+    -fx-tab-min-height: 30px;
+    -fx-focus-traversable: false;
+    -fx-font-size: 15;
+    -fx-font-family: "Tw Cen MT";
+}
+
+#clothingTypePane .tab-header-background,
+#accLocPane .tab-header-background {
+    -fx-background-color: #222831;
+}
+
+#clothingTypePane .tab-label,
+#accLocPane .tab-label {
+    -fx-text-fill: #EEEEEE;
+    -fx-alignment: center; /* Align the text in the center of each tab */
+}
+
+#clothingTypePane .tab-header-area .headers-region,
+#accLocPane .tab-header-area .headers-region {
+    -fx-background-color: #76ABAE; /* Make the background of the headers region transparent */
+    -fx-border-color: #76ABAE; /* Set the border color of the headers region */
+    -fx-border-width: 1px; /* Set the border width */
+    -fx-border-radius: 5px; /* Set the border radius for rounded edges */
+    -fx-background-radius: 5px; /* Set the background radius to match rounded edges */
+}
+
+#clothingTypePane .tab:selected .tab-label,
+#accLocPane .tab:selected .tab-label {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #76ABAE;
+    -fx-border-color: #76ABAE;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 0 10px;
+}
+
+.button {
+    -fx-background-color: #76ABAE;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+#paneInfo {
+    -fx-background-color: #B3C8CF;
+}
+
+#lblInfo {
+    -fx-text-fill: #EEEEEE;
+    -fx-font-family: "Tw Cen MT";
+    -fx-font-size: 40px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #222831;
+    -fx-padding: 0 5px;
+    -fx-alignment: center;
+}
+
+#btnAdd {
+    -fx-background-color: #A1C398;
+    -fx-text-fill: #EEEEEE;
+}
+
+#btnRemove {
+    -fx-background-color: #FA7070;
+    -fx-text-fill: #EEEEEE;
+}
+
+#paneShirt {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #EEEEEE;
+}
+
+#btnInfoClose {
+    -fx-background-color: #31363F;
+    -fx-text-fill: #EEEEEE;
+}
+
+#paneItem {
+    -fx-background-color: #EEEEEE;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.combo-box {
+    -fx-background-color: #31363F;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+
