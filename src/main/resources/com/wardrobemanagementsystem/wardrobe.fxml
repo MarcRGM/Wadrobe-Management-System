@@ -28,14 +28,7 @@
               <tabs>
                 <Tab id="allTab" text="ALL">
                      <content>
-                        <Pane id="allTabPane" prefHeight="523.0" prefWidth="815.0" stylesheets="@CSS/TabPane.css">
-                           <children>
-                              <Label layoutX="166.0" layoutY="187.0" text="ALL ITEMS HERE" textFill="#31363f">
-                                 <font>
-                                    <Font size="72.0" />
-                                 </font>
-                              </Label>
-                           </children></Pane>
+                        <Pane id="allTabPane" prefHeight="523.0" prefWidth="815.0" stylesheets="@CSS/TabPane.css" />
                      </content>
                   </Tab>
                 <Tab id="clothTab" text="👕   CLOTHING">
@@ -166,6 +159,24 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
+                                                <Button id="btnHeels" layoutX="157.0" layoutY="247.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="165.0" stylesheets="@CSS/TabPane.css">
+                                                   <graphic>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../heel.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                                <Button id="btnSneakers" layoutX="498.0" layoutY="167.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="165.0" stylesheets="@CSS/TabPane.css">
+                                                   <graphic>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../sneaker.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
                                              </children>
                                           </Pane>
                                        </content>
@@ -231,24 +242,8 @@
                      <content>
                         <Pane id="footPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@CSS/TabPane.css">
                            <children>
-                              <Button id="btnSneakers" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="165.0" stylesheets="@CSS/TabPane.css">
-                                 <graphic>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../sneaker.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
-                              <Button id="btnHeels" layoutX="205.0" layoutY="14.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="165.0" stylesheets="@CSS/TabPane.css">
-                                 <graphic>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../heel.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Button>
+                              <Button layoutX="116.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnAddImage" text="Add Item" />
+                              <ImageView fx:id="imageChange" fitHeight="150.0" fitWidth="200.0" layoutX="53.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
                            </children></Pane>
                      </content>
                   </Tab>
