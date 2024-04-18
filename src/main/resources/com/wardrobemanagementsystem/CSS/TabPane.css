@@ -20,7 +20,7 @@
 }
 
 #tabPane .tab-header-area .headers-region {
-    -fx-background-color: #31363F; /* Make the background of the headers region transparent */
+    -fx-background-color: #31363F; /* set the background color of the headers region */
     -fx-border-color: #31363F; /* Set the border color of the headers region */
     -fx-border-width: 1px; /* Set the border width */
     -fx-border-radius: 5px; /* Set the border radius for rounded edges */
@@ -38,6 +38,15 @@
 #tabPane .tab-label {
     -fx-text-fill: #EEEEEE;
     -fx-alignment: center; /* Align the text in the center of each tab */
+}
+
+#tabPane .tab:hover .tab-label {
+    -fx-background-color: #3f434b;
+    -fx-text-fill: #7c818a;
+    -fx-border-color: #3f434b;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 0 10px;
 }
 
 #tabPane .tab:selected .tab-label {
@@ -88,6 +97,16 @@
     -fx-background-color: #EEEEEE;
     -fx-text-fill: #76ABAE;
     -fx-border-color: #76ABAE;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 0 10px;
+}
+
+#clothingTypePane .tab:hover .tab-label,
+#accLocPane .tab:hover .tab-label {
+    -fx-background-color: #c8dbdc;
+    -fx-text-fill: #97c2c4;
+    -fx-border-color: #97c2c4;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-padding: 0 10px;

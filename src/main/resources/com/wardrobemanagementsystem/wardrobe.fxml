@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -67,7 +66,7 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
-                                                <Pane id="paneInfo" fx:id="paneShirtInfo" layoutX="596.0" prefHeight="437.0" prefWidth="256.0" stylesheets="@CSS/TabPane.css">
+                                                <Pane id="paneInfo" fx:id="paneShirtInfo" layoutX="596.0" prefHeight="437.0" prefWidth="256.0" stylesheets="@CSS/TabPane.css" visible="false">
                                                    <children>
                                                       <Button id="btnInfoClose" layoutX="14.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnCloseInfo" stylesheets="@CSS/TabPane.css" text="CLOSE" />
                                                       <Button id="btnAdd" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" stylesheets="@CSS/TabPane.css" text="ADD" />
@@ -81,7 +80,6 @@
                                                             </ImageView>
                                                          </children>
                                                       </Pane>
-                                                      <ComboBox layoutX="54.0" layoutY="192.0" prefWidth="150.0" stylesheets="@CSS/TabPane.css" />
                                                    </children></Pane>
                                                 <Pane id="paneInfo" fx:id="paneDressInfo" layoutX="596.0" prefHeight="437.0" prefWidth="256.0" stylesheets="@CSS/TabPane.css" visible="false">
                                                    <children>
