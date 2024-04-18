@@ -15,7 +15,6 @@ public class WardrobeController {
     private Pane paneShirtInfo, paneDressInfo;
 
 
-
     // Experiment
     @FXML
     private ImageView imageChange;
@@ -50,10 +49,10 @@ public class WardrobeController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Image File");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
         );
 
-        File selectedFile = fileChooser.showOpenDialog(btnImage.getScene().getWindow());
+        File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
             Image image = new Image(selectedFile.toURI().toString());
