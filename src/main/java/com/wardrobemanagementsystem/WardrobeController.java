@@ -1,24 +1,60 @@
 package com.wardrobemanagementsystem;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class WardrobeController {
+public class WardrobeController implements Initializable {
 
     @FXML
     private Pane paneShirtInfo, paneDressInfo;
 
+    @FXML
+    private GridPane itemGrid;
 
     // Used for adding image
     @FXML
     private ImageView imageChange;
 
+
+    int maxCol = 4;
+    int maxRow = 4;
+
+    int currentCol = 0;
+    int currentRow = 0;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadItemBox();
+    }
+
+    private void loadItemBox() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("Add.fxml"));
+
+        VBox itemBox;
+        try {
+            itemBox = fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        itemGrid.add(itemBox, currentCol, currentRow);
+        GridPane.setMargin(itemBox, new Insets(10, 10, 10, 10));
+    }
 
     @FXML
     protected void btnShirt() {
