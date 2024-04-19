@@ -2,14 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="552.0" prefWidth="849.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wardrobemanagementsystem.WardrobeController">
     <padding>
@@ -26,11 +27,6 @@
          <children>
             <TabPane id="tabPane" prefHeight="552.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab id="allTab" text="ALL">
-                     <content>
-                        <Pane id="allTabPane" prefHeight="523.0" prefWidth="815.0" stylesheets="@CSS/TabPane.css" />
-                     </content>
-                  </Tab>
                 <Tab id="clothTab" text="👕   CLOTHING">
                      <content>
                         <Pane id="clothPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@CSS/TabPane.css">
@@ -62,8 +58,6 @@
                                                 <Pane id="paneInfo" fx:id="paneShirtInfo" layoutX="596.0" prefHeight="437.0" prefWidth="256.0" stylesheets="@CSS/TabPane.css" visible="false">
                                                    <children>
                                                       <Button id="btnInfoClose" layoutX="14.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnCloseInfo" stylesheets="@CSS/TabPane.css" text="CLOSE" />
-                                                      <Button id="btnAdd" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" stylesheets="@CSS/TabPane.css" text="ADD" />
-                                                      <Button id="btnRemove" layoutX="169.0" layoutY="351.0" mnemonicParsing="false" text="REMOVE" />
                                                       <Pane id="paneItem" layoutX="53.0" layoutY="14.0" stylesheets="@CSS/TabPane.css">
                                                          <children>
                                                             <ImageView id="imageInfo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -77,8 +71,6 @@
                                                 <Pane id="paneInfo" fx:id="paneDressInfo" layoutX="596.0" prefHeight="437.0" prefWidth="256.0" stylesheets="@CSS/TabPane.css" visible="false">
                                                    <children>
                                                       <Button id="btnInfoClose" layoutX="14.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnCloseInfo" stylesheets="@CSS/TabPane.css" text="CLOSE" />
-                                                      <Button id="btnAdd" layoutX="14.0" layoutY="351.0" mnemonicParsing="false" stylesheets="@CSS/TabPane.css" text="ADD" />
-                                                      <Button id="btnRemove" layoutX="169.0" layoutY="351.0" mnemonicParsing="false" text="REMOVE" />
                                                       <Pane id="paneItem" layoutX="53.0" layoutY="14.0" stylesheets="@CSS/TabPane.css">
                                                          <children>
                                                             <ImageView id="imageInfo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -88,11 +80,6 @@
                                                             </ImageView>
                                                          </children>
                                                       </Pane>
-                                                      <Label layoutX="47.0" layoutY="206.0" prefHeight="105.0" prefWidth="163.0" text="INFO" textFill="#30353d">
-                                                         <font>
-                                                            <Font size="72.0" />
-                                                         </font>
-                                                      </Label>
                                                    </children>
                                                 </Pane>
                                              </children>
@@ -240,11 +227,15 @@
                   </Tab>
                   <Tab id="footTab" text="👣  FOOTWEAR">
                      <content>
-                        <Pane id="footPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@CSS/TabPane.css">
-                           <children>
-                              <Button layoutX="116.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnAddImage" text="Add Item" />
-                              <ImageView fx:id="imageChange" fitHeight="150.0" fitWidth="200.0" layoutX="53.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
-                           </children></Pane>
+                        <ScrollPane prefHeight="624.0" prefWidth="849.0">
+                           <content>
+                              <GridPane prefHeight="200.0" prefWidth="200.0">
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
                      </content>
                   </Tab>
               </tabs>

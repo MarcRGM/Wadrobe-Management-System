@@ -15,13 +15,9 @@ public class WardrobeController {
     private Pane paneShirtInfo, paneDressInfo;
 
 
-    // Experiment
+    // Used for adding image
     @FXML
     private ImageView imageChange;
-
-    @FXML
-    private Button btnImage;
-
 
 
     @FXML
@@ -43,7 +39,7 @@ public class WardrobeController {
     }
 
 
-    // Experiment
+    // Function for adding image
     @FXML
     protected void btnAddImage() {
         FileChooser fileChooser = new FileChooser();
@@ -59,5 +55,8 @@ public class WardrobeController {
             imageChange.setImage(image);
         }
     }
+
+    // for grid pane
+    // max colum is 4, so if row == 3, move to the next column
 
 }

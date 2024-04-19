@@ -92,21 +92,21 @@
     -fx-background-radius: 5px; /* Set the background radius to match rounded edges */
 }
 
-#clothingTypePane .tab:selected .tab-label,
-#accLocPane .tab:selected .tab-label {
-    -fx-background-color: #EEEEEE;
-    -fx-text-fill: #76ABAE;
-    -fx-border-color: #76ABAE;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-padding: 0 10px;
-}
-
 #clothingTypePane .tab:hover .tab-label,
 #accLocPane .tab:hover .tab-label {
     -fx-background-color: #c8dbdc;
     -fx-text-fill: #97c2c4;
     -fx-border-color: #97c2c4;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 0 10px;
+}
+
+#clothingTypePane .tab:selected .tab-label,
+#accLocPane .tab:selected .tab-label {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #76ABAE;
+    -fx-border-color: #76ABAE;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-padding: 0 10px;
@@ -131,16 +131,6 @@
     -fx-background-color: #222831;
     -fx-padding: 0 5px;
     -fx-alignment: center;
-}
-
-#btnAdd {
-    -fx-background-color: #A1C398;
-    -fx-text-fill: #EEEEEE;
-}
-
-#btnRemove {
-    -fx-background-color: #FA7070;
-    -fx-text-fill: #EEEEEE;
 }
 
 #paneShirt {
