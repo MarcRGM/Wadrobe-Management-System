@@ -6,9 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -39,6 +37,16 @@ public class WardrobeController {
     private Pane paneShirtInfo, paneDressInfo, footInfoPane, footGetInfoPane;
 
     @FXML
+    private Label footNumLabel, topNumLabel, bottomNumLabel;
+
+    @FXML
+    private TabPane mainTabPane, clothCategoryTab, accCategoryTab;
+
+    @FXML
+    private Tab clothTab, clothTopTab, clothBottomTab,
+            accTab, footTab, headTab, neckTab, handTab;
+
+    @FXML
     private GridPane itemGrid;
 
     @FXML
@@ -58,7 +66,16 @@ public class WardrobeController {
     int currentCol = 0;
     int currentRow = 0;
 
+
+    // MAX STORAGE
+    // CLOTHING: TOP = 8, BOTTOM = 8
+    // ACCESSORIES: HEAD = 4, NECK = 10, HAND = 8
+    // FOOTWEAR: 6
+
+
+
     private void loadItemBox() {
+        /*
         FXMLLoader fxmlAdd = new FXMLLoader();
         fxmlAdd.setLocation(getClass().getResource("items.fxml"));
 
@@ -78,13 +95,56 @@ public class WardrobeController {
         GridPane.setHalignment(addBox, HPos.CENTER);
         GridPane.setValignment(addBox, VPos.CENTER);
 
-        itemGrid.add(btnAddFoot, currentCol, currentRow);
+         */
 
+
+
+
+        itemGrid.add(btnAddFoot, currentCol, currentRow);
+        GridPane.setMargin(btnAddFoot, new Insets(20, 20, 20, 20));
+        GridPane.setHalignment(btnAddFoot, HPos.CENTER);
+        GridPane.setValignment(btnAddFoot, VPos.CENTER);
     }
 
     @FXML
     protected void btnAddFoot() {
 
+    }
+
+    @FXML
+    protected void clothingTopClicked() {
+        mainTabPane.getSelectionModel().select(clothTab);
+        clothCategoryTab.getSelectionModel().select(clothTopTab);
+    }
+
+    @FXML
+    protected void clothingBottomClicked() {
+        mainTabPane.getSelectionModel().select(clothTab);
+        clothCategoryTab.getSelectionModel().select(clothBottomTab);
+    }
+
+    @FXML
+    protected void headClicked() {
+        mainTabPane.getSelectionModel().select(accTab);
+        accCategoryTab.getSelectionModel().select(headTab);
+    }
+
+    @FXML
+    protected void neckClicked() {
+        mainTabPane.getSelectionModel().select(accTab);
+        accCategoryTab.getSelectionModel().select(neckTab);
+    }
+
+    @FXML
+    protected void handClicked() {
+        mainTabPane.getSelectionModel().select(accTab);
+        accCategoryTab.getSelectionModel().select(handTab);
+    }
+
+
+    @FXML
+    protected void footClicked() {
+        mainTabPane.getSelectionModel().select(footTab);
     }
 
     @FXML
