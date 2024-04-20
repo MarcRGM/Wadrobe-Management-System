@@ -3,7 +3,9 @@ package com.wardrobemanagementsystem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,9 +32,6 @@ public class WardrobeController implements Initializable {
     private ImageView imageChange;
 
 
-    int maxCol = 4;
-    int maxRow = 4;
-
     int currentCol = 0;
     int currentRow = 0;
 
@@ -42,19 +41,23 @@ public class WardrobeController implements Initializable {
     }
 
     private void loadItemBox() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("Add.fxml"));
+        FXMLLoader fxmlAdd = new FXMLLoader();
+        fxmlAdd.setLocation(getClass().getResource("Add.fxml"));
 
-        VBox itemBox;
+        VBox addBox;
         try {
-            itemBox = fxmlLoader.load();
+            addBox = fxmlAdd.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        itemGrid.add(itemBox, currentCol, currentRow);
-        GridPane.setMargin(itemBox, new Insets(10, 10, 10, 10));
+        itemGrid.add(addBox, currentCol, currentRow);
+        GridPane.setMargin(addBox, new Insets(20, 20, 20, 20));
+        GridPane.setHalignment(addBox, HPos.CENTER);
+        GridPane.setValignment(addBox, VPos.CENTER);
+
     }
+
 
     @FXML
     protected void btnShirt() {
@@ -77,22 +80,9 @@ public class WardrobeController implements Initializable {
 
     // Function for adding image
     @FXML
-    protected void btnAddImage() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose Image File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
-        );
+    protected void addImage() {
 
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        if (selectedFile != null) {
-            Image image = new Image(selectedFile.toURI().toString());
-            imageChange.setImage(image);
-        }
     }
 
-    // for grid pane
-    // max colum is 4, so if row == 3, move to the next column
 
 }

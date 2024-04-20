@@ -21,7 +21,6 @@ public class WardrobeGUI extends Application {
     private HashMap<String, Accessories> accessors = new HashMap<>();
     private HashMap<String, Footwear> footwears = new HashMap<>();
 
-
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(WardrobeGUI.class.getResource("wardrobe.fxml"));
@@ -31,22 +30,5 @@ public class WardrobeGUI extends Application {
         stage.setResizable(false);
         stage.show();
     }
-
-    // Create Outfits
-
-    // Add items
-
-    // Remove items
-
-    // Search items
-
-    // Select an event for an item
-
-    // Show ALL tab
-
-    // Show Clothing tab
-
-    // Show Footwear Tab
-
 
 }

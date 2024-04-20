@@ -6,9 +6,9 @@
 
 <VBox stylesheets="@CSS/Add.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wardrobemanagementsystem.AddController">
    <children>
-      <Button fx:id="btnAdd" maxHeight="220.0" maxWidth="210.0" minHeight="220.0" minWidth="210.0" mnemonicParsing="false" onAction="#btnAddClicked" prefHeight="220.0" prefWidth="210.0" text="➕" textFill="#222831">
+      <Button fx:id="btnAdd" maxHeight="220.0" maxWidth="210.0" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#btnAddClicked" prefHeight="100.0" prefWidth="100.0" text="➕" textFill="#76abae">
          <font>
-            <Font size="90.0" />
+            <Font size="40.0" />
          </font></Button>
    </children>
 </VBox>

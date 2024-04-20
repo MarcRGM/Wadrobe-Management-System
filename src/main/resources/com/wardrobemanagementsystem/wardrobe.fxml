@@ -126,7 +126,7 @@
                                  <tabs>
                                     <Tab text="HEAD">
                                        <content>
-                                          <Pane id="allTabPane" prefHeight="371.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css">
+                                          <Pane id="allTabPane" prefHeight="625.0" prefWidth="850.0" stylesheets="@CSS/TabPane.css">
                                              <children>
                                                 <Button id="btnCap" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="165.0" stylesheets="@CSS/TabPane.css">
                                                    <graphic>
@@ -196,7 +196,7 @@
                                     </Tab>
                                     <Tab text="HAND">
                                        <content>
-                                          <Pane prefHeight="200.0" prefWidth="200.0">
+                                          <Pane prefHeight="625.0" prefWidth="850.0">
                                              <children>
                                                 <Button id="btnWatch" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="165.0" stylesheets="@CSS/TabPane.css">
                                                    <graphic>
@@ -227,9 +227,9 @@
                   </Tab>
                   <Tab id="footTab" text="👣  FOOTWEAR">
                      <content>
-                        <ScrollPane prefHeight="624.0" prefWidth="849.0">
+                        <ScrollPane prefHeight="625.0" prefWidth="850.0">
                            <content>
-                              <GridPane prefHeight="200.0" prefWidth="200.0">
+                              <GridPane fx:id="itemGrid" prefHeight="220.0" prefWidth="210.0">
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
