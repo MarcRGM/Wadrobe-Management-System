@@ -92,6 +92,32 @@
     -fx-background-radius: 5px; /* Set the background radius to match rounded edges */
 }
 
+#footwearTab .tab-header-area .headers-region {
+    -fx-background-color: #222831; /* Make the background of the headers region transparent */
+    -fx-border-color: #222831; /* Set the border color of the headers region */
+    -fx-border-width: 0px; /* Set the border width */
+    -fx-border-radius: 0px; /* Set the border radius for rounded edges */
+    -fx-background-radius: 0px; /* Set the background radius to match rounded edges */
+}
+
+#footwearTab .tab:selected .tab-label {
+    -fx-background-color: #222831;
+    -fx-border-color: #222831;
+    -fx-text-fill: #EEEEEE;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 0 10px;
+}
+
+#footwearTab .tab-label {
+    -fx-text-fill: #EEEEEE;
+}
+
+#footwearTab .tab-header-area {
+    -fx-padding: 0px 10px 0.96em 10px;
+}
+
+
 #clothingTypePane .tab:hover .tab-label,
 #accLocPane .tab:hover .tab-label {
     -fx-background-color: #c8dbdc;

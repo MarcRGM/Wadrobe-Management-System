@@ -8,10 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="552.0" prefWidth="849.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wardrobemanagementsystem.WardrobeController">
     <padding>
@@ -38,88 +40,26 @@
                                        <content>
                                           <Pane prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <Pane id="footStartPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
+                                                <Pane id="footStartPane" layoutX="576.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="93.0" layoutX="11.0" layoutY="253.0" onMouseClicked="#headClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="71.0" layoutX="10.0" layoutY="354.0" onMouseClicked="#footClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="252.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" onMouseClicked="#headClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" onMouseClicked="#footClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="10.0" layoutY="9.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="139.0" layoutY="9.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
-                                                      <Pane id="footInfoPane" fx:id="footInfoPane11" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                            <Label fx:id="lblFootName11" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button id="btnClose" fx:id="btnCloseInfo11" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane id="footGetInfoPane" fx:id="footGetInfoPane13" layoutX="-1.0" layoutY="-1.0" prefHeight="481.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <Pane id="footInfoPane" fx:id="footInfoPane113" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                               <children>
-                                                                  <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                                  <Label fx:id="lblFootName113" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Button id="btnCloseInfo" fx:id="btnCloseInfo113" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                               </children>
-                                                            </Pane>
-                                                            <Button id="btnConfirm" fx:id="btnFootInfoConfirm13" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" wrapText="true" />
-                                                            <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                            <Button id="btnSetImage" fx:id="btnFootSetImage13" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
-                                                            <TextField fx:id="txtFieldFootName13" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="20.0" layoutY="167.0" text="Name:" textFill="#eeeeee" />
-                                                            <Label layoutX="18.0" layoutY="215.0" prefHeight="18.0" prefWidth="44.0" text="Brand:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootBrand13" layoutX="87.0" layoutY="210.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootColor13" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootCategory13" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <ImageView id="footImage" fx:id="tempImageItem13" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../whitespace.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                      <Label layoutX="54.0" layoutY="23.0" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
-                                                      <Label layoutX="169.0" layoutY="23.0" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
-                                                      <Label layoutX="95.0" layoutY="390.0" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="31.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Label layoutX="54.0" layoutY="23.0" onMouseClicked="#clothingTopClicked" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
+                                                      <Label layoutX="169.0" layoutY="23.0" onMouseClicked="#clothingBottomClicked" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
+                                                      <Label layoutX="95.0" layoutY="390.0" onMouseClicked="#footClicked" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="31.0" layoutY="272.0" onMouseClicked="#headClicked" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="253.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="303.0" onMouseClicked="#handClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Label layoutX="160.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="159.0" layoutY="325.0" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Label layoutX="160.0" layoutY="272.0" onMouseClicked="#neckClicked" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
                                                    </children>
                                                 </Pane>
                                              </children>
@@ -129,88 +69,26 @@
                                        <content>
                                           <Pane id="allTabPane" prefHeight="437.0" prefWidth="857.0" stylesheets="@CSS/TabPane.css">
                                              <children>
-                                                <Pane id="footStartPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
+                                                <Pane id="footStartPane" layoutX="576.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="93.0" layoutX="11.0" layoutY="253.0" onMouseClicked="#headClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="71.0" layoutX="10.0" layoutY="354.0" onMouseClicked="#footClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="252.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" onMouseClicked="#headClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" onMouseClicked="#footClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="10.0" layoutY="9.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="139.0" layoutY="9.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
-                                                      <Pane id="footInfoPane" fx:id="footInfoPane11" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                            <Label fx:id="lblFootName11" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button id="btnClose" fx:id="btnCloseInfo11" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane id="footGetInfoPane" fx:id="footGetInfoPane14" layoutX="-1.0" layoutY="-1.0" prefHeight="481.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <Pane id="footInfoPane" fx:id="footInfoPane114" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                               <children>
-                                                                  <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                                  <Label fx:id="lblFootName114" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Button id="btnCloseInfo" fx:id="btnCloseInfo114" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                               </children>
-                                                            </Pane>
-                                                            <Button id="btnConfirm" fx:id="btnFootInfoConfirm14" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" wrapText="true" />
-                                                            <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                            <Button id="btnSetImage" fx:id="btnFootSetImage14" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
-                                                            <TextField fx:id="txtFieldFootName14" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="20.0" layoutY="167.0" text="Name:" textFill="#eeeeee" />
-                                                            <Label layoutX="18.0" layoutY="215.0" prefHeight="18.0" prefWidth="44.0" text="Brand:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootBrand14" layoutX="87.0" layoutY="210.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootColor14" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootCategory14" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <ImageView id="footImage" fx:id="tempImageItem14" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../whitespace.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                      <Label layoutX="54.0" layoutY="23.0" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
-                                                      <Label layoutX="169.0" layoutY="23.0" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
-                                                      <Label layoutX="95.0" layoutY="390.0" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="31.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Label layoutX="54.0" layoutY="23.0" onMouseClicked="#clothingTopClicked" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
+                                                      <Label layoutX="169.0" layoutY="23.0" onMouseClicked="#clothingBottomClicked" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
+                                                      <Label layoutX="95.0" layoutY="390.0" onMouseClicked="#footClicked" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="31.0" layoutY="272.0" onMouseClicked="#headClicked" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="253.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="303.0" onMouseClicked="#handClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Label layoutX="160.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="159.0" layoutY="325.0" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Label layoutX="160.0" layoutY="272.0" onMouseClicked="#neckClicked" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
                                                    </children>
                                                 </Pane>
                                              </children></Pane>
@@ -232,88 +110,26 @@
                                        <content>
                                           <Pane id="allTabPane" prefHeight="625.0" prefWidth="850.0" stylesheets="@CSS/TabPane.css">
                                              <children>
-                                                <Pane id="footStartPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
+                                                <Pane id="footStartPane" layoutX="576.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="93.0" layoutX="11.0" layoutY="253.0" onMouseClicked="#headClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="71.0" layoutX="10.0" layoutY="354.0" onMouseClicked="#footClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="252.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" onMouseClicked="#headClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" onMouseClicked="#footClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="10.0" layoutY="9.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="139.0" layoutY="9.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
-                                                      <Pane id="footInfoPane" fx:id="footInfoPane1" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                            <Label fx:id="lblFootName1" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button id="btnClose" fx:id="btnCloseInfo1" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane id="footGetInfoPane" fx:id="footGetInfoPane1" layoutX="-1.0" layoutY="-1.0" prefHeight="481.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <Pane id="footInfoPane" fx:id="footInfoPane11" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                               <children>
-                                                                  <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                                  <Label fx:id="lblFootName11" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Button id="btnCloseInfo" fx:id="btnCloseInfo11" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                               </children>
-                                                            </Pane>
-                                                            <Button id="btnConfirm" fx:id="btnFootInfoConfirm1" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" wrapText="true" />
-                                                            <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                            <Button id="btnSetImage" fx:id="btnFootSetImage1" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
-                                                            <TextField fx:id="txtFieldFootName1" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="20.0" layoutY="167.0" text="Name:" textFill="#eeeeee" />
-                                                            <Label layoutX="18.0" layoutY="215.0" prefHeight="18.0" prefWidth="44.0" text="Brand:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootBrand1" layoutX="87.0" layoutY="210.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootColor1" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootCategory1" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <ImageView id="footImage" fx:id="tempImageItem1" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../whitespace.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                      <Label layoutX="54.0" layoutY="23.0" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
-                                                      <Label layoutX="169.0" layoutY="23.0" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
-                                                      <Label layoutX="95.0" layoutY="390.0" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="31.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Label layoutX="54.0" layoutY="23.0" onMouseClicked="#clothingTopClicked" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
+                                                      <Label layoutX="169.0" layoutY="23.0" onMouseClicked="#clothingBottomClicked" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
+                                                      <Label layoutX="95.0" layoutY="390.0" onMouseClicked="#footClicked" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="31.0" layoutY="272.0" onMouseClicked="#headClicked" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="253.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="303.0" onMouseClicked="#handClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Label layoutX="160.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="159.0" layoutY="325.0" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Label layoutX="160.0" layoutY="272.0" onMouseClicked="#neckClicked" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
                                                    </children>
                                                 </Pane>
                                              </children>
@@ -324,88 +140,26 @@
                                       <content>
                                           <Pane>
                                              <children>
-                                                <Pane id="footStartPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
+                                                <Pane id="footStartPane" layoutX="576.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="93.0" layoutX="11.0" layoutY="253.0" onMouseClicked="#headClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="71.0" layoutX="10.0" layoutY="354.0" onMouseClicked="#footClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="252.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" onMouseClicked="#headClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" onMouseClicked="#footClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="10.0" layoutY="9.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="139.0" layoutY="9.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
-                                                      <Pane id="footInfoPane" fx:id="footInfoPane11" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                            <Label fx:id="lblFootName11" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button id="btnClose" fx:id="btnCloseInfo11" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane id="footGetInfoPane" fx:id="footGetInfoPane11" layoutX="-1.0" layoutY="-1.0" prefHeight="481.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <Pane id="footInfoPane" fx:id="footInfoPane111" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                               <children>
-                                                                  <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                                  <Label fx:id="lblFootName111" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Button id="btnCloseInfo" fx:id="btnCloseInfo111" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                               </children>
-                                                            </Pane>
-                                                            <Button id="btnConfirm" fx:id="btnFootInfoConfirm11" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" wrapText="true" />
-                                                            <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                            <Button id="btnSetImage" fx:id="btnFootSetImage11" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
-                                                            <TextField fx:id="txtFieldFootName11" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="20.0" layoutY="167.0" text="Name:" textFill="#eeeeee" />
-                                                            <Label layoutX="18.0" layoutY="215.0" prefHeight="18.0" prefWidth="44.0" text="Brand:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootBrand11" layoutX="87.0" layoutY="210.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootColor11" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootCategory11" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <ImageView id="footImage" fx:id="tempImageItem11" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../whitespace.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                      <Label layoutX="54.0" layoutY="23.0" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
-                                                      <Label layoutX="169.0" layoutY="23.0" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
-                                                      <Label layoutX="95.0" layoutY="390.0" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="31.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Label layoutX="54.0" layoutY="23.0" onMouseClicked="#clothingTopClicked" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
+                                                      <Label layoutX="169.0" layoutY="23.0" onMouseClicked="#clothingBottomClicked" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
+                                                      <Label layoutX="95.0" layoutY="390.0" onMouseClicked="#footClicked" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="31.0" layoutY="272.0" onMouseClicked="#headClicked" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="253.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="303.0" onMouseClicked="#handClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Label layoutX="160.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="159.0" layoutY="325.0" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Label layoutX="160.0" layoutY="272.0" onMouseClicked="#neckClicked" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
                                                    </children>
                                                 </Pane>
                                              </children>
@@ -416,88 +170,26 @@
                                        <content>
                                           <Pane prefHeight="625.0" prefWidth="850.0">
                                              <children>
-                                                <Pane id="footStartPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
+                                                <Pane id="footStartPane" layoutX="576.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="93.0" layoutX="11.0" layoutY="253.0" onMouseClicked="#headClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="71.0" layoutX="10.0" layoutY="354.0" onMouseClicked="#footClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="252.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" onMouseClicked="#headClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" onMouseClicked="#footClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="10.0" layoutY="9.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="139.0" layoutY="9.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
-                                                      <Pane id="footInfoPane" fx:id="footInfoPane11" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                            <Label fx:id="lblFootName11" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                               <font>
-                                                                  <Font name="Tw Cen MT" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button id="btnClose" fx:id="btnCloseInfo11" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane id="footGetInfoPane" fx:id="footGetInfoPane12" layoutX="-1.0" layoutY="-1.0" prefHeight="481.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                         <children>
-                                                            <Pane id="footInfoPane" fx:id="footInfoPane112" prefHeight="479.0" prefWidth="269.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                                               <children>
-                                                                  <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                                                  <Label fx:id="lblFootName112" layoutX="106.0" layoutY="204.0" stylesheets="@CSS/TabPane.css" text="Name">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="240.0" stylesheets="@CSS/TabPane.css" text="Brand:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label layoutX="14.0" layoutY="267.0" stylesheets="@CSS/TabPane.css" text="Color:">
-                                                                     <font>
-                                                                        <Font name="Tw Cen MT" size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Button id="btnCloseInfo" fx:id="btnCloseInfo112" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                               </children>
-                                                            </Pane>
-                                                            <Button id="btnConfirm" fx:id="btnFootInfoConfirm12" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" wrapText="true" />
-                                                            <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
-                                                            <Button id="btnSetImage" fx:id="btnFootSetImage12" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
-                                                            <TextField fx:id="txtFieldFootName12" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="20.0" layoutY="167.0" text="Name:" textFill="#eeeeee" />
-                                                            <Label layoutX="18.0" layoutY="215.0" prefHeight="18.0" prefWidth="44.0" text="Brand:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootBrand12" layoutX="87.0" layoutY="210.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootColor12" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
-                                                            <TextField fx:id="txtFieldFootCategory12" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
-                                                            <ImageView id="footImage" fx:id="tempImageItem12" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../whitespace.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                      <Label layoutX="54.0" layoutY="23.0" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
-                                                      <Label layoutX="169.0" layoutY="23.0" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
-                                                      <Label layoutX="95.0" layoutY="390.0" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="31.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Label layoutX="54.0" layoutY="23.0" onMouseClicked="#clothingTopClicked" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
+                                                      <Label layoutX="169.0" layoutY="23.0" onMouseClicked="#clothingBottomClicked" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
+                                                      <Label layoutX="95.0" layoutY="390.0" onMouseClicked="#footClicked" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="31.0" layoutY="272.0" onMouseClicked="#headClicked" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="253.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="303.0" onMouseClicked="#handClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
-                                                      <Label layoutX="160.0" layoutY="272.0" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
-                                                      <Label layoutX="159.0" layoutY="325.0" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Label layoutX="160.0" layoutY="272.0" onMouseClicked="#neckClicked" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
                                                    </children>
                                                 </Pane>
                                              </children>
@@ -513,17 +205,78 @@
                      <content>
                         <Pane>
                            <children>
-                              <Pane />
+                              <TabPane id="footwearTab" fx:id="clothCategoryTab1" prefHeight="480.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="clothTopTab1">
+                                       <content>
+                                          <Pane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Pane id="footStartPane" layoutX="576.0" layoutY="-1.0" prefHeight="439.0" prefWidth="274.0" stylesheets="@CSS/TabPane.css">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="93.0" layoutX="11.0" layoutY="253.0" onMouseClicked="#headClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="71.0" layoutX="10.0" layoutY="354.0" onMouseClicked="#footClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="252.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="53.0" layoutY="262.0" onMouseClicked="#headClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="39.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="7.0" layoutX="115.0" layoutY="372.0" onMouseClicked="#footClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="42.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="10.0" layoutY="9.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="237.0" layoutX="139.0" layoutY="9.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="111.0" layoutY="105.0" onMouseClicked="#clothingTopClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                      <Label layoutX="54.0" layoutY="23.0" onMouseClicked="#clothingTopClicked" prefHeight="18.0" prefWidth="35.0" text="TOPS" textFill="#eeeeee" />
+                                                      <Label layoutX="169.0" layoutY="23.0" onMouseClicked="#clothingBottomClicked" prefHeight="18.0" prefWidth="64.0" text="BOTTOMS" textFill="#eeeeee" />
+                                                      <Label layoutX="95.0" layoutY="390.0" onMouseClicked="#footClicked" prefHeight="18.0" prefWidth="82.0" text="FOOTWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="31.0" layoutY="272.0" onMouseClicked="#headClicked" prefHeight="18.0" prefWidth="82.0" text="HEADWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="253.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#222831" height="44.0" layoutX="139.0" layoutY="303.0" onMouseClicked="#handClicked" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="123.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="262.0" onMouseClicked="#neckClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+                                                      <Label layoutX="160.0" layoutY="272.0" onMouseClicked="#neckClicked" prefHeight="18.0" prefWidth="82.0" text="NECKWEARS" textFill="#eeeeee" />
+                                                      <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#eeeeee" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeeeee" height="67.0" layoutX="149.0" layoutY="105.0" onMouseClicked="#clothingBottomClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="7.0" />
+                                                   </children>
+                                                </Pane>
+                                                <Pane id="footGetInfoPane" fx:id="footGetInfoPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
+                                                   <children>
+                                                      <Button id="btnConfirm" fx:id="btnFootInfoConfirm" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" />
+                                                      <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
+                                                      <Button id="btnSetImage" fx:id="btnFootSetImage" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
+                                                      <TextField fx:id="txtFieldFootName" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
+                                                      <Label layoutX="20.0" layoutY="167.0" text="Name:" textFill="#eeeeee" />
+                                                      <Label layoutX="18.0" layoutY="215.0" prefHeight="18.0" prefWidth="44.0" text="Brand:" textFill="#eeeeee" />
+                                                      <TextField fx:id="txtFieldFootBrand" layoutX="87.0" layoutY="210.0" prefHeight="18.0" prefWidth="171.0" />
+                                                      <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
+                                                      <TextField fx:id="txtFieldFootColor" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
+                                                      <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
+                                                      <TextField fx:id="txtFieldFootCategory" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
+                                                      <ImageView id="footImage" fx:id="tempImageItem" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../whitespace.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </Pane>
+                                                <GridPane layoutX="7.0" layoutY="-1.0" maxHeight="376.0" maxWidth="576.0" minHeight="180.0" minWidth="0.0" prefHeight="376.0" prefWidth="570.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="190.0" prefWidth="190.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="190.0" prefWidth="190.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="190.0" prefWidth="190.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints maxHeight="190.0" minHeight="190.0" prefHeight="190.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="6.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="190.0" minHeight="180.0" prefHeight="190.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Button fx:id="btnAddFoot" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAddFootClicked" stylesheets="@CSS/TabPane.css" text="Button" />
+                                                   </children>
+                                                </GridPane>
+                                                <Label layoutX="211.0" layoutY="395.0" text="Add hover and selected design on wardrobe" />
+                                             </children>
+                                          </Pane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
                            </children>
                         </Pane>
-                     </content>
-                     <content>
-                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab text="Untitled Tab 1" />
-                            <Tab text="Untitled Tab 2" />
-                          </tabs>
-                        </TabPane>
                      </content>
                   </Tab>
               </tabs>

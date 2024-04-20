@@ -34,7 +34,7 @@ public class WardrobeController {
     private HashMap<String, Footwear> footwears = new HashMap<>();
 
     @FXML
-    private Pane paneShirtInfo, paneDressInfo, footInfoPane, footGetInfoPane;
+    private Pane footGetInfoPane;
 
     @FXML
     private Label footNumLabel, topNumLabel, bottomNumLabel;
@@ -107,8 +107,8 @@ public class WardrobeController {
     }
 
     @FXML
-    protected void btnAddFoot() {
-
+    protected void btnAddFootClicked() {
+        footGetInfoPane.setVisible(true);
     }
 
     @FXML
@@ -174,28 +174,9 @@ public class WardrobeController {
         loadItemBox();
     }
 
-
-    @FXML
-    protected void btnShirt() {
-        paneShirtInfo.setVisible(true);
-        paneDressInfo.setVisible(false);
-    }
-
-    @FXML
-    protected void btnDress() {
-        paneDressInfo.setVisible(true);
-        paneShirtInfo.setVisible(false);
-    }
-
     @FXML
     protected void btnCloseInfoClicked() {
-        footInfoPane.setVisible(false);
         footGetInfoPane.setVisible(false);
-    }
-
-    @FXML
-    protected void btnAddFootClicked() {
-        footGetInfoPane.setVisible(true);
     }
 
 
