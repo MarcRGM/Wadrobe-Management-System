@@ -6,9 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 
 public class WardrobeGUI extends Application {
 
@@ -21,5 +18,6 @@ public class WardrobeGUI extends Application {
         stage.setResizable(false);
         stage.show();
     }
+
 
 }

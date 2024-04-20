@@ -21,9 +21,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class WardrobeController implements Initializable {
+public class WardrobeController {
 
     // HashMap is an unordered collection that stores elements in key-value pairs <Key, Value>,
     // allowing us to access them using a key.
@@ -49,22 +50,17 @@ public class WardrobeController implements Initializable {
     @FXML
     private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor, txtFieldFootCategory;
 
-
     Image tempImage;
+
+    @FXML
+    ImageView tempImageItem;
 
     int currentCol = 0;
     int currentRow = 0;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadItemBox();
-    }
-
     private void loadItemBox() {
-
-        /*
         FXMLLoader fxmlAdd = new FXMLLoader();
-        fxmlAdd.setLocation(getClass().getResource(""));
+        fxmlAdd.setLocation(getClass().getResource("items.fxml"));
 
         VBox addBox;
         try {
@@ -73,11 +69,16 @@ public class WardrobeController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        itemGrid.add(addBox, currentCol, currentRow);
+        // Clear existing children from the GridPane
+        itemGrid.getChildren().clear();
+
+
+        itemGrid.add(addBox, currentCol++, currentRow++);
         GridPane.setMargin(addBox, new Insets(20, 20, 20, 20));
         GridPane.setHalignment(addBox, HPos.CENTER);
         GridPane.setValignment(addBox, VPos.CENTER);
-         */
+
+        itemGrid.add(btnAddFoot, currentCol, currentRow);
 
     }
 
@@ -98,7 +99,7 @@ public class WardrobeController implements Initializable {
 
         if (selectedFile != null) {
             tempImage = new Image(selectedFile.toURI().toString());
-            // imageChange.setImage(image);
+            tempImageItem.setImage(tempImage);
         }
     }
 
@@ -109,6 +110,8 @@ public class WardrobeController implements Initializable {
         footwears.get(txtFieldFootName.getText()).setColor(txtFieldFootColor.getText());
         footwears.get(txtFieldFootName.getText()).setCategory(txtFieldFootCategory.getText());
         footwears.get(txtFieldFootName.getText()).setImage(tempImage);
+
+        loadItemBox();
     }
 
 
@@ -127,8 +130,13 @@ public class WardrobeController implements Initializable {
     @FXML
     protected void btnCloseInfoClicked() {
         footInfoPane.setVisible(false);
+        footGetInfoPane.setVisible(false);
     }
 
+    @FXML
+    protected void btnAddFootClicked() {
+        footGetInfoPane.setVisible(true);
+    }
 
 
 

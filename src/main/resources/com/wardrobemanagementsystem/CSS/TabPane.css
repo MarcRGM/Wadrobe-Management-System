@@ -179,8 +179,13 @@
     -fx-text-fill: #31363F;
 }
 
-#footGetInfoPane {
+#footImage {
+    -fx-background-color: #EEEEEE;
+}
 
+
+#footGetInfoPane {
+    -fx-background-color: #3E3E3E;
 }
 
 
