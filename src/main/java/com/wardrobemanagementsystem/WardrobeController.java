@@ -7,30 +7,50 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class WardrobeController implements Initializable {
 
+    // HashMap is an unordered collection that stores elements in key-value pairs <Key, Value>,
+    // allowing us to access them using a key.
+    // The keys in a HashMap must be unique, while values can be duplicated.
+    // HashMap is useful when we need to store a collection of objects that can be accessed efficiently using a key,
+    // instead of an index.
+    private HashMap<String, Clothing> clothes = new HashMap<>();
+    private HashMap<String, Accessories> accessors = new HashMap<>();
+    private HashMap<String, Footwear> footwears = new HashMap<>();
+
     @FXML
-    private Pane paneShirtInfo, paneDressInfo;
+    private Pane paneShirtInfo, paneDressInfo, footInfoPane, footGetInfoPane;
 
     @FXML
     private GridPane itemGrid;
 
-    // Used for adding image
     @FXML
-    private ImageView imageChange;
+    private Button btnAddFoot, btnCloseInfo, btnFootInfoConfirm, btnFootSetImage;
 
+    @FXML
+    private Label lblFootName;
+
+    @FXML
+    private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor, txtFieldFootCategory;
+
+
+    Image tempImage;
 
     int currentCol = 0;
     int currentRow = 0;
@@ -41,8 +61,10 @@ public class WardrobeController implements Initializable {
     }
 
     private void loadItemBox() {
+
+        /*
         FXMLLoader fxmlAdd = new FXMLLoader();
-        fxmlAdd.setLocation(getClass().getResource("Add.fxml"));
+        fxmlAdd.setLocation(getClass().getResource(""));
 
         VBox addBox;
         try {
@@ -55,7 +77,38 @@ public class WardrobeController implements Initializable {
         GridPane.setMargin(addBox, new Insets(20, 20, 20, 20));
         GridPane.setHalignment(addBox, HPos.CENTER);
         GridPane.setValignment(addBox, VPos.CENTER);
+         */
 
+    }
+
+    @FXML
+    protected void btnAddFoot() {
+
+    }
+
+    @FXML
+    protected void btnFootSetImageClicked() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Image File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            tempImage = new Image(selectedFile.toURI().toString());
+            // imageChange.setImage(image);
+        }
+    }
+
+    @FXML
+    protected void btnFootInfoConfirmClicked () {
+        footwears.put(txtFieldFootName.getText(), new Footwear());
+        footwears.get(txtFieldFootName.getText()).setBrand(txtFieldFootBrand.getText());
+        footwears.get(txtFieldFootName.getText()).setColor(txtFieldFootColor.getText());
+        footwears.get(txtFieldFootName.getText()).setCategory(txtFieldFootCategory.getText());
+        footwears.get(txtFieldFootName.getText()).setImage(tempImage);
     }
 
 
@@ -72,17 +125,11 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnCloseInfo() {
-        paneShirtInfo.setVisible(false);
-        paneDressInfo.setVisible(false);
+    protected void btnCloseInfoClicked() {
+        footInfoPane.setVisible(false);
     }
 
 
-    // Function for adding image
-    @FXML
-    protected void addImage() {
-
-    }
 
 
 }

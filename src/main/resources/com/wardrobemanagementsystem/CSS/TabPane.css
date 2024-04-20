@@ -156,4 +156,33 @@
     -fx-background-radius: 5px;
 }
 
+#footStartPane {
+    -fx-background-color: #31363F;
+}
+
+#footInfoPane {
+    -fx-background-color: #B3C8CF;
+}
+
+#btnClose {
+    -fx-background-color: #FA7070;
+    -fx-text-fill: #EEEEEE;
+}
+
+#btnConfirm {
+    -fx-background-color: #A1C398;
+    -fx-text-fill: #EEEEEE;
+}
+
+#btnSetImage {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #31363F;
+}
+
+#footGetInfoPane {
+
+}
+
+
+
 

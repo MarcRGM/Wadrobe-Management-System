@@ -7,10 +7,12 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="552.0" prefWidth="849.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wardrobemanagementsystem.WardrobeController">
     <padding>
@@ -229,10 +231,20 @@
                      <content>
                         <ScrollPane prefHeight="625.0" prefWidth="850.0">
                            <content>
-                              <GridPane fx:id="itemGrid" prefHeight="220.0" prefWidth="210.0">
+                              <GridPane fx:id="itemGrid" alignment="CENTER" maxHeight="220.0" maxWidth="210.0" minHeight="220.0" minWidth="210.0" prefHeight="220.0" prefWidth="210.0">
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
+                                 <columnConstraints>
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <children>
+                                    <Button fx:id="btnAddFoot" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAddFootClicked" prefHeight="100.0" prefWidth="100.0" text="➕" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
                               </GridPane>
                            </content>
                         </ScrollPane>

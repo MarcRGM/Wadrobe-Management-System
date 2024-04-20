@@ -7,7 +7,7 @@ import java.io.File;
 
 public class Item {
 
-    private String name, brand, color, situation, gender;
+    private String name, brand, color;
     Image image;
 
     public enum genders { // Who can use the item
@@ -18,21 +18,8 @@ public class Item {
         CASUAL, FORMAL, SPORTS, PARTY
     }
 
-    Image setImage() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose Image File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
-        );
-
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        if (selectedFile != null) {
-            image = new Image(selectedFile.toURI().toString());
-            // imageChange.setImage(image);
-        }
-
-        return image;
+    void setImage(Image image) {
+        this.image = image;
     }
 
 
@@ -48,9 +35,6 @@ public class Item {
         this.color = color;
     }
 
-    void setSituation(String situation) {
-        this.situation = situation;
-    }
 
     public String getName() {
         return name;
@@ -62,10 +46,6 @@ public class Item {
 
     public String getColor() {
         return color;
-    }
-
-    public String getSituation() {
-        return situation;
     }
 
 
