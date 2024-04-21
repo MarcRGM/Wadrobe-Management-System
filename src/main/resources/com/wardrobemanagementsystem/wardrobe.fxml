@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="552.0" prefWidth="849.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wardrobemanagementsystem.WardrobeController">
     <padding>
@@ -265,10 +266,12 @@
                                                       <RowConstraints maxHeight="190.0" minHeight="180.0" prefHeight="190.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
                                                    <children>
-                                                      <Button fx:id="btnAddFoot" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAddFootClicked" stylesheets="@CSS/TabPane.css" text="Button" />
+                                                      <Button id="btnAddFoot" fx:id="btnAddFoot" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAddFootClicked" prefHeight="67.0" prefWidth="67.0" stylesheets="@CSS/TabPane.css" text="➕" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font></Button>
                                                    </children>
                                                 </GridPane>
-                                                <Label layoutX="211.0" layoutY="395.0" text="Add hover and selected design on wardrobe" />
                                              </children>
                                           </Pane>
                                        </content>

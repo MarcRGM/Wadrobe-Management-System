@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
@@ -18,11 +19,12 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class WardrobeController {
+public class WardrobeController implements Initializable {
 
     // HashMap is an unordered collection that stores elements in key-value pairs <Key, Value>,
     // allowing us to access them using a key.
@@ -47,6 +49,9 @@ public class WardrobeController {
             accTab, footTab, headTab, neckTab, handTab;
 
     @FXML
+    private ComboBox<String> footCategory;
+
+    @FXML
     private GridPane itemGrid;
 
     @FXML
@@ -63,8 +68,8 @@ public class WardrobeController {
     @FXML
     ImageView tempImageItem;
 
-    int currentCol = 0;
-    int currentRow = 0;
+    private int currentCol = 0;
+    private int currentRow = 0;
 
 
     // MAX STORAGE
@@ -72,38 +77,28 @@ public class WardrobeController {
     // ACCESSORIES: HEAD = 4, NECK = 10, HAND = 8
     // FOOTWEAR: 6
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadItemBox();
 
+    }
 
     private void loadItemBox() {
-        /*
-        FXMLLoader fxmlAdd = new FXMLLoader();
-        fxmlAdd.setLocation(getClass().getResource("items.fxml"));
+        setBtnAddFoot(currentCol, currentRow);
+        setCategories();
+        
 
-        VBox addBox;
-        try {
-            addBox = fxmlAdd.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    }
 
-        // Clear existing children from the GridPane
-        itemGrid.getChildren().clear();
-
-
-        itemGrid.add(addBox, currentCol++, currentRow++);
-        GridPane.setMargin(addBox, new Insets(20, 20, 20, 20));
-        GridPane.setHalignment(addBox, HPos.CENTER);
-        GridPane.setValignment(addBox, VPos.CENTER);
-
-         */
-
-
-
-
+    private void setBtnAddFoot(int col, int row) {
         itemGrid.add(btnAddFoot, currentCol, currentRow);
-        GridPane.setMargin(btnAddFoot, new Insets(20, 20, 20, 20));
+        GridPane.setMargin(btnAddFoot, new Insets(Region.USE_COMPUTED_SIZE));
         GridPane.setHalignment(btnAddFoot, HPos.CENTER);
         GridPane.setValignment(btnAddFoot, VPos.CENTER);
+    }
+
+    private void setCategories() {
+        footCategory.getItems().setAll(Arrays.toString(Footwear.Categories.values()));
     }
 
     @FXML

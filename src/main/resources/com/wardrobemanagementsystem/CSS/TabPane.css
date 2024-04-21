@@ -176,12 +176,6 @@
     -fx-background-radius: 5px;
 }
 
-.combo-box {
-    -fx-background-color: #31363F;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-}
-
 #footStartPane {
     -fx-background-color: #31363F;
 }
@@ -209,10 +203,19 @@
     -fx-background-color: #EEEEEE;
 }
 
-
 #footGetInfoPane {
     -fx-background-color: #3E3E3E;
 }
+
+#btnAddFoot {
+    -fx-background-color: #222831;
+    -fx-text-fill: #EEEEEE;
+}
+
+#btnAddFoot:hover {
+    -fx-background-color: #31363F;
+}
+
 
 
 

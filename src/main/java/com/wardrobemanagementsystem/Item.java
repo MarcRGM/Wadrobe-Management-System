@@ -10,14 +10,6 @@ public class Item {
     private String name, brand, color;
     Image image;
 
-    public enum genders { // Who can use the item
-        MALE, FEMALE, UNISEX
-    }
-
-    public enum situations {
-        CASUAL, FORMAL, SPORTS, PARTY
-    }
-
     void setImage(Image image) {
         this.image = image;
     }

@@ -4,9 +4,25 @@ public class Footwear extends Item{
     private String category; // Rubber shoes, heels, etc..
     private int inchSize;
 
-    public enum categories {
-        SNEAKERS, BOOTS, SANDALS, HEELS, SLIPPERS, SOCKS
+    public enum Categories {
+        SNEAKERS("Sneakers"),
+        BOOTS("Boots"),
+        SANDALS("Sandals"),
+        HEELS("Heels"),
+        SLIPPERS("Slippers");
+
+        private final String displayName;
+
+        Categories(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+
     }
+
 
     void setCategory(String category) {
         this.category = category;
