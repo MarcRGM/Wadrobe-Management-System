@@ -2,11 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -206,7 +206,7 @@
                      <content>
                         <Pane>
                            <children>
-                              <TabPane id="footwearTab" fx:id="clothCategoryTab1" prefHeight="480.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE">
+                              <TabPane id="footwearTab" prefHeight="480.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE">
                                  <tabs>
                                     <Tab fx:id="clothTopTab1">
                                        <content>
@@ -236,7 +236,7 @@
                                                 </Pane>
                                                 <Pane id="footGetInfoPane" fx:id="footGetInfoPane" layoutX="577.0" layoutY="-1.0" prefHeight="439.0" prefWidth="273.0" stylesheets="@CSS/TabPane.css" visible="false">
                                                    <children>
-                                                      <Button id="btnConfirm" fx:id="btnFootInfoConfirm" layoutX="146.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" />
+                                                      <Button id="btnConfirm" fx:id="btnFootInfoConfirm" layoutX="146.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnFootInfoConfirmClicked" stylesheets="@CSS/TabPane.css" text="Confirm" />
                                                       <Button id="btnClose" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCloseInfoClicked" stylesheets="@CSS/TabPane.css" text="✖" />
                                                       <Button id="btnSetImage" fx:id="btnFootSetImage" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#btnFootSetImageClicked" stylesheets="@CSS/TabPane.css" text="Set Image" />
                                                       <TextField fx:id="txtFieldFootName" layoutX="87.0" layoutY="162.0" prefHeight="18.0" prefWidth="171.0" />
@@ -246,15 +246,11 @@
                                                       <Label layoutX="19.0" layoutY="262.0" prefHeight="18.0" prefWidth="44.0" text="Color:" textFill="#eeeeee" />
                                                       <TextField fx:id="txtFieldFootColor" layoutX="87.0" layoutY="257.0" prefHeight="18.0" prefWidth="171.0" />
                                                       <Label layoutX="18.0" layoutY="310.0" prefHeight="18.0" prefWidth="63.0" text="Category:" textFill="#eeeeee" />
-                                                      <TextField fx:id="txtFieldFootCategory" layoutX="87.0" layoutY="305.0" prefHeight="18.0" prefWidth="171.0" />
-                                                      <ImageView id="footImage" fx:id="tempImageItem" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../whitespace.png" />
-                                                         </image>
-                                                      </ImageView>
+                                                      <ImageView id="footImage" fx:id="tempImageItem" fitHeight="135.0" fitWidth="135.0" layoutX="112.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <ComboBox fx:id="footCategory" layoutX="87.0" layoutY="304.0" prefHeight="18.0" prefWidth="171.0" />
                                                    </children>
                                                 </Pane>
-                                                <GridPane layoutX="7.0" layoutY="-1.0" maxHeight="376.0" maxWidth="576.0" minHeight="180.0" minWidth="0.0" prefHeight="376.0" prefWidth="570.0">
+                                                <GridPane fx:id="footGrid" layoutX="6.0" maxHeight="380.0" maxWidth="570.0" minHeight="380.0" minWidth="570.0" prefHeight="380.0" prefWidth="570.0">
                                                   <columnConstraints>
                                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="190.0" prefWidth="190.0" />
                                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="190.0" prefWidth="190.0" />
@@ -262,16 +258,14 @@
                                                   </columnConstraints>
                                                   <rowConstraints>
                                                     <RowConstraints maxHeight="190.0" minHeight="190.0" prefHeight="190.0" vgrow="SOMETIMES" />
-                                                    <RowConstraints maxHeight="6.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                                                      <RowConstraints maxHeight="190.0" minHeight="180.0" prefHeight="190.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="190.0" minHeight="190.0" prefHeight="190.0" vgrow="SOMETIMES" />
                                                   </rowConstraints>
-                                                   <children>
-                                                      <Button id="btnAddFoot" fx:id="btnAddFoot" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAddFootClicked" prefHeight="67.0" prefWidth="67.0" stylesheets="@CSS/TabPane.css" text="➕" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                                         <font>
-                                                            <Font size="24.0" />
-                                                         </font></Button>
-                                                   </children>
                                                 </GridPane>
+                                                <Button id="btnAddFoot" fx:id="btnAddFoot" alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnAddFootClicked" stylesheets="@CSS/TabPane.css" text="➕" visible="false">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Button>
                                              </children>
                                           </Pane>
                                        </content>

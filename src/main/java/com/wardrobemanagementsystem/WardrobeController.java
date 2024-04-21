@@ -52,7 +52,7 @@ public class WardrobeController implements Initializable {
     private ComboBox<String> footCategory;
 
     @FXML
-    private GridPane itemGrid;
+    private GridPane footGrid;
 
     @FXML
     private Button btnAddFoot, btnCloseInfo, btnFootInfoConfirm, btnFootSetImage;
@@ -61,16 +61,20 @@ public class WardrobeController implements Initializable {
     private Label lblFootName;
 
     @FXML
-    private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor, txtFieldFootCategory;
+    private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor;
 
     Image tempImage;
 
     @FXML
     ImageView tempImageItem;
 
-    private int currentCol = 0;
-    private int currentRow = 0;
+    Image blankImage = new Image("C:/Users/marcr/Desktop/WardrobeManagementSystem/src/main/resources/com/whitespace.png");
 
+    // Footwear Columns and Row
+    private int footMaxCOl = 3;
+    private int footMaxROw = 2;
+    private int footCurrentCol = 0;
+    private int footCurrentRow = 0;
 
     // MAX STORAGE
     // CLOTHING: TOP = 8, BOTTOM = 8
@@ -84,26 +88,37 @@ public class WardrobeController implements Initializable {
     }
 
     private void loadItemBox() {
-        setBtnAddFoot(currentCol, currentRow);
+        setBtnAddFoot(footCurrentCol, footCurrentRow);
         setCategories();
-        
-
+        tempImageItem.setImage(blankImage);
     }
 
     private void setBtnAddFoot(int col, int row) {
-        itemGrid.add(btnAddFoot, currentCol, currentRow);
-        GridPane.setMargin(btnAddFoot, new Insets(Region.USE_COMPUTED_SIZE));
+        btnAddFoot.setVisible(true);
+
+        btnAddFoot.setMinWidth(Region.USE_COMPUTED_SIZE);
+        btnAddFoot.setMinHeight(Region.USE_COMPUTED_SIZE);
+        btnAddFoot.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        btnAddFoot.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        btnAddFoot.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        btnAddFoot.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+        footGrid.add(btnAddFoot, col, row);
+        GridPane.setMargin(btnAddFoot, new Insets(10));
         GridPane.setHalignment(btnAddFoot, HPos.CENTER);
         GridPane.setValignment(btnAddFoot, VPos.CENTER);
     }
 
     private void setCategories() {
-        footCategory.getItems().setAll(Arrays.toString(Footwear.Categories.values()));
+        footCategory.getItems().setAll(Arrays.stream(Footwear.Categories.values())
+                                          .map(Footwear.Categories::getDisplayName)
+                                          .toArray(String[]::new));
     }
 
     @FXML
     protected void btnAddFootClicked() {
         footGetInfoPane.setVisible(true);
+        tempImageItem.setImage(blankImage);
     }
 
     @FXML
@@ -163,14 +178,37 @@ public class WardrobeController implements Initializable {
         footwears.put(txtFieldFootName.getText(), new Footwear());
         footwears.get(txtFieldFootName.getText()).setBrand(txtFieldFootBrand.getText());
         footwears.get(txtFieldFootName.getText()).setColor(txtFieldFootColor.getText());
-        footwears.get(txtFieldFootName.getText()).setCategory(txtFieldFootCategory.getText());
+        footwears.get(txtFieldFootName.getText()).setCategory(footCategory.getValue());
         footwears.get(txtFieldFootName.getText()).setImage(tempImage);
 
-        loadItemBox();
+        clearGridPaneCell(footGrid, footCurrentRow, footCurrentCol);
+
+        footGrid.add(new ItemButton(new ImageView(tempImage)).getButton(), footCurrentCol++, footCurrentRow);
+
+        if (footCurrentCol == 3 & footCurrentRow == 0) {
+            footCurrentRow++;
+            footCurrentCol = 0;
+        }
+
+        if (!(footCurrentCol == 3 & footCurrentRow == 1)) {
+            setBtnAddFoot(footCurrentCol, footCurrentRow);
+        }
+
+
+        footGetInfoPane.setVisible(false);
+        tempImage = blankImage;
     }
+
+    private void clearGridPaneCell(GridPane gridPane, int row, int col) {
+    gridPane.getChildren().removeIf(node ->
+        GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col
+    );
+}
+
 
     @FXML
     protected void btnCloseInfoClicked() {
+        tempImageItem.setImage(blankImage);
         footGetInfoPane.setVisible(false);
     }
 

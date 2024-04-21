@@ -216,7 +216,9 @@
     -fx-background-color: #31363F;
 }
 
-
+#footWearTab .button {
+    -fx-background-color: #8d8d8d;
+}
 
 
 

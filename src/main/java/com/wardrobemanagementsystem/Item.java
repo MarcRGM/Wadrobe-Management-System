@@ -1,9 +1,7 @@
 package com.wardrobemanagementsystem;
 
 import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
 
-import java.io.File;
 
 public class Item {
 
@@ -12,6 +10,10 @@ public class Item {
 
     void setImage(Image image) {
         this.image = image;
+    }
+
+    Image getImage() {
+        return image;
     }
 
 
