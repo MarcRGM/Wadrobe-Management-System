@@ -38,34 +38,11 @@ public class WardrobeController implements Initializable {
     private HashMap<String, Footwear> footwears = new HashMap<>();
 
     @FXML
-    private Pane footGetInfoPane, footShowInfoPane;
-
-    @FXML
-    private Label lblTop;
-
-    @FXML
     private TabPane mainTabPane, clothCategoryTab, accCategoryTab;
 
     @FXML
     private Tab clothTab, clothTopTab, clothBottomTab,
             accTab, footTab, headTab, neckTab, handTab;
-
-    @FXML
-    private ComboBox<String> footCategory;
-
-    @FXML
-    private GridPane footGrid;
-
-    @FXML
-    private Button btnAddFoot, btnCloseInfo, btnFootInfoConfirm, btnFootSetImage;
-
-    private String currFootItem;
-
-    @FXML
-    private Label lblFootName, lblFootBrand, lblFootCategory, lblFootColor;
-
-    @FXML
-    private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor;
 
     Image tempImage;
 
@@ -77,15 +54,52 @@ public class WardrobeController implements Initializable {
     // ACCESSORIES: HEAD = 4, NECK = 10, HAND = 8
     // FOOTWEAR: 6
 
-    // Footwear Columns and Row
+
+    // Footwear
     private final int footMaxCol = 3;
     private final int footMaxRow = 2;
     private int footCurrentCol = 0;
     private int footCurrentRow = 0;
-    private int footArrCount = 0;
     private String[] trackFootItemGrid = new String[footMaxCol * footMaxRow];
     private int trackFootItems = 0;
     private HashMap<String, Button> footItems = new HashMap<>();
+    @FXML
+    private GridPane footGrid;
+    @FXML
+    private Button btnAddFoot, btnFootInfoConfirm;
+    @FXML
+    private ComboBox<String> footCategory;
+    private String currFootItem;
+    @FXML
+    private Label lblFootName, lblFootBrand, lblFootCategory, lblFootColor;
+    @FXML
+    private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor;
+    @FXML
+    private Pane footGetInfoPane, footShowInfoPane;
+
+
+    // Top Clothing
+    private final int topMaxCol = 3;
+    private final int topMaxRow = 3;
+    private int topCurrentCol = 0;
+    private int topCurrentRow = 0;
+    private String[] trackTopItemGrid = new String[footMaxCol * footMaxRow];
+    private int trackTopItems = 0;
+    private HashMap<String, Button> topItems = new HashMap<>();
+    @FXML
+    private GridPane topGrid;
+    @FXML
+    private Button btnAddTop, btnTopInfoConfirm;
+    @FXML
+    private ComboBox<String> topCategory;
+    private String currTopItem;
+    @FXML
+    private Label lblTopName, lblTopBrand, lblTopCategory, lblTopColor;
+    @FXML
+    private TextField txtFieldTopName, txtFieldTopBrand, txtFieldTopColor;
+    @FXML
+    private Pane topGetInfoPane, topShowInfoPane;
+
 
 
 
@@ -96,6 +110,7 @@ public class WardrobeController implements Initializable {
 
     private void loadItemBox() {
         setBtnAddFoot(footCurrentCol, footCurrentRow);
+        setBtnAddTop(topCurrentCol, topCurrentRow);
         setCategories();
         tempImageItem.setImage(null);
     }
@@ -103,6 +118,9 @@ public class WardrobeController implements Initializable {
     private void setCategories() {
         footCategory.getItems().setAll(Arrays.stream(Footwear.Categories.values())
                                           .map(Footwear.Categories::getDisplayName)
+                                          .toArray(String[]::new));
+        topCategory.getItems().setAll(Arrays.stream(Clothing.TopCategories.values())
+                                          .map(Clothing.TopCategories::getDisplayName)
                                           .toArray(String[]::new));
     }
 
@@ -169,6 +187,158 @@ public class WardrobeController implements Initializable {
     // ---------- Wardrobe click ----------
 
 
+
+
+
+    // ---------- Top Tab Functions ----------
+
+    private void setBtnAddTop(int col, int row) {
+        btnAddTop.setVisible(true);
+
+        btnAddTop.setMinWidth(Region.USE_COMPUTED_SIZE);
+        btnAddTop.setMinHeight(Region.USE_COMPUTED_SIZE);
+        btnAddTop.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        btnAddTop.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        btnAddTop.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        btnAddTop.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+
+        topGrid.getChildren().remove(btnAddTop);
+        topGrid.add(btnAddTop, col, row);
+        GridPane.setMargin(btnAddTop, new Insets(10));
+        GridPane.setHalignment(btnAddTop, HPos.CENTER);
+        GridPane.setValignment(btnAddTop, VPos.CENTER);
+    }
+
+    @FXML
+    protected void btnAddTopClicked() {
+        clearControls();
+        topGetInfoPane.setVisible(true);
+        tempImageItem.setImage(null);
+    }
+
+    // ADD ITEMS ON FOOTWEAR GRID
+    @FXML
+    protected void btnTopInfoConfirmClicked () {
+        if (clothes.containsKey(txtFieldTopName.getText())) {
+            txtFieldTopName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
+            btnTopInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldTopName.clear();
+            btnTopInfoConfirm.disableProperty().setValue(false);
+        } else if (txtFieldTopName.getText().equals("")) {
+            txtFieldTopName.setText("NAME REQUIRED");                                  // NOT SHOWING
+            btnTopInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldTopName.clear();
+            btnTopInfoConfirm.disableProperty().setValue(false);
+        } else {
+            clothes.put(txtFieldTopName.getText(), new Clothing());
+
+            clothes.get(txtFieldTopName.getText()).setName(txtFieldTopName.getText());
+            clothes.get(txtFieldTopName.getText()).setBrand(txtFieldTopBrand.getText());
+            clothes.get(txtFieldTopName.getText()).setColor(txtFieldTopColor.getText());
+            clothes.get(txtFieldTopName.getText()).setCategory(topCategory.getValue());
+            clothes.get(txtFieldTopName.getText()).setImage(tempImage);
+
+            ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), txtFieldTopName.getText());
+            trackTopItemGrid[trackTopItems++] = tempItemButton.getName();
+
+            topItems.put(tempItemButton.getName(), tempItemButton.getButton());
+            topGrid.add(tempItemButton.getButton(), footCurrentCol, footCurrentRow);
+
+            topCurrentCol = trackTopItems % topMaxCol;
+            topCurrentRow = trackTopItems / topMaxCol;
+
+            tempItemButton.getButton().setOnAction(event -> {
+                topShowInfoPane.setVisible(true);
+                showItemImg.setImage(clothes.get(tempItemButton.getName()).getImage());
+                lblTopName.setText(clothes.get(tempItemButton.getName()).getName());
+                lblTopBrand.setText(clothes.get(tempItemButton.getName()).getBrand());
+                lblTopColor.setText(clothes.get(tempItemButton.getName()).getColor());
+                lblTopCategory.setText(clothes.get(tempItemButton.getName()).getCategoryName());
+                currTopItem = clothes.get(tempItemButton.getName()).getName();
+                topGetInfoPane.setVisible(false);
+            });
+
+            if (!(topCurrentRow == 3 && topCurrentCol == 0)) {
+                setBtnAddTop(topCurrentCol, topCurrentRow);
+            }
+
+            topGetInfoPane.setVisible(false);
+            tempImage = null;
+            clearControls();
+        }
+    }
+
+    @FXML
+    protected void removeTopItem() {
+        topShowInfoPane.setVisible(false);
+
+        int index = 0;
+
+        // Find the index of the current foot item
+        for (int i = 0; i < trackTopItems; i++) {
+            if (trackTopItemGrid[i].equals(currTopItem)) {
+                index = i;
+                break;
+            }
+        }
+
+        // Remove the button from the grid
+        topGrid.getChildren().remove(topItems.get(currTopItem));
+
+
+        // Remove the item from tracking arrays and hash map
+        trackTopItemGrid[index] = null;
+        topItems.remove(currTopItem);
+        clothes.remove(currTopItem);
+
+
+        // Update the grid layout
+        // Shift the remaining items in the tracking array
+        for (int i = index; i < trackTopItems - 1; i++) {
+            trackTopItemGrid[i] = trackTopItemGrid[i + 1];
+
+            topGrid.getChildren().remove(topItems.get(trackTopItemGrid[i+1]));
+
+            int newRow = i / topMaxCol;
+            int newCol = i % topMaxCol;
+
+            topGrid.add(topItems.get(trackTopItemGrid[i]), newCol, newRow);
+
+        }
+
+        // Update the number of tracked items
+        trackTopItems--;
+
+        topCurrentCol = trackTopItems % topMaxCol;
+        topCurrentRow = trackTopItems / topMaxCol;
+
+        // Reset the add button position
+        setBtnAddTop(topCurrentCol, topCurrentRow);
+
+        clearControls();
+    }
+
+    // ---------- Top Tab Functions END ----------
+
+
+
+
+
+
+
+
+
     // ---------- Footwear Tab Functions ----------
 
     private void setBtnAddFoot(int col, int row) {
@@ -181,6 +351,8 @@ public class WardrobeController implements Initializable {
         btnAddFoot.setMaxWidth(Region.USE_COMPUTED_SIZE);
         btnAddFoot.setMaxHeight(Region.USE_COMPUTED_SIZE);
 
+
+        footGrid.getChildren().remove(btnAddFoot);
         footGrid.add(btnAddFoot, col, row);
         GridPane.setMargin(btnAddFoot, new Insets(10));
         GridPane.setHalignment(btnAddFoot, HPos.CENTER);
@@ -194,68 +366,66 @@ public class WardrobeController implements Initializable {
         tempImageItem.setImage(null);
     }
 
-    @FXML
-    protected void btnFootSetImageClicked() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose Image File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
-        );
-
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        if (selectedFile != null) {
-            tempImage = new Image(selectedFile.toURI().toString());
-            tempImageItem.setImage(tempImage);
-        }
-    }
-
     // ADD ITEMS ON FOOTWEAR GRID
     @FXML
     protected void btnFootInfoConfirmClicked () {
-        String name;
-
-        if (txtFieldFootName.getText().equals("")) {
-            name = "null";
-            footwears.put(name, new Footwear());
+        if (footwears.containsKey(txtFieldFootName.getText())) {
+            txtFieldFootName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
+            btnFootInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldFootName.clear();
+            btnFootInfoConfirm.disableProperty().setValue(false);
+        } else if (txtFieldFootName.getText().equals("")) {
+            txtFieldFootName.setText("NAME REQUIRED");                                  // NOT SHOWING
+            btnFootInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldFootName.clear();
+            btnFootInfoConfirm.disableProperty().setValue(false);
         } else {
-            name = txtFieldFootName.getText();
-            footwears.put(name, new Footwear());
-        }
+            footwears.put(txtFieldFootName.getText(), new Footwear());
 
-        footwears.get(name).setName(name);
-        footwears.get(name).setBrand(txtFieldFootBrand.getText());
-        footwears.get(name).setColor(txtFieldFootColor.getText());
-        footwears.get(name).setCategory(footCategory.getValue());
-        footwears.get(name).setImage(tempImage);
+            footwears.get(txtFieldFootName.getText()).setName(txtFieldFootName.getText());
+            footwears.get(txtFieldFootName.getText()).setBrand(txtFieldFootBrand.getText());
+            footwears.get(txtFieldFootName.getText()).setColor(txtFieldFootColor.getText());
+            footwears.get(txtFieldFootName.getText()).setCategory(footCategory.getValue());
+            footwears.get(txtFieldFootName.getText()).setImage(tempImage);
 
-        ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), name);
-        trackFootItemGrid[trackFootItems++] = tempItemButton.getName();
+            ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), txtFieldFootName.getText());
+            trackFootItemGrid[trackFootItems++] = tempItemButton.getName();
 
-        footItems.put(tempItemButton.getName(), tempItemButton.getButton());
-        footGrid.add(tempItemButton.getButton(), footCurrentCol, footCurrentRow);
+            footItems.put(tempItemButton.getName(), tempItemButton.getButton());
+            footGrid.add(tempItemButton.getButton(), footCurrentCol, footCurrentRow);
 
-        footCurrentCol = trackFootItems % footMaxCol;
-        footCurrentRow = trackFootItems / footMaxCol;
+            footCurrentCol = trackFootItems % footMaxCol;
+            footCurrentRow = trackFootItems / footMaxCol;
 
-        tempItemButton.getButton().setOnAction(event -> {
-            footShowInfoPane.setVisible(true);
-            showItemImg.setImage(footwears.get(tempItemButton.getName()).getImage());
-            lblFootName.setText(footwears.get(tempItemButton.getName()).getName());
-            lblFootBrand.setText(footwears.get(tempItemButton.getName()).getBrand());
-            lblFootColor.setText(footwears.get(tempItemButton.getName()).getColor());
-            lblFootCategory.setText(footwears.get(tempItemButton.getName()).getCategoryName());
-            currFootItem = footwears.get(tempItemButton.getName()).getName();
+            tempItemButton.getButton().setOnAction(event -> {
+                footShowInfoPane.setVisible(true);
+                showItemImg.setImage(footwears.get(tempItemButton.getName()).getImage());
+                lblFootName.setText(footwears.get(tempItemButton.getName()).getName());
+                lblFootBrand.setText(footwears.get(tempItemButton.getName()).getBrand());
+                lblFootColor.setText(footwears.get(tempItemButton.getName()).getColor());
+                lblFootCategory.setText(footwears.get(tempItemButton.getName()).getCategoryName());
+                currFootItem = footwears.get(tempItemButton.getName()).getName();
+                footGetInfoPane.setVisible(false);
+            });
+
+            if (!(footCurrentRow == 2 && footCurrentCol == 0)) {
+                setBtnAddFoot(footCurrentCol, footCurrentRow);
+            }
+
             footGetInfoPane.setVisible(false);
-        });
-
-        if (!(footCurrentRow == 2 && footCurrentCol == 0)) {
-            setBtnAddFoot(footCurrentCol, footCurrentRow);
+            tempImage = null;
+            clearControls();
         }
-
-        footGetInfoPane.setVisible(false);
-        tempImage = null;
-        clearControls();
     }
 
     @FXML
@@ -279,16 +449,12 @@ public class WardrobeController implements Initializable {
         // Remove the item from tracking arrays and hash map
         trackFootItemGrid[index] = null;
         footItems.remove(currFootItem);
+        footwears.remove(currFootItem);
+
 
         // Update the grid layout
-        rearrangeFootItems(index);
-
-        clearControls();
-    }
-
-    private void rearrangeFootItems(int removedIndex) {
         // Shift the remaining items in the tracking array
-        for (int i = removedIndex; i < trackFootItems - 1; i++) {
+        for (int i = index; i < trackFootItems - 1; i++) {
             trackFootItemGrid[i] = trackFootItemGrid[i + 1];
 
             footGrid.getChildren().remove(footItems.get(trackFootItemGrid[i+1]));
@@ -297,7 +463,7 @@ public class WardrobeController implements Initializable {
             int newCol = i % footMaxCol;
 
             footGrid.add(footItems.get(trackFootItemGrid[i]), newCol, newRow);
-            
+
         }
 
         // Update the number of tracked items
@@ -306,14 +472,29 @@ public class WardrobeController implements Initializable {
         footCurrentCol = trackFootItems % footMaxCol;
         footCurrentRow = trackFootItems / footMaxCol;
 
-        lblTop.setText(footCurrentRow + " " + footCurrentCol);
-
         // Reset the add button position
         setBtnAddFoot(footCurrentCol, footCurrentRow);
+
+        clearControls();
     }
 
-
     // ---------- Footwear Tab Functions END ----------
+
+    @FXML
+    protected void btnSetImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Image File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            tempImage = new Image(selectedFile.toURI().toString());
+            tempImageItem.setImage(tempImage);
+        }
+    }
 
     @FXML
     protected void clearControls() {

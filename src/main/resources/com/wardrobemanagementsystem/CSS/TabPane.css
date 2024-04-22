@@ -203,8 +203,8 @@
     -fx-background-color: #EEEEEE;
 }
 
-#footGetInfoPane,
-#footShowInfoPane {
+#getInfoPane,
+#showInfoPane {
     -fx-background-color: #4F4A45;
 }
 

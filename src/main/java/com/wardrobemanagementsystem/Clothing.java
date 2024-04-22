@@ -11,9 +11,38 @@ public class Clothing extends Item {
         TOP, BOTTOM
     }
 
-    public enum category {
-        SHIRT, DRESS, PANTS, SKIRT, TANKTOP, LONGSLEEVE
+    public enum TopCategories {
+        SHIRT("Shirt"),
+        DRESS("Dress"),
+        TANKTOP("Tank Top"),
+        LONGSLEEVE("Long Sleeve");
+
+        private final String displayName;
+
+        TopCategories(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+
     }
+     public enum BottomCategories {
+        PANTS("Pants"),
+        SKIRT("Skirt"),
+        SHORTS("Shorts");
+
+        private final String displayName;
+
+        BottomCategories(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+     }
 
     void setType(String type) {
         this.type = type;
@@ -39,6 +68,8 @@ public class Clothing extends Item {
         return size;
     }
 
-
+    String getCategoryName() {
+        return category;
+    }
 }
 
