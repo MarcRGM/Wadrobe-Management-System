@@ -19,5 +19,4 @@ public class WardrobeGUI extends Application {
         stage.show();
     }
 
-
 }

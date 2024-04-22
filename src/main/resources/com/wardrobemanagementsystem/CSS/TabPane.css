@@ -176,8 +176,8 @@
     -fx-background-radius: 5px;
 }
 
-#footStartPane {
-    -fx-background-color: #31363F;
+#wardrobePane {
+    -fx-background-color: #4F4A45;
 }
 
 #footInfoPane {
@@ -185,7 +185,7 @@
 }
 
 #btnClose {
-    -fx-background-color: #4d535e;
+    -fx-background-color: #6c5f5b;
     -fx-text-fill: #EEEEEE;
 }
 
@@ -205,7 +205,7 @@
 
 #footGetInfoPane,
 #footShowInfoPane {
-    -fx-background-color: #31363F;
+    -fx-background-color: #4F4A45;
 }
 
 #btnAddFoot {
@@ -222,7 +222,7 @@
 }
 
 #imagePane {
-    -fx-background-color: #6b717c;
+    -fx-background-color: #6c5f5b;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
@@ -231,5 +231,4 @@
     -fx-background-color: #FA7070;
     -fx-text-fill: #EEEEEE;
 }
-
 
