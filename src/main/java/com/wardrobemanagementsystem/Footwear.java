@@ -40,6 +40,11 @@ public class Footwear extends Item{
         return inchSize;
     }
 
+    String getCategoryName() {
+        return category;
+    }
+
+
 }
 
 

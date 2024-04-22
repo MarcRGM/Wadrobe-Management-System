@@ -5,9 +5,11 @@ import javafx.scene.image.ImageView;
 
 public class ItemButton {
     private Button button;
+    private String name;
 
-    ItemButton(ImageView imageView) {
+    ItemButton(ImageView imageView, String name) {
         this.button = new Button();
+        this.name = name;
 
         button.setMinWidth(170);
         button.setMaxWidth(170);
@@ -25,6 +27,10 @@ public class ItemButton {
 
     public Button getButton() {
         return this.button;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
 }

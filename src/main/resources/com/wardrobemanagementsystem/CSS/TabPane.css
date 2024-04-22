@@ -185,7 +185,7 @@
 }
 
 #btnClose {
-    -fx-background-color: #FA7070;
+    -fx-background-color: #4d535e;
     -fx-text-fill: #EEEEEE;
 }
 
@@ -203,8 +203,9 @@
     -fx-background-color: #EEEEEE;
 }
 
-#footGetInfoPane {
-    -fx-background-color: #3E3E3E;
+#footGetInfoPane,
+#footShowInfoPane {
+    -fx-background-color: #31363F;
 }
 
 #btnAddFoot {
@@ -220,5 +221,15 @@
     -fx-background-color: #8d8d8d;
 }
 
+#imagePane {
+    -fx-background-color: #6b717c;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+#btnRemove {
+    -fx-background-color: #FA7070;
+    -fx-text-fill: #EEEEEE;
+}
 
 
