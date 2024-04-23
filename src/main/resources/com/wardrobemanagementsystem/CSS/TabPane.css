@@ -139,7 +139,7 @@
 }
 
 .button {
-    -fx-background-color: #76ABAE;
+    -fx-background-color: #B4B4B8;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
@@ -232,3 +232,47 @@
     -fx-text-fill: #EEEEEE;
 }
 
+#scrollPane .focus-indicator,
+#gridPane .focus-indicator {
+    -fx-border-color: transparent; /* Set border color to transparent */
+}
+
+/* ScrollBar Track */
+.scroll-bar > .track {
+    -fx-background-color: #B4B4B8; /* Track color */
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+}
+
+/* ScrollBar Thumb */
+.scroll-bar > .thumb {
+    -fx-background-color: #98989a; /* Thumb color */
+}
+
+/* ScrollBar Buttons */
+.scroll-bar > .increment-button,
+.scroll-bar > .decrement-button {
+    -fx-background-color: #B4B4B8; /* Button color */
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+}
+
+/* ScrollBar Mouse Hover */
+.scroll-bar > .thumb:hover {
+    -fx-background-color: #8d8d8f; /* Thumb color on hover */
+}
+
+/* ScrollBar Mouse Pressed */
+.scroll-bar > .thumb:pressed {
+    -fx-background-color: #818183; /* Thumb color when pressed */
+}
+
+#wardrobeCover {
+    -fx-background-color: #6c5f5b;
+    -fx-border-raidus: 5px;
+    -fx-background-radius: 5px;
+}
+
+#wardrobeCover:hover {
+    -fx-background-color: #645854;
+}

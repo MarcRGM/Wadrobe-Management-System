@@ -11,15 +11,15 @@ public class ItemButton {
         this.button = new Button();
         this.name = name;
 
-        button.setMinWidth(170);
-        button.setMaxWidth(170);
-        button.setPrefWidth(170);
-        button.setMinHeight(170);
-        button.setMaxHeight(170);
-        button.setPrefHeight(170);
+        button.setMinWidth(150);
+        button.setMaxWidth(150);
+        button.setPrefWidth(150);
+        button.setMinHeight(150);
+        button.setMaxHeight(150);
+        button.setPrefHeight(150);
 
-        imageView.setFitWidth(150);
-        imageView.setFitHeight(150);
+        imageView.setFitWidth(125);
+        imageView.setFitHeight(125);
 
         button.setGraphic(imageView);
 

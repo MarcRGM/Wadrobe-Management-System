@@ -46,9 +46,6 @@ public class WardrobeController implements Initializable {
 
     Image tempImage;
 
-    @FXML
-    ImageView tempImageItem, showItemImg;
-
     // MAX STORAGE
     // CLOTHING: TOP = 8, BOTTOM = 8
     // ACCESSORIES: HEAD = 4, NECK = 10, HAND = 8
@@ -76,30 +73,40 @@ public class WardrobeController implements Initializable {
     private TextField txtFieldFootName, txtFieldFootBrand, txtFieldFootColor;
     @FXML
     private Pane footGetInfoPane, footShowInfoPane;
+    @FXML
+    ImageView tempFootImage, showFootImg;
 
 
-    // Top Clothing
-    private final int topMaxCol = 3;
-    private final int topMaxRow = 3;
+    // clothing
+    private final int clothMaxCol = 3;
+    private final int clothMaxRow = 3;
     private int topCurrentCol = 0;
     private int topCurrentRow = 0;
-    private String[] trackTopItemGrid = new String[footMaxCol * footMaxRow];
+    private int botCurrentCol = 0;
+    private int botCurrentRow = 0;
+    private String[] trackTopItemGrid = new String[clothMaxCol * clothMaxRow];
+    private String[] trackBotItemGrid = new String[clothMaxCol * clothMaxRow];
     private int trackTopItems = 0;
+    private int trackBotItems = 0;
     private HashMap<String, Button> topItems = new HashMap<>();
+    private HashMap<String, Button> botItems = new HashMap<>();
     @FXML
-    private GridPane topGrid;
+    private GridPane topGrid, botGrid;
     @FXML
-    private Button btnAddTop, btnTopInfoConfirm;
+    private Button btnAddTop, btnTopInfoConfirm, btnAddBot, btnBotInfoConfirm;
     @FXML
-    private ComboBox<String> topCategory;
-    private String currTopItem;
+    private ComboBox<String> topCategory, botCategory;
+    private String currTopItem, currBotItem;
     @FXML
-    private Label lblTopName, lblTopBrand, lblTopCategory, lblTopColor;
+    private Label lblTopName, lblTopBrand, lblTopCategory, lblTopColor,
+    lblBotName, lblBotBrand, lblBotCategory, lblBotColor;
     @FXML
-    private TextField txtFieldTopName, txtFieldTopBrand, txtFieldTopColor;
+    private TextField txtFieldTopName, txtFieldTopBrand, txtFieldTopColor,
+    txtFieldBotName, txtFieldBotBrand, txtFieldBotColor;
     @FXML
-    private Pane topGetInfoPane, topShowInfoPane;
-
+    private Pane topGetInfoPane, topShowInfoPane, botGetInfoPane, botShowInfoPane;
+    @FXML
+    ImageView tempTopImage, showTopImg, tempBotImage, showBotImg;
 
 
 
@@ -111,8 +118,9 @@ public class WardrobeController implements Initializable {
     private void loadItemBox() {
         setBtnAddFoot(footCurrentCol, footCurrentRow);
         setBtnAddTop(topCurrentCol, topCurrentRow);
+        setBtnAddBot(botCurrentCol, botCurrentRow);
         setCategories();
-        tempImageItem.setImage(null);
+        clearControls();
     }
 
     private void setCategories() {
@@ -121,6 +129,9 @@ public class WardrobeController implements Initializable {
                                           .toArray(String[]::new));
         topCategory.getItems().setAll(Arrays.stream(Clothing.TopCategories.values())
                                           .map(Clothing.TopCategories::getDisplayName)
+                                          .toArray(String[]::new));
+        botCategory.getItems().setAll(Arrays.stream(Clothing.BottomCategories.values())
+                                          .map(Clothing.BottomCategories::getDisplayName)
                                           .toArray(String[]::new));
     }
 
@@ -184,6 +195,16 @@ public class WardrobeController implements Initializable {
         clearControls();
     }
 
+    @FXML
+    protected void topTabClicked() {
+        clearControls();
+    }
+
+    @FXML
+    protected void botTabClicked() {
+        clearControls();
+    }
+
     // ---------- Wardrobe click ----------
 
 
@@ -214,7 +235,7 @@ public class WardrobeController implements Initializable {
     protected void btnAddTopClicked() {
         clearControls();
         topGetInfoPane.setVisible(true);
-        tempImageItem.setImage(null);
+        tempTopImage.setImage(null);
     }
 
     // ADD ITEMS ON FOOTWEAR GRID
@@ -253,14 +274,17 @@ public class WardrobeController implements Initializable {
             trackTopItemGrid[trackTopItems++] = tempItemButton.getName();
 
             topItems.put(tempItemButton.getName(), tempItemButton.getButton());
-            topGrid.add(tempItemButton.getButton(), footCurrentCol, footCurrentRow);
+            topGrid.add(tempItemButton.getButton(), topCurrentCol, topCurrentRow);
+            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
+            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
+            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
 
-            topCurrentCol = trackTopItems % topMaxCol;
-            topCurrentRow = trackTopItems / topMaxCol;
+            topCurrentCol = trackTopItems % clothMaxCol;
+            topCurrentRow = trackTopItems / clothMaxCol;
 
             tempItemButton.getButton().setOnAction(event -> {
                 topShowInfoPane.setVisible(true);
-                showItemImg.setImage(clothes.get(tempItemButton.getName()).getImage());
+                showTopImg.setImage(clothes.get(tempItemButton.getName()).getImage());
                 lblTopName.setText(clothes.get(tempItemButton.getName()).getName());
                 lblTopBrand.setText(clothes.get(tempItemButton.getName()).getBrand());
                 lblTopColor.setText(clothes.get(tempItemButton.getName()).getColor());
@@ -310,8 +334,8 @@ public class WardrobeController implements Initializable {
 
             topGrid.getChildren().remove(topItems.get(trackTopItemGrid[i+1]));
 
-            int newRow = i / topMaxCol;
-            int newCol = i % topMaxCol;
+            int newRow = i / clothMaxCol;
+            int newCol = i % clothMaxCol;
 
             topGrid.add(topItems.get(trackTopItemGrid[i]), newCol, newRow);
 
@@ -320,8 +344,8 @@ public class WardrobeController implements Initializable {
         // Update the number of tracked items
         trackTopItems--;
 
-        topCurrentCol = trackTopItems % topMaxCol;
-        topCurrentRow = trackTopItems / topMaxCol;
+        topCurrentCol = trackTopItems % clothMaxCol;
+        topCurrentRow = trackTopItems / clothMaxCol;
 
         // Reset the add button position
         setBtnAddTop(topCurrentCol, topCurrentRow);
@@ -331,6 +355,153 @@ public class WardrobeController implements Initializable {
 
     // ---------- Top Tab Functions END ----------
 
+
+
+
+
+    // ---------- Bottom Tab Functions ----------
+
+    private void setBtnAddBot(int col, int row) {
+        btnAddBot.setVisible(true);
+
+        btnAddBot.setMinWidth(Region.USE_COMPUTED_SIZE);
+        btnAddBot.setMinHeight(Region.USE_COMPUTED_SIZE);
+        btnAddBot.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        btnAddBot.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        btnAddBot.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        btnAddBot.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+
+        botGrid.getChildren().remove(btnAddBot);
+        botGrid.add(btnAddBot, col, row);
+        GridPane.setMargin(btnAddBot, new Insets(10));
+        GridPane.setHalignment(btnAddBot, HPos.CENTER);
+        GridPane.setValignment(btnAddBot, VPos.CENTER);
+    }
+
+    @FXML
+    protected void btnAddBotClicked() {
+        clearControls();
+        botGetInfoPane.setVisible(true);
+        tempBotImage.setImage(null);
+    }
+
+    // ADD ITEMS ON FOOTWEAR GRID
+    @FXML
+    protected void btnBotInfoConfirmClicked () {
+        if (clothes.containsKey(txtFieldBotName.getText())) {
+            txtFieldBotName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
+            btnBotInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldBotName.clear();
+            btnBotInfoConfirm.disableProperty().setValue(false);
+        } else if (txtFieldBotName.getText().equals("")) {
+            txtFieldBotName.setText("NAME REQUIRED");                                  // NOT SHOWING
+            btnBotInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldBotName.clear();
+            btnBotInfoConfirm.disableProperty().setValue(false);
+        } else {
+            clothes.put(txtFieldBotName.getText(), new Clothing());
+
+            clothes.get(txtFieldBotName.getText()).setName(txtFieldBotName.getText());
+            clothes.get(txtFieldBotName.getText()).setBrand(txtFieldBotBrand.getText());
+            clothes.get(txtFieldBotName.getText()).setColor(txtFieldBotColor.getText());
+            clothes.get(txtFieldBotName.getText()).setCategory(botCategory.getValue());
+            clothes.get(txtFieldBotName.getText()).setImage(tempImage);
+
+            ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), txtFieldBotName.getText());
+            trackBotItemGrid[trackBotItems++] = tempItemButton.getName();
+
+            botItems.put(tempItemButton.getName(), tempItemButton.getButton());
+            botGrid.add(tempItemButton.getButton(), botCurrentCol, botCurrentRow);
+            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
+            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
+            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+
+            botCurrentCol = trackBotItems % clothMaxCol;
+            botCurrentRow = trackBotItems / clothMaxCol;
+
+            tempItemButton.getButton().setOnAction(event -> {
+                botShowInfoPane.setVisible(true);
+                showBotImg.setImage(clothes.get(tempItemButton.getName()).getImage());
+                lblBotName.setText(clothes.get(tempItemButton.getName()).getName());
+                lblBotBrand.setText(clothes.get(tempItemButton.getName()).getBrand());
+                lblBotColor.setText(clothes.get(tempItemButton.getName()).getColor());
+                lblBotCategory.setText(clothes.get(tempItemButton.getName()).getCategoryName());
+                currBotItem = clothes.get(tempItemButton.getName()).getName();
+                botGetInfoPane.setVisible(false);
+            });
+
+            if (!(botCurrentRow == 3 && botCurrentCol == 0)) {
+                setBtnAddBot(botCurrentCol, botCurrentRow);
+            }
+
+            botGetInfoPane.setVisible(false);
+            tempImage = null;
+            clearControls();
+        }
+    }
+
+    @FXML
+    protected void removeBotItem() {
+        botShowInfoPane.setVisible(false);
+
+        int index = 0;
+
+        // Find the index of the current foot item
+        for (int i = 0; i < trackBotItems; i++) {
+            if (trackBotItemGrid[i].equals(currBotItem)) {
+                index = i;
+                break;
+            }
+        }
+
+        // Remove the button from the grid
+        botGrid.getChildren().remove(botItems.get(currBotItem));
+
+
+        // Remove the item from tracking arrays and hash map
+        trackBotItemGrid[index] = null;
+        botItems.remove(currBotItem);
+        clothes.remove(currBotItem);
+
+
+        // Update the grid layout
+        // Shift the remaining items in the tracking array
+        for (int i = index; i < trackBotItems - 1; i++) {
+            trackBotItemGrid[i] = trackBotItemGrid[i + 1];
+
+            botGrid.getChildren().remove(botItems.get(trackBotItemGrid[i+1]));
+
+            int newRow = i / clothMaxCol;
+            int newCol = i % clothMaxCol;
+
+            botGrid.add(botItems.get(trackBotItemGrid[i]), newCol, newRow);
+
+        }
+
+        // Update the number of tracked items
+        trackBotItems--;
+
+        botCurrentCol = trackBotItems % clothMaxCol;
+        botCurrentRow = trackBotItems / clothMaxCol;
+
+        // Reset the add button position
+        setBtnAddBot(botCurrentCol, botCurrentRow);
+
+        clearControls();
+    }
+
+    // ---------- Bottom Tab Functions END ----------
 
 
 
@@ -363,7 +534,7 @@ public class WardrobeController implements Initializable {
     protected void btnAddFootClicked() {
         clearControls();
         footGetInfoPane.setVisible(true);
-        tempImageItem.setImage(null);
+        tempFootImage.setImage(null);
     }
 
     // ADD ITEMS ON FOOTWEAR GRID
@@ -409,7 +580,7 @@ public class WardrobeController implements Initializable {
 
             tempItemButton.getButton().setOnAction(event -> {
                 footShowInfoPane.setVisible(true);
-                showItemImg.setImage(footwears.get(tempItemButton.getName()).getImage());
+                showFootImg.setImage(footwears.get(tempItemButton.getName()).getImage());
                 lblFootName.setText(footwears.get(tempItemButton.getName()).getName());
                 lblFootBrand.setText(footwears.get(tempItemButton.getName()).getBrand());
                 lblFootColor.setText(footwears.get(tempItemButton.getName()).getColor());
@@ -492,14 +663,17 @@ public class WardrobeController implements Initializable {
 
         if (selectedFile != null) {
             tempImage = new Image(selectedFile.toURI().toString());
-            tempImageItem.setImage(tempImage);
+            tempFootImage.setImage(tempImage);
+            tempTopImage.setImage(tempImage);
+            tempBotImage.setImage(tempImage);
         }
     }
 
     @FXML
     protected void clearControls() {
         if (tempImage != null) {
-            tempImageItem.setImage(null);
+            tempFootImage.setImage(null);
+            tempTopImage.setImage(null);
         }
         if (txtFieldFootName != null) {
             txtFieldFootName.setText("");
@@ -519,12 +693,42 @@ public class WardrobeController implements Initializable {
         if (footGetInfoPane != null) {
             footGetInfoPane.setVisible(false);
         }
-    }
-
-
-    private void clearGridPaneCell(GridPane gridPane, int row, int col) {
-        gridPane.getChildren().removeIf(node ->
-            GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col);
+        if (txtFieldTopName != null) {
+            txtFieldTopName.setText("");
+        }
+        if (txtFieldTopBrand != null) {
+            txtFieldTopBrand.setText("");
+        }
+        if (txtFieldTopColor != null) {
+            txtFieldTopColor.setText("");
+        }
+        if (topCategory != null) {
+            topCategory.setValue("");
+        }
+        if (topShowInfoPane != null) {
+            topShowInfoPane.setVisible(false);
+        }
+        if (topGetInfoPane != null) {
+            topGetInfoPane.setVisible(false);
+        }
+        if (txtFieldBotName != null) {
+            txtFieldTopName.setText("");
+        }
+        if (txtFieldBotBrand != null) {
+            txtFieldTopBrand.setText("");
+        }
+        if (txtFieldBotColor != null) {
+            txtFieldTopColor.setText("");
+        }
+        if (botCategory != null) {
+            topCategory.setValue("");
+        }
+        if (botShowInfoPane != null) {
+            topShowInfoPane.setVisible(false);
+        }
+        if (botGetInfoPane != null) {
+            topGetInfoPane.setVisible(false);
+        }
     }
 
 
