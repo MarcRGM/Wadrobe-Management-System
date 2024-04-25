@@ -10,8 +10,6 @@ module com.example.wardrobemangementsystem {
 
     opens com.wardrobemanagementsystem to javafx.fxml;
     exports com.wardrobemanagementsystem;
-    exports com.example;
-    opens com.example to javafx.fxml;
     exports com.wardrobemanagementsystem.splash;
     opens com.wardrobemanagementsystem.splash to javafx.fxml;
 }

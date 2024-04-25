@@ -12,19 +12,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-import java.io.InputStream;
+
 
 public class WardrobeController implements Initializable {
 
@@ -34,7 +30,7 @@ public class WardrobeController implements Initializable {
     // HashMap is useful when we need to store a collection of objects that can be accessed efficiently using a key,
     // instead of an index.
     private HashMap<String, Clothing> clothes = new HashMap<>();
-    private HashMap<String, Accessories> accessors = new HashMap<>();
+    private HashMap<String, Accessories> accessories = new HashMap<>();
     private HashMap<String, Footwear> footwears = new HashMap<>();
 
     @FXML
@@ -47,8 +43,8 @@ public class WardrobeController implements Initializable {
     Image tempImage;
 
     // MAX STORAGE
-    // CLOTHING: TOP = 8, BOTTOM = 8
-    // ACCESSORIES: HEAD = 4, NECK = 10, HAND = 8
+    // CLOTHING: TOP = 9, BOTTOM = 9
+    // ACCESSORIES: HEAD = 6, NECK = 12, HAND = 9
     // FOOTWEAR: 6
 
 
@@ -109,6 +105,86 @@ public class WardrobeController implements Initializable {
     ImageView tempTopImage, showTopImg, tempBotImage, showBotImg;
 
 
+    // Head
+    private final int headMaxCol = 3;
+    private final int headMaxRow = 2;
+    private int headCurrentCol = 0;
+    private int headCurrentRow = 0;
+    private String[] trackHeadItemGrid = new String[headMaxCol * headMaxRow];
+    private int trackHeadItems = 0;
+    private HashMap<String, Button> headItems = new HashMap<>();
+    @FXML
+    private GridPane headGrid;
+    @FXML
+    private Button btnAddHead, btnHeadInfoConfirm;
+    @FXML
+    private ComboBox<String> headCategory;
+    private String currHeadItem;
+    @FXML
+    private Label lblHeadName, lblHeadBrand, lblHeadCategory, lblHeadColor;
+    @FXML
+    private TextField txtFieldHeadName, txtFieldHeadBrand, txtFieldHeadColor;
+    @FXML
+    private Pane headGetInfoPane, headShowInfoPane;
+    @FXML
+    ImageView tempHeadImage, showHeadImg;
+
+
+    // Neck
+    private final int neckMaxCol = 3;
+    private final int neckMaxRow = 4;
+    private int neckCurrentCol = 0;
+    private int neckCurrentRow = 0;
+    private String[] trackNeckItemGrid = new String[neckMaxCol * neckMaxRow];
+    private int trackNeckItems = 0;
+    private HashMap<String, Button> neckItems = new HashMap<>();
+    @FXML
+    private GridPane neckGrid;
+    @FXML
+    private Button btnAddNeck, btnNeckInfoConfirm;
+    @FXML
+    private ComboBox<String> neckCategory;
+    private String currNeckItem;
+    @FXML
+    private Label lblNeckName, lblNeckBrand, lblNeckCategory, lblNeckColor;
+    @FXML
+    private TextField txtFieldNeckName, txtFieldNeckBrand, txtFieldNeckColor;
+    @FXML
+    private Pane neckGetInfoPane, neckShowInfoPane;
+    @FXML
+    ImageView tempNeckImage, showNeckImg;
+
+
+
+    // Hand
+    private final int handMaxCol = 3;
+    private final int handMaxRow = 3;
+    private int handCurrentCol = 0;
+    private int handCurrentRow = 0;
+    private String[] trackHandItemGrid = new String[handMaxCol * handMaxRow];
+    private int trackHandItems = 0;
+    private HashMap<String, Button> handItems = new HashMap<>();
+    @FXML
+    private GridPane handGrid;
+    @FXML
+    private Button btnAddHand, btnHandInfoConfirm;
+    @FXML
+    private ComboBox<String> handCategory;
+    private String currHandItem;
+    @FXML
+    private Label lblHandName, lblHandBrand, lblHandCategory, lblHandColor;
+    @FXML
+    private TextField txtFieldHandName, txtFieldHandBrand, txtFieldHandColor;
+    @FXML
+    private Pane handGetInfoPane, handShowInfoPane;
+    @FXML
+    ImageView tempHandImage, showHandImg;
+
+
+
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -119,20 +195,32 @@ public class WardrobeController implements Initializable {
         setBtnAddFoot(footCurrentCol, footCurrentRow);
         setBtnAddTop(topCurrentCol, topCurrentRow);
         setBtnAddBot(botCurrentCol, botCurrentRow);
+        setBtnAddHead(headCurrentCol, headCurrentRow);
+        setBtnAddNeck(neckCurrentCol, neckCurrentRow);
+        setBtnAddHand(handCurrentCol, handCurrentRow);
         setCategories();
-        clearControls();
+        clearControls();     
     }
 
     private void setCategories() {
         footCategory.getItems().setAll(Arrays.stream(Footwear.Categories.values())
-                                          .map(Footwear.Categories::getDisplayName)
-                                          .toArray(String[]::new));
+                                  .map(Footwear.Categories::getDisplayName)
+                                  .toArray(String[]::new));
         topCategory.getItems().setAll(Arrays.stream(Clothing.TopCategories.values())
-                                          .map(Clothing.TopCategories::getDisplayName)
-                                          .toArray(String[]::new));
+                                  .map(Clothing.TopCategories::getDisplayName)
+                                  .toArray(String[]::new));
         botCategory.getItems().setAll(Arrays.stream(Clothing.BottomCategories.values())
-                                          .map(Clothing.BottomCategories::getDisplayName)
-                                          .toArray(String[]::new));
+                                  .map(Clothing.BottomCategories::getDisplayName)
+                                  .toArray(String[]::new));
+        headCategory.getItems().setAll(Arrays.stream(Accessories.HeadMaterialsCategory.values())
+                                  .map(Accessories.HeadMaterialsCategory::getDisplayName)
+                                  .toArray(String[]::new));
+        neckCategory.getItems().setAll(Arrays.stream(Accessories.NeckMaterialsCategory.values())
+                                  .map(Accessories.NeckMaterialsCategory::getDisplayName)
+                                  .toArray(String[]::new));
+        handCategory.getItems().setAll(Arrays.stream(Accessories.HandMaterialsCategory.values())
+                                  .map(Accessories.HandMaterialsCategory::getDisplayName)
+                                  .toArray(String[]::new));
     }
 
 
@@ -205,6 +293,21 @@ public class WardrobeController implements Initializable {
         clearControls();
     }
 
+    @FXML
+    protected void headTabClicked() {
+        clearControls();
+    }
+
+    @FXML
+    protected void neckTabClicked() {
+        clearControls();
+    }
+
+    @FXML
+    protected void handTabClicked() {
+        clearControls();
+    }
+
     // ---------- Wardrobe click ----------
 
 
@@ -238,7 +341,6 @@ public class WardrobeController implements Initializable {
         tempTopImage.setImage(null);
     }
 
-    // ADD ITEMS ON FOOTWEAR GRID
     @FXML
     protected void btnTopInfoConfirmClicked () {
         if (clothes.containsKey(txtFieldTopName.getText())) {
@@ -288,7 +390,7 @@ public class WardrobeController implements Initializable {
                 lblTopName.setText(clothes.get(tempItemButton.getName()).getName());
                 lblTopBrand.setText(clothes.get(tempItemButton.getName()).getBrand());
                 lblTopColor.setText(clothes.get(tempItemButton.getName()).getColor());
-                lblTopCategory.setText(clothes.get(tempItemButton.getName()).getCategoryName());
+                lblTopCategory.setText(clothes.get(tempItemButton.getName()).getCategory());
                 currTopItem = clothes.get(tempItemButton.getName()).getName();
                 topGetInfoPane.setVisible(false);
             });
@@ -309,7 +411,6 @@ public class WardrobeController implements Initializable {
 
         int index = 0;
 
-        // Find the index of the current foot item
         for (int i = 0; i < trackTopItems; i++) {
             if (trackTopItemGrid[i].equals(currTopItem)) {
                 index = i;
@@ -386,7 +487,6 @@ public class WardrobeController implements Initializable {
         tempBotImage.setImage(null);
     }
 
-    // ADD ITEMS ON FOOTWEAR GRID
     @FXML
     protected void btnBotInfoConfirmClicked () {
         if (clothes.containsKey(txtFieldBotName.getText())) {
@@ -436,7 +536,7 @@ public class WardrobeController implements Initializable {
                 lblBotName.setText(clothes.get(tempItemButton.getName()).getName());
                 lblBotBrand.setText(clothes.get(tempItemButton.getName()).getBrand());
                 lblBotColor.setText(clothes.get(tempItemButton.getName()).getColor());
-                lblBotCategory.setText(clothes.get(tempItemButton.getName()).getCategoryName());
+                lblBotCategory.setText(clothes.get(tempItemButton.getName()).getCategory());
                 currBotItem = clothes.get(tempItemButton.getName()).getName();
                 botGetInfoPane.setVisible(false);
             });
@@ -457,7 +557,6 @@ public class WardrobeController implements Initializable {
 
         int index = 0;
 
-        // Find the index of the current foot item
         for (int i = 0; i < trackBotItems; i++) {
             if (trackBotItemGrid[i].equals(currBotItem)) {
                 index = i;
@@ -508,8 +607,6 @@ public class WardrobeController implements Initializable {
 
 
 
-
-
     // ---------- Footwear Tab Functions ----------
 
     private void setBtnAddFoot(int col, int row) {
@@ -537,7 +634,6 @@ public class WardrobeController implements Initializable {
         tempFootImage.setImage(null);
     }
 
-    // ADD ITEMS ON FOOTWEAR GRID
     @FXML
     protected void btnFootInfoConfirmClicked () {
         if (footwears.containsKey(txtFieldFootName.getText())) {
@@ -584,7 +680,7 @@ public class WardrobeController implements Initializable {
                 lblFootName.setText(footwears.get(tempItemButton.getName()).getName());
                 lblFootBrand.setText(footwears.get(tempItemButton.getName()).getBrand());
                 lblFootColor.setText(footwears.get(tempItemButton.getName()).getColor());
-                lblFootCategory.setText(footwears.get(tempItemButton.getName()).getCategoryName());
+                lblFootCategory.setText(footwears.get(tempItemButton.getName()).getCategory());
                 currFootItem = footwears.get(tempItemButton.getName()).getName();
                 footGetInfoPane.setVisible(false);
             });
@@ -605,7 +701,6 @@ public class WardrobeController implements Initializable {
 
         int index = 0;
 
-        // Find the index of the current foot item
         for (int i = 0; i < trackFootItems; i++) {
             if (trackFootItemGrid[i].equals(currFootItem)) {
                 index = i;
@@ -651,6 +746,445 @@ public class WardrobeController implements Initializable {
 
     // ---------- Footwear Tab Functions END ----------
 
+
+
+
+
+
+    // ---------- Headwear Tab Functions ----------
+
+    private void setBtnAddHead(int col, int row) {
+        btnAddHead.setVisible(true);
+
+        btnAddHead.setMinWidth(Region.USE_COMPUTED_SIZE);
+        btnAddHead.setMinHeight(Region.USE_COMPUTED_SIZE);
+        btnAddHead.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        btnAddHead.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        btnAddHead.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        btnAddHead.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+
+        headGrid.getChildren().remove(btnAddHead);
+        headGrid.add(btnAddHead, col, row);
+        GridPane.setMargin(btnAddHead, new Insets(10));
+        GridPane.setHalignment(btnAddHead, HPos.CENTER);
+        GridPane.setValignment(btnAddHead, VPos.CENTER);
+    }
+
+    @FXML
+    protected void btnAddHeadClicked() {
+        clearControls();
+        headGetInfoPane.setVisible(true);
+        tempHeadImage.setImage(null);
+    }
+
+    @FXML
+    protected void btnHeadInfoConfirmClicked () {
+        if (accessories.containsKey(txtFieldHeadName.getText())) {
+            txtFieldHeadName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
+            btnHeadInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldHeadName.clear();
+            btnHeadInfoConfirm.disableProperty().setValue(false);
+        } else if (txtFieldHeadName.getText().equals("")) {
+            txtFieldHeadName.setText("NAME REQUIRED");                                  // NOT SHOWING
+            btnHeadInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldHeadName.clear();
+            btnHeadInfoConfirm.disableProperty().setValue(false);
+        } else {
+            accessories.put(txtFieldHeadName.getText(), new Accessories());
+
+            accessories.get(txtFieldHeadName.getText()).setName(txtFieldHeadName.getText());
+            accessories.get(txtFieldHeadName.getText()).setBrand(txtFieldHeadBrand.getText());
+            accessories.get(txtFieldHeadName.getText()).setColor(txtFieldHeadColor.getText());
+            accessories.get(txtFieldHeadName.getText()).setCategory(headCategory.getValue());
+            accessories.get(txtFieldHeadName.getText()).setImage(tempImage);
+
+            ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), txtFieldHeadName.getText());
+            trackHeadItemGrid[trackHeadItems++] = tempItemButton.getName();
+
+            headItems.put(tempItemButton.getName(), tempItemButton.getButton());
+            headGrid.add(tempItemButton.getButton(), headCurrentCol, headCurrentRow);
+
+            headCurrentCol = trackHeadItems % headMaxCol;
+            headCurrentRow = trackHeadItems / headMaxCol;
+
+            tempItemButton.getButton().setOnAction(event -> {
+                headShowInfoPane.setVisible(true);
+                showHeadImg.setImage(accessories.get(tempItemButton.getName()).getImage());
+                lblHeadName.setText(accessories.get(tempItemButton.getName()).getName());
+                lblHeadBrand.setText(accessories.get(tempItemButton.getName()).getBrand());
+                lblHeadColor.setText(accessories.get(tempItemButton.getName()).getColor());
+                lblHeadCategory.setText(accessories.get(tempItemButton.getName()).getCategory());
+                currHeadItem = accessories.get(tempItemButton.getName()).getName();
+                headGetInfoPane.setVisible(false);
+            });
+
+            if (!(headCurrentRow == 2 && headCurrentCol == 0)) {
+                setBtnAddHead(headCurrentCol, headCurrentRow);
+            }
+
+            headGetInfoPane.setVisible(false);
+            tempImage = null;
+            clearControls();
+        }
+    }
+
+    @FXML
+    protected void removeHeadItem() {
+        headShowInfoPane.setVisible(false);
+
+        int index = 0;
+
+        for (int i = 0; i < trackHeadItems; i++) {
+            if (trackHeadItemGrid[i].equals(currHeadItem)) {
+                index = i;
+                break;
+            }
+        }
+
+        // Remove the button from the grid
+        headGrid.getChildren().remove(headItems.get(currHeadItem));
+
+
+        // Remove the item from tracking arrays and hash map
+        trackHeadItemGrid[index] = null;
+        headItems.remove(currHeadItem);
+        accessories.remove(currHeadItem);
+
+
+        // Update the grid layout
+        // Shift the remaining items in the tracking array
+        for (int i = index; i < trackHeadItems - 1; i++) {
+            trackHeadItemGrid[i] = trackHeadItemGrid[i + 1];
+
+            headGrid.getChildren().remove(headItems.get(trackHeadItemGrid[i+1]));
+
+            int newRow = i / headMaxCol;
+            int newCol = i % headMaxCol;
+
+            headGrid.add(headItems.get(trackHeadItemGrid[i]), newCol, newRow);
+
+        }
+
+        // Update the number of tracked items
+        trackHeadItems--;
+
+        headCurrentCol = trackHeadItems % headMaxCol;
+        headCurrentRow = trackHeadItems / headMaxCol;
+
+        // Reset the add button position
+        setBtnAddHead(headCurrentCol, headCurrentRow);
+
+        clearControls();
+    }
+
+    // ---------- Headwear Tab Functions END ----------
+
+
+
+
+    // ---------- Neckwear Tab Functions ----------
+
+    private void setBtnAddNeck(int col, int row) {
+        btnAddNeck.setVisible(true);
+
+        btnAddNeck.setMinWidth(Region.USE_COMPUTED_SIZE);
+        btnAddNeck.setMinHeight(Region.USE_COMPUTED_SIZE);
+        btnAddNeck.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        btnAddNeck.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        btnAddNeck.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        btnAddNeck.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+
+        neckGrid.getChildren().remove(btnAddNeck);
+        neckGrid.add(btnAddNeck, col, row);
+        GridPane.setMargin(btnAddNeck, new Insets(10));
+        GridPane.setHalignment(btnAddNeck, HPos.CENTER);
+        GridPane.setValignment(btnAddNeck, VPos.CENTER);
+    }
+
+    @FXML
+    protected void btnAddNeckClicked() {
+        clearControls();
+        neckGetInfoPane.setVisible(true);
+        tempNeckImage.setImage(null);
+    }
+
+    @FXML
+    protected void btnNeckInfoConfirmClicked () {
+        if (clothes.containsKey(txtFieldNeckName.getText())) {
+            txtFieldNeckName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
+            btnNeckInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldNeckName.clear();
+            btnNeckInfoConfirm.disableProperty().setValue(false);
+        } else if (txtFieldNeckName.getText().equals("")) {
+            txtFieldNeckName.setText("NAME REQUIRED");                                  // NOT SHOWING
+            btnNeckInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldNeckName.clear();
+            btnNeckInfoConfirm.disableProperty().setValue(false);
+        } else {
+            accessories.put(txtFieldNeckName.getText(), new Accessories());
+
+            accessories.get(txtFieldNeckName.getText()).setName(txtFieldNeckName.getText());
+            accessories.get(txtFieldNeckName.getText()).setBrand(txtFieldNeckBrand.getText());
+            accessories.get(txtFieldNeckName.getText()).setColor(txtFieldNeckColor.getText());
+            accessories.get(txtFieldNeckName.getText()).setCategory(neckCategory.getValue());
+            accessories.get(txtFieldNeckName.getText()).setImage(tempImage);
+
+            ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), txtFieldNeckName.getText());
+            trackNeckItemGrid[trackNeckItems++] = tempItemButton.getName();
+
+            neckItems.put(tempItemButton.getName(), tempItemButton.getButton());
+            neckGrid.add(tempItemButton.getButton(), neckCurrentCol, neckCurrentRow);
+            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
+            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
+            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+
+            neckCurrentCol = trackNeckItems % neckMaxCol;
+            neckCurrentRow = trackNeckItems / neckMaxCol;
+
+            tempItemButton.getButton().setOnAction(event -> {
+                neckShowInfoPane.setVisible(true);
+                showNeckImg.setImage(accessories.get(tempItemButton.getName()).getImage());
+                lblNeckName.setText(accessories.get(tempItemButton.getName()).getName());
+                lblNeckBrand.setText(accessories.get(tempItemButton.getName()).getBrand());
+                lblNeckColor.setText(accessories.get(tempItemButton.getName()).getColor());
+                lblNeckCategory.setText(accessories.get(tempItemButton.getName()).getCategory());
+                currNeckItem = accessories.get(tempItemButton.getName()).getName();
+                neckGetInfoPane.setVisible(false);
+            });
+
+            if (!(neckCurrentRow == 4 && neckCurrentCol == 0)) {
+                setBtnAddNeck(neckCurrentCol, neckCurrentRow);
+            }
+
+            neckGetInfoPane.setVisible(false);
+            tempImage = null;
+            clearControls();
+        }
+    }
+
+    @FXML
+    protected void removeNeckItem() {
+        neckShowInfoPane.setVisible(false);
+
+        int index = 0;
+
+        for (int i = 0; i < trackNeckItems; i++) {
+            if (trackNeckItemGrid[i].equals(currNeckItem)) {
+                index = i;
+                break;
+            }
+        }
+
+        // Remove the button from the grid
+        neckGrid.getChildren().remove(neckItems.get(currNeckItem));
+
+
+        // Remove the item from tracking arrays and hash map
+        trackNeckItemGrid[index] = null;
+        neckItems.remove(currNeckItem);
+        accessories.remove(currNeckItem);
+
+
+        // Update the grid layout
+        // Shift the remaining items in the tracking array
+        for (int i = index; i < trackNeckItems - 1; i++) {
+            trackNeckItemGrid[i] = trackNeckItemGrid[i + 1];
+
+            neckGrid.getChildren().remove(neckItems.get(trackNeckItemGrid[i+1]));
+
+            int newRow = i / neckMaxCol;
+            int newCol = i % neckMaxCol;
+
+            neckGrid.add(neckItems.get(trackNeckItemGrid[i]), newCol, newRow);
+
+        }
+
+        // Update the number of tracked items
+        trackNeckItems--;
+
+        neckCurrentCol = trackNeckItems % neckMaxCol;
+        neckCurrentRow = trackNeckItems / neckMaxCol;
+
+        // Reset the add button position
+        setBtnAddNeck(neckCurrentCol, neckCurrentRow);
+
+        clearControls();
+    }
+
+
+    // ---------- Neck Tab Functions END ----------
+
+
+    // ---------- hand Tab Functions ----------
+
+    private void setBtnAddHand(int col, int row) {
+        btnAddHand.setVisible(true);
+
+        btnAddHand.setMinWidth(Region.USE_COMPUTED_SIZE);
+        btnAddHand.setMinHeight(Region.USE_COMPUTED_SIZE);
+        btnAddHand.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        btnAddHand.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        btnAddHand.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        btnAddHand.setMaxHeight(Region.USE_COMPUTED_SIZE);
+
+
+        handGrid.getChildren().remove(btnAddHand);
+        handGrid.add(btnAddHand, col, row);
+        GridPane.setMargin(btnAddHand, new Insets(10));
+        GridPane.setHalignment(btnAddHand, HPos.CENTER);
+        GridPane.setValignment(btnAddHand, VPos.CENTER);
+    }
+
+    @FXML
+    protected void btnAddHandClicked() {
+        clearControls();
+        handGetInfoPane.setVisible(true);
+        tempHandImage.setImage(null);
+    }
+
+    @FXML
+    protected void btnHandInfoConfirmClicked () {
+        if (accessories.containsKey(txtFieldHandName.getText())) {
+            txtFieldHandName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
+            btnHandInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldHandName.clear();
+            btnHandInfoConfirm.disableProperty().setValue(false);
+        } else if (txtFieldHandName.getText().equals("")) {
+            txtFieldHandName.setText("NAME REQUIRED");                                  // NOT SHOWING
+            btnHandInfoConfirm.disableProperty().setValue(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            txtFieldHandName.clear();
+            btnHandInfoConfirm.disableProperty().setValue(false);
+        } else {
+            accessories.put(txtFieldHandName.getText(), new Accessories());
+
+            accessories.get(txtFieldHandName.getText()).setName(txtFieldHandName.getText());
+            accessories.get(txtFieldHandName.getText()).setBrand(txtFieldHandBrand.getText());
+            accessories.get(txtFieldHandName.getText()).setColor(txtFieldHandColor.getText());
+            accessories.get(txtFieldHandName.getText()).setCategory(handCategory.getValue());
+            accessories.get(txtFieldHandName.getText()).setImage(tempImage);
+
+            ItemButton tempItemButton = new ItemButton(new ImageView(tempImage), txtFieldHandName.getText());
+            trackHandItemGrid[trackHandItems++] = tempItemButton.getName();
+
+            handItems.put(tempItemButton.getName(), tempItemButton.getButton());
+            handGrid.add(tempItemButton.getButton(), handCurrentCol, handCurrentRow);
+            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
+            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
+            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+
+            handCurrentCol = trackHandItems % handMaxCol;
+            handCurrentRow = trackHandItems / handMaxCol;
+
+            tempItemButton.getButton().setOnAction(event -> {
+                handShowInfoPane.setVisible(true);
+                showHandImg.setImage(accessories.get(tempItemButton.getName()).getImage());
+                lblHandName.setText(accessories.get(tempItemButton.getName()).getName());
+                lblHandBrand.setText(accessories.get(tempItemButton.getName()).getBrand());
+                lblHandColor.setText(accessories.get(tempItemButton.getName()).getColor());
+                lblHandCategory.setText(accessories.get(tempItemButton.getName()).getCategory());
+                currHandItem = accessories.get(tempItemButton.getName()).getName();
+                handGetInfoPane.setVisible(false);
+            });
+
+            if (!(handCurrentRow == 3 && handCurrentCol == 0)) {
+                setBtnAddHand(handCurrentCol, handCurrentRow);
+            }
+
+            handGetInfoPane.setVisible(false);
+            tempImage = null;
+            clearControls();
+        }
+    }
+
+    @FXML
+    protected void removeHandItem() {
+        handShowInfoPane.setVisible(false);
+
+        int index = 0;
+
+        for (int i = 0; i < trackHandItems; i++) {
+            if (trackHandItemGrid[i].equals(currHandItem)) {
+                index = i;
+                break;
+            }
+        }
+
+        // Remove the button from the grid
+        handGrid.getChildren().remove(handItems.get(currHandItem));
+
+
+        // Remove the item from tracking arrays and hash map
+        trackHandItemGrid[index] = null;
+        handItems.remove(currHandItem);
+        accessories.remove(currHandItem);
+
+
+        // Update the grid layout
+        // Shift the remaining items in the tracking array
+        for (int i = index; i < trackHandItems - 1; i++) {
+            trackHandItemGrid[i] = trackHandItemGrid[i + 1];
+
+            handGrid.getChildren().remove(handItems.get(trackHandItemGrid[i+1]));
+
+            int newRow = i / handMaxCol;
+            int newCol = i % handMaxCol;
+
+            handGrid.add(handItems.get(trackHandItemGrid[i]), newCol, newRow);
+
+        }
+
+        // Update the number of tracked items
+        trackHandItems--;
+
+        handCurrentCol = trackHandItems % handMaxCol;
+        handCurrentRow = trackHandItems / handMaxCol;
+
+        // Reset the add button position
+        setBtnAddHand(handCurrentCol, handCurrentRow);
+
+        clearControls();
+    }
+
+    // ---------- hand Tab Functions END ----------
+
+
+
+
+
+
+
     @FXML
     protected void btnSetImage() {
         FileChooser fileChooser = new FileChooser();
@@ -666,6 +1200,9 @@ public class WardrobeController implements Initializable {
             tempFootImage.setImage(tempImage);
             tempTopImage.setImage(tempImage);
             tempBotImage.setImage(tempImage);
+            tempHeadImage.setImage(tempImage);
+            tempNeckImage.setImage(tempImage);
+            tempHandImage.setImage(tempImage);
         }
     }
 
@@ -712,22 +1249,76 @@ public class WardrobeController implements Initializable {
             topGetInfoPane.setVisible(false);
         }
         if (txtFieldBotName != null) {
-            txtFieldTopName.setText("");
+            txtFieldBotName.setText("");
         }
         if (txtFieldBotBrand != null) {
-            txtFieldTopBrand.setText("");
+            txtFieldBotBrand.setText("");
         }
         if (txtFieldBotColor != null) {
-            txtFieldTopColor.setText("");
+            txtFieldBotColor.setText("");
         }
         if (botCategory != null) {
-            topCategory.setValue("");
+            botCategory.setValue("");
         }
         if (botShowInfoPane != null) {
-            topShowInfoPane.setVisible(false);
+            botShowInfoPane.setVisible(false);
         }
         if (botGetInfoPane != null) {
-            topGetInfoPane.setVisible(false);
+            botGetInfoPane.setVisible(false);
+        }
+        if (txtFieldHeadName != null) {
+            txtFieldHeadName.setText("");
+        }
+        if (txtFieldHeadBrand != null) {
+            txtFieldHeadBrand.setText("");
+        }
+        if (txtFieldHeadColor != null) {
+            txtFieldHeadColor.setText("");
+        }
+        if (headCategory != null) {
+            headCategory.setValue("");
+        }
+        if (headShowInfoPane != null) {
+            headShowInfoPane.setVisible(false);
+        }
+        if (headGetInfoPane != null) {
+            headGetInfoPane.setVisible(false);
+        }
+        if (txtFieldNeckName != null) {
+            txtFieldNeckName.setText("");
+        }
+        if (txtFieldNeckBrand != null) {
+            txtFieldNeckBrand.setText("");
+        }
+        if (txtFieldNeckColor != null) {
+            txtFieldNeckColor.setText("");
+        }
+        if (neckCategory != null) {
+            neckCategory.setValue("");
+        }
+        if (neckShowInfoPane != null) {
+            neckShowInfoPane.setVisible(false);
+        }
+        if (neckGetInfoPane != null) {
+            neckGetInfoPane.setVisible(false);
+        }
+        if (txtFieldHandName != null) {
+            txtFieldHandName.setText("");
+        }
+        if (txtFieldHandBrand != null) {
+            txtFieldHandBrand.setText("");
+        }
+        if (txtFieldHandColor != null) {
+            txtFieldHandColor.setText("");
+        }
+        if (handCategory != null) {
+            handCategory.setValue("");
+        }
+        if (handShowInfoPane != null) {
+            handShowInfoPane.setVisible(false);
+        }
+        if (handGetInfoPane != null) {
+            handGetInfoPane.setVisible(false);
         }
     }
 

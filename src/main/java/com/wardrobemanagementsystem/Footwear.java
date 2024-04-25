@@ -1,8 +1,7 @@
 package com.wardrobemanagementsystem;
 
 public class Footwear extends Item{
-    private String category; // Rubber shoes, heels, etc..
-    private int inchSize;
+    private String category;
 
     public enum Categories {
         SNEAKERS("Sneakers"),
@@ -20,30 +19,15 @@ public class Footwear extends Item{
         public String getDisplayName() {
             return displayName;
         }
-
     }
 
-
-    void setCategory(String category) {
-        this.category = category;
+    public void setCategory(String category) {
+            this.category = category;
     }
 
-    void setInchSize(int inchSize) {
-        this.inchSize = inchSize;
-    }
-
-    String getCategory() {
+    public String getCategory() {
         return category;
     }
-
-    int getInchSize() {
-        return inchSize;
-    }
-
-    String getCategoryName() {
-        return category;
-    }
-
 
 }
 

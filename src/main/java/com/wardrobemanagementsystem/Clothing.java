@@ -1,14 +1,10 @@
 package com.wardrobemanagementsystem;
 
 public class Clothing extends Item {
-    private String type, category, size; // type: top or bottom and category: shirt, dress, suit, etc...
+    private String category;
 
     public enum sizes{
         XS, S, M, L, XL,
-    }
-
-    public enum type {
-        TOP, BOTTOM
     }
 
     public enum TopCategories {
@@ -28,6 +24,7 @@ public class Clothing extends Item {
         }
 
     }
+
      public enum BottomCategories {
         PANTS("Pants"),
         SKIRT("Skirt"),
@@ -44,32 +41,16 @@ public class Clothing extends Item {
         }
      }
 
-    void setType(String type) {
-        this.type = type;
+    public void setCategory(String category) {
+            this.category = category;
     }
 
-    void setCategory(String category) {
-        this.category = category;
-    }
-
-    void setSize(String size) {
-        this.size = size;
-    }
-
-    String getType() {
-        return type;
-    }
-
-    String getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    String getSize() {
-        return size;
-    }
 
-    String getCategoryName() {
-        return category;
-    }
 }
+
+
 
