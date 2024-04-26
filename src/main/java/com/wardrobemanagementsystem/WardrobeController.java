@@ -42,6 +42,7 @@ public class WardrobeController implements Initializable {
 
     Image tempImage;
 
+
     // MAX STORAGE
     // CLOTHING: TOP = 9, BOTTOM = 9
     // ACCESSORIES: HEAD = 6, NECK = 12, HAND = 9
@@ -224,6 +225,9 @@ public class WardrobeController implements Initializable {
     }
 
 
+
+
+
     // ---------- Wardrobe click ----------
 
     @FXML
@@ -309,9 +313,6 @@ public class WardrobeController implements Initializable {
     }
 
     // ---------- Wardrobe click ----------
-
-
-
 
 
     // ---------- Top Tab Functions ----------
