@@ -930,159 +930,38 @@
                   </Tab>
               </tabs>
             </TabPane>
-            <Label id="titleLabel" layoutX="618.0" layoutY="70.0" maxHeight="48.0" minHeight="48.0" prefHeight="48.0" prefWidth="193.0" stylesheets="@CSS/TabPane.css" text="Wardrobe Title " textFill="#6c5f5b" visible="false">
+            <Label id="titleLabel" fx:id="titleLabel" layoutX="618.0" layoutY="70.0" maxHeight="48.0" minHeight="48.0" prefHeight="48.0" prefWidth="193.0" stylesheets="@CSS/TabPane.css" text="Wardrobe Title " textFill="#6c5f5b" visible="false">
                <font>
                   <Font name="Tw Cen MT" size="26.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3f3b37" height="45.6" layoutX="799.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="30.0" />
-            <Pane fx:id="createOutfitPane" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css">
+            <Rectangle fx:id="shadow" arcHeight="5.0" arcWidth="5.0" fill="#3f3b37" height="45.6" layoutX="799.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" width="30.0" />
+            <Pane id="genderSelectionPane" fx:id="createOutfitPane" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css">
                <children>
-                  <ScrollPane id="outfitsPane" maxHeight="175.0" minHeight="170.0" prefHeight="174.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css">
-                     <content>
-                        <Pane id="outfitsPane" prefHeight="157.0" prefWidth="1200.0" stylesheets="@CSS/TabPane.css">
-                           <children>
-                              <GridPane maxHeight="150.0" maxWidth="1200.0" minHeight="150.0" minWidth="1200.0" prefHeight="150.0" prefWidth="1200.0" stylesheets="@CSS/TabPane.css">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                              </GridPane>
-                           </children>
-                        </Pane>
-                     </content>
-                  </ScrollPane>
-                  <Pane id="addItemsPane" layoutY="174.0" prefHeight="155.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css">
-                     <children>
-                        <Button layoutX="14.0" layoutY="14.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons8-neck-480.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="145.0" layoutY="14.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../airy-left-wrist.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="276.0" layoutY="14.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons8-head-480.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="407.0" layoutY="14.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons8-dummy-480.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="538.0" layoutY="14.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons8-stockings-480.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="669.0" layoutY="14.0" maxHeight="125.0" maxWidth="125.0" minHeight="125.0" minWidth="125.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0">
-                           <graphic>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons8-feet-480.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button id="backButton" layoutX="771.0" layoutY="60.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="102.0" stylesheets="@CSS/TabPane.css" text="BACK">
-                           <font>
-                              <Font name="Tw Cen MT" size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <GridPane layoutX="14.0" layoutY="330.0" prefHeight="221.0" prefWidth="125.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
-                  <GridPane layoutX="145.0" layoutY="330.0" prefHeight="221.0" prefWidth="125.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <GridPane layoutX="276.0" layoutY="330.0" prefHeight="221.0" prefWidth="125.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <GridPane layoutX="407.0" layoutY="330.0" prefHeight="221.0" prefWidth="125.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <GridPane layoutX="538.0" layoutY="330.0" prefHeight="221.0" prefWidth="125.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <GridPane layoutX="669.0" layoutY="330.0" prefHeight="221.0" prefWidth="125.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-                  <Button id="outfitConfirm" layoutX="774.0" layoutY="423.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="102.0" stylesheets="@CSS/TabPane.css" text="BACK">
-                     <font>
-                        <Font name="Tw Cen MT" size="18.0" />
-                     </font>
+                  <Button id="btnGender" layoutX="93.0" layoutY="146.0" maxHeight="260.0" maxWidth="260.0" minHeight="260.0" minWidth="260.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="260.0" stylesheets="@CSS/TabPane.css">
+                     <graphic>
+                        <ImageView fitHeight="230.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons8-body-600.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
+                  <Button id="btnGender" layoutX="497.0" layoutY="146.0" maxHeight="260.0" maxWidth="260.0" minHeight="260.0" minWidth="260.0" mnemonicParsing="false" prefHeight="260.0" prefWidth="260.0" stylesheets="@CSS/TabPane.css">
+                     <graphic>
+                        <ImageView fitHeight="230.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons8-girl-body-600.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="199.0" layoutY="52.0" text="SELECT YOUR GENDER" textFill="#ffb74d">
+                     <font>
+                        <Font name="Tw Cen MT" size="48.0" />
+                     </font>
+                  </Label>
+                  <Button id="backButton" layoutX="404.0" layoutY="500.0" mnemonicParsing="false" stylesheets="@CSS/TabPane.css" text="BACK" />
                </children>
             </Pane>
          </children>

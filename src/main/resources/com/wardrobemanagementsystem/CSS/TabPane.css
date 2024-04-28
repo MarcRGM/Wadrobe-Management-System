@@ -287,34 +287,19 @@
     -fx-border-radius: 5px;
 }
 
-
-#createButton {
-    -fx-background-color: #4F4A45;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-padding: 10px 5px 10px 5px;
-}
-
-#createButton:hover {
-    -fx-background-color: #4F4A45;
-    -fx-min-height: 25px;
-}
-
-#outfitsPane {
-    -fx-background-color: #4F4A45;
-}
-
-#addItemsPane {
-    -fx-background-color: #31363F;
-}
-
-#backButton,
-#outfitConfirm {
-    -fx-rotate: 90; /* Rotate the text 270 degrees clockwise */
-    -fx-translate-y: 50%; /* Adjust the position vertically */
-}
-
-#createOutfitPane {
+#genderSelectionPane {
     -fx-background-color: #222831;
 }
 
+/* Rotate vertically
+{
+    -fx-rotate: 90;
+    -fx-translate-y: 50%;
+}
+ */
+
+#btnGender {
+    -fx-background-color: #31363F;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
