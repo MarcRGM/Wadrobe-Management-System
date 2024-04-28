@@ -188,7 +188,8 @@
     -fx-text-fill: #EEEEEE;
 }
 
-#btnConfirm {
+#btnConfirm,
+#outfitConfirm {
     -fx-background-color: #A1C398;
     -fx-text-fill: #EEEEEE;
 }
@@ -226,7 +227,8 @@
     -fx-background-radius: 5px;
 }
 
-#btnRemove {
+#btnRemove,
+#backButton {
     -fx-background-color: #FA7070;
     -fx-text-fill: #EEEEEE;
 }
@@ -297,3 +299,22 @@
     -fx-background-color: #4F4A45;
     -fx-min-height: 25px;
 }
+
+#outfitsPane {
+    -fx-background-color: #4F4A45;
+}
+
+#addItemsPane {
+    -fx-background-color: #31363F;
+}
+
+#backButton,
+#outfitConfirm {
+    -fx-rotate: 90; /* Rotate the text 270 degrees clockwise */
+    -fx-translate-y: 50%; /* Adjust the position vertically */
+}
+
+#createOutfitPane {
+    -fx-background-color: #222831;
+}
+

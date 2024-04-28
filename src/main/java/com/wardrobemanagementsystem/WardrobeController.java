@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -41,6 +42,12 @@ public class WardrobeController implements Initializable {
             accTab, footTab, headTab, neckTab, handTab;
 
     Image tempImage;
+
+    @FXML
+    private Label titleLabel;
+
+    @FXML
+    private Rectangle shadow;
 
 
     // MAX STORAGE
@@ -183,6 +190,11 @@ public class WardrobeController implements Initializable {
 
 
 
+    @FXML
+    private Pane createOutfitPane;
+
+    @FXML Button outfitAddHead, outfitAddNeck, outfitAddArm,
+    outfitAddTop, outfitAddBot, outfitAddFoot;
 
 
 
@@ -1179,6 +1191,29 @@ public class WardrobeController implements Initializable {
     }
 
     // ---------- hand Tab Functions END ----------
+
+
+
+    // ---------- Outfit Creation ----------
+
+    @FXML
+    protected void backClicked() {
+        mainTabPane.setVisible(true);
+        titleLabel.setVisible(true);
+        shadow.setVisible(true);
+    }
+
+
+
+
+
+
+
+
+    // ---------- Outfit Creation END ----------
+
+
+
 
 
 

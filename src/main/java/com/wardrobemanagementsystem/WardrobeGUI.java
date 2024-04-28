@@ -20,16 +20,13 @@ public class WardrobeGUI extends Application {
          // Load the splash screen FXML
         Parent splash = FXMLLoader.load(WardrobeGUI.class.getResource("splash.fxml"));
 
-        // Create the scene
         Scene splashScene = new Scene(splash);
 
-        // Set the scene to the stage
         stage.setScene(splashScene);
 
-        // Show the stage
         stage.show();
 
-        // Load and display the main FXML after some delay (simulating a splash screen)
+        // Load and display the wardrobe FXML
         PauseTransition delay = new PauseTransition(Duration.seconds(3)); // 3 seconds delay
         delay.setOnFinished(event -> {
             try {
