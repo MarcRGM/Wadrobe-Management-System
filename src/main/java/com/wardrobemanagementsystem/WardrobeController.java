@@ -16,6 +16,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -189,15 +190,33 @@ public class WardrobeController implements Initializable {
     ImageView tempHandImage, showHandImg;
 
 
+    // OUTFIT CREATIONJ
+    @FXML
+    private Pane selectGenderPane, outfitCreationPane, outfitsPane, pickItemPane;
 
     @FXML
-    private Pane createOutfitPane;
+    private Button btnShowOutfit, btnCreateOutfit
 
-    @FXML Button outfitAddHead, outfitAddNeck, outfitAddArm,
-    outfitAddTop, outfitAddBot, outfitAddFoot;
+    @FXML
+    private GridPane pickItemsGrid;
+
+    private String currGenderOutfitCreation;
+
+    Image maleFigure = new Image(new File("src/main/java/com/icons8-body-600.png").toURI().toString());
+    Image femaleFigure = new Image(new File("src/main/java/com/icons8-girl-body-600.png").toURI().toString());
+
+    String currItemPick;
 
 
 
+    @FXML
+    private ImageView imgViewMale, imgViewFemale;
+
+    @FXML
+    private ImageView imgFigure;
+
+    @FXML
+    private ScrollPane itemsScroll;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -211,6 +230,8 @@ public class WardrobeController implements Initializable {
         setBtnAddHead(headCurrentCol, headCurrentRow);
         setBtnAddNeck(neckCurrentCol, neckCurrentRow);
         setBtnAddHand(handCurrentCol, handCurrentRow);
+        imgViewMale.setImage(maleFigure);
+        imgViewFemale.setImage(femaleFigure);
         setCategories();
         clearControls();     
     }
@@ -1201,8 +1222,55 @@ public class WardrobeController implements Initializable {
         mainTabPane.setVisible(true);
         titleLabel.setVisible(true);
         shadow.setVisible(true);
+        btnShowOutfit.setVisible(true);
+        btnCreateOutfit.setVisible(true);
+        selectGenderPane.setVisible(false);
+        outfitCreationPane.setVisible(false);
+        outfitsPane.setVisible(false);
+        itemsScroll.setVvalue(0);
     }
 
+    @FXML
+    protected void btnCreateOutfitClicked() {
+        mainTabPane.setVisible(false);
+        titleLabel.setVisible(false);
+        shadow.setVisible(false);
+        btnShowOutfit.setVisible(false);
+        btnCreateOutfit.setVisible(false);
+        selectGenderPane.setVisible(true);
+    }
+
+    @FXML
+    protected void btnShowOutfitClicked() {
+        mainTabPane.setVisible(false);
+        titleLabel.setVisible(false);
+        shadow.setVisible(false);
+        btnShowOutfit.setVisible(false);
+        btnCreateOutfit.setVisible(false);
+        outfitsPane.setVisible(true);
+    }
+
+    @FXML
+    protected void btnCreateMaleOutfit() {
+        itemsScroll.setVvalue(0);
+        selectGenderPane.setVisible(false);
+        currGenderOutfitCreation = "Male";
+        imgFigure.setImage(maleFigure);
+        outfitCreationPane.setVisible(true);
+    }
+
+    @FXML
+    protected void btnCreateFemaleOutfit() {
+        itemsScroll.setVvalue(0);
+        selectGenderPane.setVisible(false);
+        currGenderOutfitCreation = "Female";
+        imgFigure.setImage(femaleFigure);
+        outfitCreationPane.setVisible(true);
+    }
+
+
+    btnPickHead, btnPickNeck, btnPickHand,
+    btnPickTop, btnPickBot, btnPickFoot;
 
 
 

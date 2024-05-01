@@ -18,7 +18,7 @@ public class WardrobeGUI extends Application {
         stage.setResizable(false);
 
          // Load the splash screen FXML
-        Parent splash = FXMLLoader.load(WardrobeGUI.class.getResource("splash.fxml"));
+        Parent splash = FXMLLoader.load(WardrobeGUI.class.getResource("wardrobe.fxml"));
 
         Scene splashScene = new Scene(splash);
 
@@ -26,23 +26,25 @@ public class WardrobeGUI extends Application {
 
         stage.show();
 
+        /*
         // Load and display the wardrobe FXML
         PauseTransition delay = new PauseTransition(Duration.seconds(3)); // 3 seconds delay
         delay.setOnFinished(event -> {
             try {
-                // Load the main FXML
                 Parent wardrobeGUI = FXMLLoader.load(WardrobeGUI.class.getResource("wardrobe.fxml"));
 
-                // Create the scene
                 Scene mainScene = new Scene(wardrobeGUI);
 
-                // Set the scene to the stage
                 stage.setScene(mainScene);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         delay.play();
+
+
+         */
+
 
 
     }
