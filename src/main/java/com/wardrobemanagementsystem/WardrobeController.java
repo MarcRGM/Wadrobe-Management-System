@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -190,24 +191,20 @@ public class WardrobeController implements Initializable {
     ImageView tempHandImage, showHandImg;
 
 
-    // OUTFIT CREATIONJ
+    // OUTFIT CREATION
     @FXML
     private Pane selectGenderPane, outfitCreationPane, outfitsPane, pickItemPane;
 
     @FXML
-    private Button btnShowOutfit, btnCreateOutfit
+    private Button btnShowOutfit, btnCreateOutfit;
 
     @FXML
     private GridPane pickItemsGrid;
 
-    private String currGenderOutfitCreation;
-
     Image maleFigure = new Image(new File("src/main/java/com/icons8-body-600.png").toURI().toString());
     Image femaleFigure = new Image(new File("src/main/java/com/icons8-girl-body-600.png").toURI().toString());
 
-    String currItemPick;
-
-
+    String currItemPick, currGenderOutfitCreation;
 
     @FXML
     private ImageView imgViewMale, imgViewFemale;
@@ -216,7 +213,7 @@ public class WardrobeController implements Initializable {
     private ImageView imgFigure;
 
     @FXML
-    private ScrollPane itemsScroll;
+    private ScrollPane itemsScroll, pickItemScroll;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -233,7 +230,7 @@ public class WardrobeController implements Initializable {
         imgViewMale.setImage(maleFigure);
         imgViewFemale.setImage(femaleFigure);
         setCategories();
-        clearControls();     
+        clearControls();
     }
 
     private void setCategories() {
@@ -363,9 +360,7 @@ public class WardrobeController implements Initializable {
 
         topGrid.getChildren().remove(btnAddTop);
         topGrid.add(btnAddTop, col, row);
-        GridPane.setMargin(btnAddTop, new Insets(10));
-        GridPane.setHalignment(btnAddTop, HPos.CENTER);
-        GridPane.setValignment(btnAddTop, VPos.CENTER);
+        setGridMargins(btnAddTop);
     }
 
     @FXML
@@ -411,9 +406,7 @@ public class WardrobeController implements Initializable {
 
             topItems.put(tempItemButton.getName(), tempItemButton.getButton());
             topGrid.add(tempItemButton.getButton(), topCurrentCol, topCurrentRow);
-            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
-            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
-            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+            setGridMargins(tempItemButton.getButton());
 
             topCurrentCol = trackTopItems % clothMaxCol;
             topCurrentRow = trackTopItems / clothMaxCol;
@@ -509,9 +502,7 @@ public class WardrobeController implements Initializable {
 
         botGrid.getChildren().remove(btnAddBot);
         botGrid.add(btnAddBot, col, row);
-        GridPane.setMargin(btnAddBot, new Insets(10));
-        GridPane.setHalignment(btnAddBot, HPos.CENTER);
-        GridPane.setValignment(btnAddBot, VPos.CENTER);
+        setGridMargins(btnAddBot);
     }
 
     @FXML
@@ -557,9 +548,7 @@ public class WardrobeController implements Initializable {
 
             botItems.put(tempItemButton.getName(), tempItemButton.getButton());
             botGrid.add(tempItemButton.getButton(), botCurrentCol, botCurrentRow);
-            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
-            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
-            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+            setGridMargins(tempItemButton.getButton());
 
             botCurrentCol = trackBotItems % clothMaxCol;
             botCurrentRow = trackBotItems / clothMaxCol;
@@ -656,9 +645,7 @@ public class WardrobeController implements Initializable {
 
         footGrid.getChildren().remove(btnAddFoot);
         footGrid.add(btnAddFoot, col, row);
-        GridPane.setMargin(btnAddFoot, new Insets(10));
-        GridPane.setHalignment(btnAddFoot, HPos.CENTER);
-        GridPane.setValignment(btnAddFoot, VPos.CENTER);
+        setGridMargins(btnAddFoot);
     }
 
     @FXML
@@ -800,9 +787,7 @@ public class WardrobeController implements Initializable {
 
         headGrid.getChildren().remove(btnAddHead);
         headGrid.add(btnAddHead, col, row);
-        GridPane.setMargin(btnAddHead, new Insets(10));
-        GridPane.setHalignment(btnAddHead, HPos.CENTER);
-        GridPane.setValignment(btnAddHead, VPos.CENTER);
+        setGridMargins(btnAddHead);
     }
 
     @FXML
@@ -942,9 +927,7 @@ public class WardrobeController implements Initializable {
 
         neckGrid.getChildren().remove(btnAddNeck);
         neckGrid.add(btnAddNeck, col, row);
-        GridPane.setMargin(btnAddNeck, new Insets(10));
-        GridPane.setHalignment(btnAddNeck, HPos.CENTER);
-        GridPane.setValignment(btnAddNeck, VPos.CENTER);
+        setGridMargins(btnAddNeck);
     }
 
     @FXML
@@ -990,9 +973,7 @@ public class WardrobeController implements Initializable {
 
             neckItems.put(tempItemButton.getName(), tempItemButton.getButton());
             neckGrid.add(tempItemButton.getButton(), neckCurrentCol, neckCurrentRow);
-            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
-            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
-            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+            setGridMargins(tempItemButton.getButton());
 
             neckCurrentCol = trackNeckItems % neckMaxCol;
             neckCurrentRow = trackNeckItems / neckMaxCol;
@@ -1086,9 +1067,7 @@ public class WardrobeController implements Initializable {
 
         handGrid.getChildren().remove(btnAddHand);
         handGrid.add(btnAddHand, col, row);
-        GridPane.setMargin(btnAddHand, new Insets(10));
-        GridPane.setHalignment(btnAddHand, HPos.CENTER);
-        GridPane.setValignment(btnAddHand, VPos.CENTER);
+        setGridMargins(btnAddHand);
     }
 
     @FXML
@@ -1134,9 +1113,7 @@ public class WardrobeController implements Initializable {
 
             handItems.put(tempItemButton.getName(), tempItemButton.getButton());
             handGrid.add(tempItemButton.getButton(), handCurrentCol, handCurrentRow);
-            GridPane.setMargin(tempItemButton.getButton(), new Insets(10));
-            GridPane.setHalignment(tempItemButton.getButton(), HPos.CENTER);
-            GridPane.setValignment(tempItemButton.getButton(), VPos.CENTER);
+            setGridMargins(tempItemButton.getButton());
 
             handCurrentCol = trackHandItems % handMaxCol;
             handCurrentRow = trackHandItems / handMaxCol;
@@ -1227,6 +1204,8 @@ public class WardrobeController implements Initializable {
         selectGenderPane.setVisible(false);
         outfitCreationPane.setVisible(false);
         outfitsPane.setVisible(false);
+        pickItemPane.setVisible(false);
+        pickItemScroll.setVvalue(0);
         itemsScroll.setVvalue(0);
     }
 
@@ -1238,6 +1217,7 @@ public class WardrobeController implements Initializable {
         btnShowOutfit.setVisible(false);
         btnCreateOutfit.setVisible(false);
         selectGenderPane.setVisible(true);
+        pickItemScroll.setVvalue(0);
     }
 
     @FXML
@@ -1269,12 +1249,114 @@ public class WardrobeController implements Initializable {
     }
 
 
-    btnPickHead, btnPickNeck, btnPickHand,
-    btnPickTop, btnPickBot, btnPickFoot;
+    @FXML
+    protected void btnBackPick() {
+        pickItemsGrid.getChildren().clear();
+        pickItemPane.setVisible(false);
+    }
+
+    @FXML
+    protected void btnPickHead() {
+        if (trackHeadItems != 0) {
+            pickItemPane.setVisible(true);
+            currItemPick = "Head";
+            addPickItems(currItemPick);
+        }
+    }
+
+    @FXML
+    protected void btnPickNeck() {
+        if (trackNeckItems != 0) {
+            pickItemPane.setVisible(true);
+            currItemPick = "Neck";
+            addPickItems(currItemPick);
+        }
+    }
+
+    @FXML
+    protected void btnPickHand() {
+        if (trackHandItems != 0) {
+            pickItemPane.setVisible(true);
+            currItemPick = "Hand";
+            addPickItems(currItemPick);
+        }
+    }
+
+    @FXML
+    protected void btnPickTop() {
+        if (trackTopItems != 0) {
+            pickItemPane.setVisible(true);
+            currItemPick = "Top";
+            addPickItems(currItemPick);
+        }
+    }
+
+    @FXML
+    protected void btnPickBot() {
+        if (trackBotItems != 0) {
+            pickItemPane.setVisible(true);
+            currItemPick = "Bot";
+            addPickItems(currItemPick);
+        }
+    }
+
+    @FXML
+    protected void btnPickFoot() {
+        if (trackFootItems != 0) {
+            pickItemPane.setVisible(true);
+            currItemPick = "Foot";
+            addPickItems(currItemPick);
+        }
+    }
+
+    protected void addPickItems(String itemPick) {
+        ItemButton tempItemButton;
+        Button button;
+        pickItemsGrid.getChildren().clear();
+        for (int currentItem = 0; currentItem < trackTopItems; currentItem++) {
+            switch (itemPick) {
+                case "Head":
+                    tempItemButton = new ItemButton(new ImageView(accessories.get(trackHeadItemGrid[currentItem]).getImage()),
+                    trackHeadItemGrid[currentItem]);
+                    button = tempItemButton.getButton();
+                    pickItemsGrid.add(button, currentItem, 0);
+                    setGridMargins(button);
+                case "Neck":
+                    tempItemButton = new ItemButton(new ImageView(accessories.get(trackNeckItemGrid[currentItem]).getImage()),
+                    trackNeckItemGrid[currentItem]);
+                    button = tempItemButton.getButton();
+                    pickItemsGrid.add(button, currentItem, 0);
+                    setGridMargins(button);
+                case "Hand":
+                    tempItemButton = new ItemButton(new ImageView(accessories.get(trackHandItemGrid[currentItem]).getImage()),
+                    trackHandItemGrid[currentItem]);
+                    button = tempItemButton.getButton();
+                    pickItemsGrid.add(button, currentItem, 0);
+                    setGridMargins(button);
+                case "Top":
+                    tempItemButton = new ItemButton(new ImageView(clothes.get(trackTopItemGrid[currentItem]).getImage()),
+                    trackTopItemGrid[currentItem]);
+                    button = tempItemButton.getButton();
+                    pickItemsGrid.add(button, currentItem, 0);
+                    setGridMargins(button);
+                case "Bot":
+                    tempItemButton = new ItemButton(new ImageView(clothes.get(trackBotItemGrid[currentItem]).getImage()),
+                    trackBotItemGrid[currentItem]);
+                    button = tempItemButton.getButton();
+                    pickItemsGrid.add(button, currentItem, 0);
+                    setGridMargins(button);
+                case "Foot":
+                    tempItemButton = new ItemButton(new ImageView(footwears.get(trackFootItemGrid[currentItem]).getImage()),
+                    trackFootItemGrid[currentItem]);
+                    button = tempItemButton.getButton();
+                    pickItemsGrid.add(button, currentItem, 0);
+                    setGridMargins(button);
+            }
+        }
 
 
 
-
+    }
 
 
 
@@ -1285,7 +1367,11 @@ public class WardrobeController implements Initializable {
 
 
 
-
+    protected void setGridMargins(Node item) {
+        GridPane.setMargin(item, new Insets(10));
+        GridPane.setHalignment(item, HPos.CENTER);
+        GridPane.setValignment(item, VPos.CENTER);
+    }
 
 
 
