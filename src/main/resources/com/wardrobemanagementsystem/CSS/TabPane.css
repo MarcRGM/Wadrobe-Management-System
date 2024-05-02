@@ -364,13 +364,13 @@
 }
 
 #showOuts {
-    -fx-background-color: #4F4A45;
+    -fx-background-color: #6c5f5b;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
 }
 
 #backItems {
-    -fx-background-color: #6c5f5b;
+    -fx-background-color: #4F4A45;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
 }
@@ -388,11 +388,31 @@
 
 #pickItemPane,
 #pickItemScrollPane {
-    -fx-background-color: #222831;
+    -fx-background-color: #4F4A45;
+}
+
+#gridPickItem {
+    -fx-background-color: #6c5f5b;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
 }
 
 #pickItemMainPane{
-    -fx-background-color: #222831;
+    -fx-background-color: #4F4A45;
     -fx-background-radius: 5px 5px 0px 0px;
     -fx-border-radius: 5px 5px 0px 0px;
+}
+
+#pickItemMainPane .button {
+    -fx-background-color: #7a6c67;
+}
+
+#pickItemMainPane #backButton {
+    -fx-background-color: #FA7070;
+    -fx-text-fill: #EEEEEE;
+}
+
+#pickItemMainPane #backButton:hover {
+    -fx-background-color: #e76464;
+    -fx-text-fill: #dedddd;
 }

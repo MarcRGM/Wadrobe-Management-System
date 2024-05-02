@@ -1022,13 +1022,13 @@
                         </Button>
                         <Button id="btnConfirm" fx:id="btnTopInfoConfirm1" layoutX="14.0" layoutY="509.0" mnemonicParsing="false" onAction="#btnTopInfoConfirmClicked" prefHeight="29.0" prefWidth="47.0" stylesheets="@CSS/TabPane.css" text="ADD" />
                         <Button id="backButton" layoutX="323.0" layoutY="509.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="29.0" prefWidth="54.0" stylesheets="@CSS/TabPane.css" text="BACK" />
-                        <Pane id="pickItemMainPane" fx:id="pickItemPane" layoutX="34.0" layoutY="153.0" minHeight="230.0" minWidth="325.0" prefHeight="230.0" prefWidth="325.0" stylesheets="@CSS/TabPane.css" visible="false">
+                        <Pane id="pickItemMainPane" fx:id="pickItemPane" layoutX="34.0" layoutY="133.0" minHeight="272.0" minWidth="325.0" prefHeight="230.0" prefWidth="325.0" stylesheets="@CSS/TabPane.css" visible="false">
                            <children>
-                              <ScrollPane id="pickItemScrollPane" fx:id="pickItemScroll" layoutY="43.0" minHeight="168.0" minWidth="325.0" prefHeight="187.0" prefWidth="325.0" stylesheets="@CSS/TabPane.css">
+                              <ScrollPane id="pickItemScrollPane" fx:id="pickItemScroll" layoutX="11.0" layoutY="41.0" minHeight="230.0" minWidth="303.0" prefHeight="230.0" prefWidth="303.0" stylesheets="@CSS/TabPane.css">
                                  <content>
-                                    <Pane id="pickItemPane" prefHeight="170.0" prefWidth="2040.0" stylesheets="@CSS/TabPane.css">
+                                    <Pane id="pickItemPane" maxHeight="213.3" minHeight="213.0" prefHeight="213.0" prefWidth="2040.0" stylesheets="@CSS/TabPane.css">
                                        <children>
-                                          <GridPane id="gridPickItem" fx:id="pickItemsGrid" stylesheets="@CSS/TabPane.css">
+                                          <GridPane id="gridPickItem" fx:id="pickItemsGrid" layoutY="22.0" stylesheets="@CSS/TabPane.css">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
                                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
@@ -1051,11 +1051,16 @@
                                     </Pane>
                                  </content>
                               </ScrollPane>
-                              <Button id="backButton" layoutX="285.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnBackPick" prefHeight="35.0" prefWidth="35.0" stylesheets="@CSS/TabPane.css" text="✖">
+                              <Button id="backButton" layoutX="279.0" layoutY="9.0" mnemonicParsing="false" onAction="#btnBackPick" prefHeight="35.0" prefWidth="35.0" stylesheets="@CSS/TabPane.css" text="✖">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
+                              <Label fx:id="labelPickItem" layoutX="14.0" layoutY="31.0" text="ITEM                                 " textFill="#6c5f5b">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </Pane>
                      </children>
@@ -1064,6 +1069,7 @@
                      <content>
                         <Pane id="itemsBackPane" minHeight="1100.0" minWidth="449.0" prefHeight="1110.0" prefWidth="449.0" stylesheets="@CSS/TabPane.css">
                            <children>
+                              <Rectangle arcWidth="5.0" fill="#6c5f5b" height="53.0" layoutX="-3.0" layoutY="1060.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="816.0" />
                               <Pane id="backItems" layoutX="50.0" layoutY="14.0" prefHeight="1081.0" prefWidth="349.0" stylesheets="@CSS/TabPane.css">
                                  <children>
                                     <GridPane id="showOuts" layoutX="21.0" layoutY="917.0" maxHeight="150.0" maxWidth="150.0" minHeight="150.0" minWidth="150.0" prefHeight="150.0" prefWidth="150.0" stylesheets="@CSS/TabPane.css">
@@ -1074,7 +1080,7 @@
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="900.0" text="FOOTWEAR" textFill="#4f4a45" />
+                                    <Label alignment="CENTER" layoutX="21.0" layoutY="900.0" text="FOOTWEAR" textFill="#6c5f5b" />
                                     <GridPane id="showOuts" layoutX="21.0" layoutY="743.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1084,7 +1090,7 @@
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="726.0" text="BOTTOM" textFill="#4f4a45" />
+                                    <Label alignment="CENTER" layoutX="21.0" layoutY="726.0" text="BOTTOM" textFill="#6c5f5b" />
                                     <GridPane id="showOuts" layoutX="21.0" layoutY="569.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1094,7 +1100,7 @@
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="552.0" text="TOP" textFill="#4f4a45" />
+                                    <Label alignment="CENTER" layoutX="21.0" layoutY="552.0" text="TOP" textFill="#6c5f5b" />
                                     <GridPane id="showOuts" layoutX="21.0" layoutY="394.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1113,8 +1119,8 @@
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="378.0" text="HAND ACCESORIES" textFill="#4f4a45" />
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="204.0" text="NECK ACCESORIES" textFill="#4f4a45" />
+                                    <Label alignment="CENTER" layoutX="21.0" layoutY="378.0" text="HAND ACCESORIES" textFill="#6c5f5b" />
+                                    <Label alignment="CENTER" layoutX="21.0" layoutY="204.0" text="NECK ACCESORIES" textFill="#6c5f5b" />
                                     <GridPane id="showOuts" layoutX="21.0" layoutY="46.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1124,9 +1130,22 @@
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <Label alignment="CENTER" layoutX="21.0" layoutY="29.0" text="HEAD ACCESSORIES" textFill="#4f4a45" />
+                                    <Label alignment="CENTER" layoutX="21.0" layoutY="29.0" text="HEAD ACCESSORIES" textFill="#6c5f5b" />
                                  </children>
                               </Pane>
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="420.0" layoutY="1061.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="25.0" layoutY="1060.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="454.0" layoutY="1060.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="57.0" layoutY="1074.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="92.0" layoutY="1087.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="129.0" layoutY="1083.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="163.0" layoutY="1087.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="199.0" layoutY="1083.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="236.0" layoutY="1083.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="271.0" layoutY="1083.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="307.0" layoutY="1085.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="346.0" layoutY="1091.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="384.0" layoutY="1080.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
                            </children>
                         </Pane>
                      </content>

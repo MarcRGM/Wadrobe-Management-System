@@ -215,6 +215,14 @@ public class WardrobeController implements Initializable {
     @FXML
     private ScrollPane itemsScroll, pickItemScroll;
 
+    @FXML
+    private Label labelPickItem;
+
+
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadItemBox();
@@ -1260,7 +1268,8 @@ public class WardrobeController implements Initializable {
         if (trackHeadItems != 0) {
             pickItemPane.setVisible(true);
             currItemPick = "Head";
-            addPickItems(currItemPick);
+            labelPickItem.setText("HEAD ACCESSORIES");
+            addPickItems(trackHeadItems, currItemPick);
         }
     }
 
@@ -1269,7 +1278,8 @@ public class WardrobeController implements Initializable {
         if (trackNeckItems != 0) {
             pickItemPane.setVisible(true);
             currItemPick = "Neck";
-            addPickItems(currItemPick);
+            labelPickItem.setText("NECK ACCESSORIES");
+            addPickItems(trackNeckItems, currItemPick);
         }
     }
 
@@ -1278,7 +1288,8 @@ public class WardrobeController implements Initializable {
         if (trackHandItems != 0) {
             pickItemPane.setVisible(true);
             currItemPick = "Hand";
-            addPickItems(currItemPick);
+            labelPickItem.setText("HAND ACCESSORIES");
+            addPickItems(trackHandItems, currItemPick);
         }
     }
 
@@ -1287,7 +1298,8 @@ public class WardrobeController implements Initializable {
         if (trackTopItems != 0) {
             pickItemPane.setVisible(true);
             currItemPick = "Top";
-            addPickItems(currItemPick);
+            labelPickItem.setText("TOPS");
+            addPickItems(trackTopItems, currItemPick);
         }
     }
 
@@ -1296,7 +1308,8 @@ public class WardrobeController implements Initializable {
         if (trackBotItems != 0) {
             pickItemPane.setVisible(true);
             currItemPick = "Bot";
-            addPickItems(currItemPick);
+            labelPickItem.setText("BOTTOMS");
+            addPickItems(trackBotItems, currItemPick);
         }
     }
 
@@ -1305,15 +1318,16 @@ public class WardrobeController implements Initializable {
         if (trackFootItems != 0) {
             pickItemPane.setVisible(true);
             currItemPick = "Foot";
-            addPickItems(currItemPick);
+            labelPickItem.setText("FOOTWEARS");
+            addPickItems(trackFootItems, currItemPick);
         }
     }
 
-    protected void addPickItems(String itemPick) {
+    protected void addPickItems(int count, String itemPick) {
         ItemButton tempItemButton;
         Button button;
         pickItemsGrid.getChildren().clear();
-        for (int currentItem = 0; currentItem < trackTopItems; currentItem++) {
+        for (int currentItem = 0; currentItem < count; currentItem++) {
             switch (itemPick) {
                 case "Head":
                     tempItemButton = new ItemButton(new ImageView(accessories.get(trackHeadItemGrid[currentItem]).getImage()),
@@ -1321,36 +1335,42 @@ public class WardrobeController implements Initializable {
                     button = tempItemButton.getButton();
                     pickItemsGrid.add(button, currentItem, 0);
                     setGridMargins(button);
+                    break;
                 case "Neck":
                     tempItemButton = new ItemButton(new ImageView(accessories.get(trackNeckItemGrid[currentItem]).getImage()),
                     trackNeckItemGrid[currentItem]);
                     button = tempItemButton.getButton();
                     pickItemsGrid.add(button, currentItem, 0);
                     setGridMargins(button);
+                    break;
                 case "Hand":
                     tempItemButton = new ItemButton(new ImageView(accessories.get(trackHandItemGrid[currentItem]).getImage()),
                     trackHandItemGrid[currentItem]);
                     button = tempItemButton.getButton();
                     pickItemsGrid.add(button, currentItem, 0);
                     setGridMargins(button);
+                    break;
                 case "Top":
                     tempItemButton = new ItemButton(new ImageView(clothes.get(trackTopItemGrid[currentItem]).getImage()),
                     trackTopItemGrid[currentItem]);
                     button = tempItemButton.getButton();
                     pickItemsGrid.add(button, currentItem, 0);
                     setGridMargins(button);
+                    break;
                 case "Bot":
                     tempItemButton = new ItemButton(new ImageView(clothes.get(trackBotItemGrid[currentItem]).getImage()),
                     trackBotItemGrid[currentItem]);
                     button = tempItemButton.getButton();
                     pickItemsGrid.add(button, currentItem, 0);
                     setGridMargins(button);
+                    break;
                 case "Foot":
                     tempItemButton = new ItemButton(new ImageView(footwears.get(trackFootItemGrid[currentItem]).getImage()),
                     trackFootItemGrid[currentItem]);
                     button = tempItemButton.getButton();
                     pickItemsGrid.add(button, currentItem, 0);
                     setGridMargins(button);
+                    break;
             }
         }
 
