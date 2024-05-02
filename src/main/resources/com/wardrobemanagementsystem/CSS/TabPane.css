@@ -403,7 +403,8 @@
     -fx-border-radius: 5px 5px 0px 0px;
 }
 
-#pickItemMainPane .button {
+#pickItemMainPane .button,
+#backItems .button {
     -fx-background-color: #7a6c67;
 }
 
@@ -415,4 +416,17 @@
 #pickItemMainPane #backButton:hover {
     -fx-background-color: #e76464;
     -fx-text-fill: #dedddd;
+}
+
+#removeInfoItem {
+    -fx-background-color: #222831;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+#removeItemLabel {
+    -fx-background-color: #31363F;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 2px;
 }

@@ -835,7 +835,7 @@
                                                             <Button id="btnClose" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearControls" stylesheets="@CSS/TabPane.css" text="✖" />
                                                             <Pane id="imagePane" layoutX="68.0" layoutY="28.0" maxHeight="170.0" maxWidth="170.0" minHeight="170.0" minWidth="170.0" prefHeight="170.0" prefWidth="170.0" stylesheets="@CSS/TabPane.css">
                                                                <children>
-                                                                  <ImageView fx:id="showTopImg1" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                                                                  <ImageView fx:id="showFootImg" fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
                                                                </children>
                                                             </Pane>
                                                             <Button id="btnRemove" layoutX="126.0" layoutY="382.0" mnemonicParsing="false" onAction="#removeFootItem" stylesheets="@CSS/TabPane.css" text="REMOVE" />
@@ -1028,7 +1028,7 @@
                                  <content>
                                     <Pane id="pickItemPane" maxHeight="213.3" minHeight="213.0" prefHeight="213.0" prefWidth="2040.0" stylesheets="@CSS/TabPane.css">
                                        <children>
-                                          <GridPane id="gridPickItem" fx:id="pickItemsGrid" layoutY="22.0" stylesheets="@CSS/TabPane.css">
+                                          <GridPane id="gridPickItem" fx:id="pickItemsGrid" alignment="CENTER" layoutY="22.0" stylesheets="@CSS/TabPane.css">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
                                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
@@ -1072,8 +1072,9 @@
                               <Rectangle arcWidth="5.0" fill="#6c5f5b" height="53.0" layoutX="-3.0" layoutY="1060.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="816.0" />
                               <Pane id="backItems" layoutX="50.0" layoutY="14.0" prefHeight="1081.0" prefWidth="349.0" stylesheets="@CSS/TabPane.css">
                                  <children>
-                                    <GridPane id="showOuts" layoutX="21.0" layoutY="917.0" maxHeight="150.0" maxWidth="150.0" minHeight="150.0" minWidth="150.0" prefHeight="150.0" prefWidth="150.0" stylesheets="@CSS/TabPane.css">
+                                    <GridPane id="showOuts" fx:id="pickFootGrid" alignment="CENTER" layoutX="21.0" layoutY="917.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                        </columnConstraints>
                                        <rowConstraints>
@@ -1081,7 +1082,7 @@
                                        </rowConstraints>
                                     </GridPane>
                                     <Label alignment="CENTER" layoutX="21.0" layoutY="900.0" text="FOOTWEAR" textFill="#6c5f5b" />
-                                    <GridPane id="showOuts" layoutX="21.0" layoutY="743.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                    <GridPane id="showOuts" fx:id="pickBotGrid" alignment="CENTER" layoutX="21.0" layoutY="743.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1091,7 +1092,7 @@
                                        </rowConstraints>
                                     </GridPane>
                                     <Label alignment="CENTER" layoutX="21.0" layoutY="726.0" text="BOTTOM" textFill="#6c5f5b" />
-                                    <GridPane id="showOuts" layoutX="21.0" layoutY="569.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                    <GridPane id="showOuts" fx:id="pickTopGrid" alignment="CENTER" layoutX="21.0" layoutY="569.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1101,7 +1102,7 @@
                                        </rowConstraints>
                                     </GridPane>
                                     <Label alignment="CENTER" layoutX="21.0" layoutY="552.0" text="TOP" textFill="#6c5f5b" />
-                                    <GridPane id="showOuts" layoutX="21.0" layoutY="394.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                    <GridPane id="showOuts" fx:id="pickHandGrid" alignment="CENTER" layoutX="21.0" layoutY="394.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1110,8 +1111,9 @@
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
-                                    <GridPane id="showOuts" layoutX="21.0" layoutY="221.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                    <GridPane id="showOuts" fx:id="pickNeckGrid" alignment="CENTER" layoutX="21.0" layoutY="221.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                        </columnConstraints>
@@ -1121,7 +1123,7 @@
                                     </GridPane>
                                     <Label alignment="CENTER" layoutX="21.0" layoutY="378.0" text="HAND ACCESORIES" textFill="#6c5f5b" />
                                     <Label alignment="CENTER" layoutX="21.0" layoutY="204.0" text="NECK ACCESORIES" textFill="#6c5f5b" />
-                                    <GridPane id="showOuts" layoutX="21.0" layoutY="46.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                    <GridPane id="showOuts" fx:id="pickHeadGrid" alignment="CENTER" layoutX="21.0" layoutY="46.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -1146,6 +1148,14 @@
                               <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="307.0" layoutY="1085.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
                               <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="346.0" layoutY="1091.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
                               <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="384.0" layoutY="1080.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                              <Pane id="removeInfoItem" fx:id="removeInfoItemPane" layoutX="67.0" layoutY="222.0" prefHeight="92.0" prefWidth="289.0" stylesheets="@CSS/TabPane.css" visible="false">
+                                 <children>
+                                    <Button id="backButton" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#noRemoveClicked" prefHeight="29.0" prefWidth="46.0" stylesheets="@CSS/TabPane.css" text="NO" />
+                                    <Button id="btnConfirm" layoutX="229.0" layoutY="50.0" mnemonicParsing="false" onAction="#yesRemoveClicked" prefHeight="29.0" prefWidth="46.0" stylesheets="@CSS/TabPane.css" text="YES" />
+                                    <Label layoutX="14.0" layoutY="14.0" text="REMOVE ITEM: " textFill="#eeeeee" />
+                                    <Label id="removeItemLabel" fx:id="removeItemLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="99.0" layoutY="12.0" stylesheets="@CSS/TabPane.css" text="ITEM                                           " textFill="#eeeeee" />
+                                 </children>
+                              </Pane>
                            </children>
                         </Pane>
                      </content>

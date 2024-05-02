@@ -193,18 +193,40 @@ public class WardrobeController implements Initializable {
 
     // OUTFIT CREATION
     @FXML
-    private Pane selectGenderPane, outfitCreationPane, outfitsPane, pickItemPane;
+    private Pane selectGenderPane, outfitCreationPane, outfitsPane, pickItemPane, removeInfoItemPane;
 
     @FXML
-    private Button btnShowOutfit, btnCreateOutfit;
+    private Button btnShowOutfit, btnCreateOutfit, currRemoveButton;
 
     @FXML
-    private GridPane pickItemsGrid;
+    private GridPane pickItemsGrid, pickHeadGrid, pickNeckGrid, pickHandGrid,
+    pickTopGrid, pickBotGrid, pickFootGrid;
+
+    private int headPickItems = 0;
+    private int neckPickItems = 0;
+    private int handPickItems = 0;
+    private int topPickItems = 0;
+    private int botPickItems = 0;
+    private int footPickItems = 0;
+
+    private String[] headItemsCreate = new String[2];
+    private String[] neckItemsCreate = new String[2];
+    private String[] handItemsCreate = new String[2];
+    private String[] topItemsCreate = new String[2];
+    private String[] botItemsCreate = new String[2];
+    private String[] footItemsCreate = new String[2];
+
+    private Button[] headItemsCreateButton = new Button[2];
+    private Button[] neckItemsCreateButton = new Button[2];
+    private Button[] handItemsCreateButton = new Button[2];
+    private Button[] topItemsCreateButton = new Button[2];
+    private Button[] botCreateButton = new Button[2];
+    private Button[] footItemsCreateButton = new Button[2];
 
     Image maleFigure = new Image(new File("src/main/java/com/icons8-body-600.png").toURI().toString());
     Image femaleFigure = new Image(new File("src/main/java/com/icons8-girl-body-600.png").toURI().toString());
 
-    String currItemPick, currGenderOutfitCreation;
+    String currItemPick, currGenderOutfitCreation, currRemovePlace, currRemoveItem;
 
     @FXML
     private ImageView imgViewMale, imgViewFemale;
@@ -216,7 +238,7 @@ public class WardrobeController implements Initializable {
     private ScrollPane itemsScroll, pickItemScroll;
 
     @FXML
-    private Label labelPickItem;
+    private Label labelPickItem, removeItemLabel;
 
 
 
@@ -1265,7 +1287,7 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnPickHead() {
-        if (trackHeadItems != 0) {
+        if (trackHeadItems != 0 && headPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Head";
             labelPickItem.setText("HEAD ACCESSORIES");
@@ -1275,7 +1297,7 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnPickNeck() {
-        if (trackNeckItems != 0) {
+        if (trackNeckItems != 0 && neckPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Neck";
             labelPickItem.setText("NECK ACCESSORIES");
@@ -1285,7 +1307,7 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnPickHand() {
-        if (trackHandItems != 0) {
+        if (trackHandItems != 0 && handPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Hand";
             labelPickItem.setText("HAND ACCESSORIES");
@@ -1295,7 +1317,7 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnPickTop() {
-        if (trackTopItems != 0) {
+        if (trackTopItems != 0 && topPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Top";
             labelPickItem.setText("TOPS");
@@ -1305,7 +1327,7 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnPickBot() {
-        if (trackBotItems != 0) {
+        if (trackBotItems != 0 && botPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Bot";
             labelPickItem.setText("BOTTOMS");
@@ -1315,7 +1337,7 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnPickFoot() {
-        if (trackFootItems != 0) {
+        if (trackFootItems != 0 && footPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Foot";
             labelPickItem.setText("FOOTWEARS");
@@ -1324,58 +1346,214 @@ public class WardrobeController implements Initializable {
     }
 
     protected void addPickItems(int count, String itemPick) {
-        ItemButton tempItemButton;
-        Button button;
+        ItemButton tempItemButton1;
+        Button button1;
         pickItemsGrid.getChildren().clear();
         for (int currentItem = 0; currentItem < count; currentItem++) {
             switch (itemPick) {
                 case "Head":
-                    tempItemButton = new ItemButton(new ImageView(accessories.get(trackHeadItemGrid[currentItem]).getImage()),
+                    tempItemButton1 = new ItemButton(new ImageView(accessories.get(trackHeadItemGrid[currentItem]).getImage()),
                     trackHeadItemGrid[currentItem]);
-                    button = tempItemButton.getButton();
-                    pickItemsGrid.add(button, currentItem, 0);
-                    setGridMargins(button);
+                    button1 = tempItemButton1.getButton();
+                    pickItemsGrid.add(button1, currentItem, 0);
+                    setGridMargins(button1);
+
+                    int headCurrentItem = currentItem;
+                    button1.setOnAction(event -> {
+                        Button clickedButton = (Button) event.getSource();
+                        clickedButton.setDisable(true);
+                        if (headPickItems != 2) {
+                            headItemsCreate[headPickItems] = trackHeadItemGrid[ headCurrentItem ];
+                            ItemButton tempItemButton2 = new ItemButton(new ImageView(accessories.get(trackHeadItemGrid[ headCurrentItem ]).getImage()),
+                                    trackHeadItemGrid[ headCurrentItem ]);
+                            tempItemButton2.setImageViewSize(100, 100);
+                            Button button2 = tempItemButton2.getButton();
+                            headItemsCreateButton[headPickItems] = button2;
+                            button2.setMinWidth(125);
+                            button2.setMaxWidth(125);
+                            button2.setPrefWidth(125);
+                            button2.setMinHeight(125);
+                            button2.setMaxHeight(125);
+                            button2.setPrefHeight(125);
+
+                            button2.setOnAction(e -> {
+                                removeInfoItemPane.setVisible(true);
+                                removeItemLabel.setText(headItemsCreate[headPickItems] = trackHeadItemGrid[ headCurrentItem ]);
+                                currRemoveItem = headItemsCreate[headPickItems] = trackHeadItemGrid[ headCurrentItem ];
+                                currRemovePlace = "Head";
+                                currRemoveButton = button2;
+                            });
+
+                            pickHeadGrid.add(button2, headPickItems++, 0);
+                            setGridMargins(button2);
+                        }
+                    });
+
                     break;
                 case "Neck":
-                    tempItemButton = new ItemButton(new ImageView(accessories.get(trackNeckItemGrid[currentItem]).getImage()),
+                    tempItemButton1 = new ItemButton(new ImageView(accessories.get(trackNeckItemGrid[currentItem]).getImage()),
                     trackNeckItemGrid[currentItem]);
-                    button = tempItemButton.getButton();
-                    pickItemsGrid.add(button, currentItem, 0);
-                    setGridMargins(button);
+                    button1 = tempItemButton1.getButton();
+                    pickItemsGrid.add(button1, currentItem, 0);
+                    setGridMargins(button1);
+
+                    int neckCurrentItem = currentItem;
+                    button1.setOnAction(event -> {
+                        ItemButton tempItemButton2 = new ItemButton(new ImageView(accessories.get(trackNeckItemGrid[ neckCurrentItem ]).getImage()),
+                        trackNeckItemGrid[ neckCurrentItem ]);
+                        tempItemButton2.setImageViewSize(100, 100);
+                        Button button2 = tempItemButton2.getButton();
+                        button2.setMinWidth(125);
+                        button2.setMaxWidth(125);
+                        button2.setPrefWidth(125);
+                        button2.setMinHeight(125);
+                        button2.setMaxHeight(125);
+                        button2.setPrefHeight(125);
+                        pickNeckGrid.add(button2, neckPickItems++, 0);
+                        setGridMargins(button2);
+                    });
+
                     break;
                 case "Hand":
-                    tempItemButton = new ItemButton(new ImageView(accessories.get(trackHandItemGrid[currentItem]).getImage()),
+                    tempItemButton1 = new ItemButton(new ImageView(accessories.get(trackHandItemGrid[currentItem]).getImage()),
                     trackHandItemGrid[currentItem]);
-                    button = tempItemButton.getButton();
-                    pickItemsGrid.add(button, currentItem, 0);
-                    setGridMargins(button);
+                    button1 = tempItemButton1.getButton();
+                    pickItemsGrid.add(button1, currentItem, 0);
+                    setGridMargins(button1);
+
+                    int handCurrentItem = currentItem;
+                    button1.setOnAction(event -> {
+                        ItemButton tempItemButton2 = new ItemButton(new ImageView(accessories.get(trackHandItemGrid[ handCurrentItem ]).getImage()),
+                        trackHandItemGrid[ handCurrentItem ]);
+                        tempItemButton2.setImageViewSize(100, 100);
+                        Button button2 = tempItemButton2.getButton();
+                        button2.setMinWidth(125);
+                        button2.setMaxWidth(125);
+                        button2.setPrefWidth(125);
+                        button2.setMinHeight(125);
+                        button2.setMaxHeight(125);
+                        button2.setPrefHeight(125);
+                        pickHandGrid.add(button2, handPickItems++, 0);
+                        setGridMargins(button2);
+                    });
+
                     break;
                 case "Top":
-                    tempItemButton = new ItemButton(new ImageView(clothes.get(trackTopItemGrid[currentItem]).getImage()),
+                    tempItemButton1 = new ItemButton(new ImageView(clothes.get(trackTopItemGrid[currentItem]).getImage()),
                     trackTopItemGrid[currentItem]);
-                    button = tempItemButton.getButton();
-                    pickItemsGrid.add(button, currentItem, 0);
-                    setGridMargins(button);
+                    button1 = tempItemButton1.getButton();
+                    pickItemsGrid.add(button1, currentItem, 0);
+                    setGridMargins(button1);
+
+                    int topCurrentItem = currentItem;
+                    button1.setOnAction(event -> {
+                        ItemButton tempItemButton2 = new ItemButton(new ImageView(clothes.get(trackTopItemGrid[ topCurrentItem ]).getImage()),
+                        trackTopItemGrid[ topCurrentItem ]);
+                        tempItemButton2.setImageViewSize(100, 100);
+                        Button button2 = tempItemButton2.getButton();
+                        button2.setMinWidth(125);
+                        button2.setMaxWidth(125);
+                        button2.setPrefWidth(125);
+                        button2.setMinHeight(125);
+                        button2.setMaxHeight(125);
+                        button2.setPrefHeight(125);
+                        pickTopGrid.add(button2, topPickItems++, 0);
+                        setGridMargins(button2);
+                    });
+
                     break;
                 case "Bot":
-                    tempItemButton = new ItemButton(new ImageView(clothes.get(trackBotItemGrid[currentItem]).getImage()),
+                    tempItemButton1 = new ItemButton(new ImageView(clothes.get(trackBotItemGrid[currentItem]).getImage()),
                     trackBotItemGrid[currentItem]);
-                    button = tempItemButton.getButton();
-                    pickItemsGrid.add(button, currentItem, 0);
-                    setGridMargins(button);
+                    button1 = tempItemButton1.getButton();
+                    pickItemsGrid.add(button1, currentItem, 0);
+                    setGridMargins(button1);
+
+                    int botCurrentItem = currentItem;
+                    button1.setOnAction(event -> {
+                        ItemButton tempItemButton2 = new ItemButton(new ImageView(clothes.get(trackBotItemGrid[ botCurrentItem ]).getImage()),
+                        trackBotItemGrid[ botCurrentItem ]);
+                        tempItemButton2.setImageViewSize(100, 100);
+                        Button button2 = tempItemButton2.getButton();
+                        button2.setMinWidth(125);
+                        button2.setMaxWidth(125);
+                        button2.setPrefWidth(125);
+                        button2.setMinHeight(125);
+                        button2.setMaxHeight(125);
+                        button2.setPrefHeight(125);
+                        pickBotGrid.add(button2, botPickItems++, 0);
+                        setGridMargins(button2);
+                    });
+
                     break;
                 case "Foot":
-                    tempItemButton = new ItemButton(new ImageView(footwears.get(trackFootItemGrid[currentItem]).getImage()),
+                    tempItemButton1 = new ItemButton(new ImageView(footwears.get(trackFootItemGrid[currentItem]).getImage()),
                     trackFootItemGrid[currentItem]);
-                    button = tempItemButton.getButton();
-                    pickItemsGrid.add(button, currentItem, 0);
-                    setGridMargins(button);
+                    button1 = tempItemButton1.getButton();
+                    pickItemsGrid.add(button1, currentItem, 0);
+                    setGridMargins(button1);
+
+                    int footCurrentItem = currentItem;
+                    button1.setOnAction(event -> {
+                        ItemButton tempItemButton2 = new ItemButton(new ImageView(footwears.get(trackFootItemGrid[ footCurrentItem ]).getImage()),
+                        trackFootItemGrid[ footCurrentItem ]);
+                        tempItemButton2.setImageViewSize(100, 100);
+                        Button button2 = tempItemButton2.getButton();
+                        button2.setMinWidth(125);
+                        button2.setMaxWidth(125);
+                        button2.setPrefWidth(125);
+                        button2.setMinHeight(125);
+                        button2.setMaxHeight(125);
+                        button2.setPrefHeight(125);
+                        pickFootGrid.add(button2, footPickItems++, 0);
+                        setGridMargins(button2);
+                    });
+
                     break;
             }
         }
+    }
 
+    @FXML
+    protected void noRemoveClicked() {
+        removeInfoItemPane.setVisible(false);
+    }
 
+    @FXML
+    protected void yesRemoveClicked() {
+        switch (currRemovePlace) {
+            case "Head":
+                pickHeadGrid.getChildren().remove(currRemoveButton);
+                for (int i = 0; i < headPickItems; i++) {
+                    if (headItemsCreate[i].equals(currRemoveItem)) {
+                        headItemsCreate[i] = null;
+                        if (i == 0 && headPickItems == 2) {
+                            headItemsCreate[i] = headItemsCreate[i+1];
+                            headItemsCreate[i+1] = null;
+                            pickHeadGrid.getChildren().remove(headItemsCreateButton[i+1]);
+                            pickHeadGrid.add(headItemsCreateButton[i+1], headPickItems-1, 0);
+                        }
+                    }
+                }
+                headPickItems--;
+                break;
+            case "Neck":
 
+                break;
+            case "Hand":
+
+                break;
+            case "Top":
+
+                break;
+            case "bot":
+
+                break;
+            case "Foot":
+
+                break;
+        }
+        removeInfoItemPane.setVisible(false);
     }
 
 

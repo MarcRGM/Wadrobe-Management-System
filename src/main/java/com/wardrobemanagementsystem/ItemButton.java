@@ -7,6 +7,8 @@ public class ItemButton {
     private Button button;
     private String name;
 
+    ImageView imageView;
+
     ItemButton(ImageView imageView, String name) {
         this.button = new Button();
         this.name = name;
@@ -18,15 +20,23 @@ public class ItemButton {
         button.setMaxHeight(150);
         button.setPrefHeight(150);
 
-        imageView.setFitWidth(125);
-        imageView.setFitHeight(125);
+        this.imageView = imageView;
 
-        button.setGraphic(imageView);
+        this.imageView.setFitWidth(125);
+        this.imageView.setFitHeight(125);
+
+        button.setGraphic(this.imageView);
 
     }
 
     public Button getButton() {
         return this.button;
+    }
+
+    public void setImageViewSize(int width, int height) {
+        imageView.setFitWidth(width);
+        imageView.setFitHeight(height);
+        button.setGraphic(imageView);
     }
 
     public String getName() {
