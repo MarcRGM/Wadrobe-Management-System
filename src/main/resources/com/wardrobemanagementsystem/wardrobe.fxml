@@ -967,7 +967,7 @@
                </graphic>
             </Button>
             <Button id="btnOutfit" fx:id="btnCreateOutfit" layoutX="715.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCreateOutfitClicked" prefHeight="37.0" prefWidth="54.0" stylesheets="@CSS/TabPane.css" text="➕" textFill="#eeeeee" />
-            <Pane id="outfitCreationPane" fx:id="outfitCreationPane" layoutX="-3.0" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css">
+            <Pane id="outfitCreationPane" fx:id="outfitCreationPane" layoutX="-3.0" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css" visible="false">
                <children>
                   <Pane id="addOutfitPane" layoutX="465.0" prefHeight="552.0" prefWidth="393.0" stylesheets="@CSS/TabPane.css">
                      <children>
@@ -1115,7 +1115,6 @@
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
@@ -1148,14 +1147,6 @@
                               <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="307.0" layoutY="1085.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
                               <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="346.0" layoutY="1091.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
                               <Rectangle arcWidth="5.0" fill="#4f4a45" height="53.0" layoutX="384.0" layoutY="1080.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
-                              <Pane id="removeInfoItem" fx:id="removeInfoItemPane" layoutX="67.0" layoutY="222.0" prefHeight="92.0" prefWidth="289.0" stylesheets="@CSS/TabPane.css" visible="false">
-                                 <children>
-                                    <Button id="backButton" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#noRemoveClicked" prefHeight="29.0" prefWidth="46.0" stylesheets="@CSS/TabPane.css" text="NO" />
-                                    <Button id="btnConfirm" layoutX="229.0" layoutY="50.0" mnemonicParsing="false" onAction="#yesRemoveClicked" prefHeight="29.0" prefWidth="46.0" stylesheets="@CSS/TabPane.css" text="YES" />
-                                    <Label layoutX="14.0" layoutY="14.0" text="REMOVE ITEM: " textFill="#eeeeee" />
-                                    <Label id="removeItemLabel" fx:id="removeItemLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="99.0" layoutY="12.0" stylesheets="@CSS/TabPane.css" text="ITEM                                           " textFill="#eeeeee" />
-                                 </children>
-                              </Pane>
                            </children>
                         </Pane>
                      </content>
@@ -1221,6 +1212,14 @@
                   <Rectangle fx:id="shadow11" arcWidth="5.0" fill="#3f3b37" height="439.0" layoutX="760.0" layoutY="113.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="69.0" />
                   <Rectangle fx:id="shadow111" arcHeight="20.0" arcWidth="5.0" fill="#4f4a45" height="439.0" layoutX="21.0" layoutY="116.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="138.0" />
                   <Rectangle fx:id="shadow112" arcWidth="5.0" fill="#c2dddb" height="420.0" layoutX="32.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="115.0" />
+               </children>
+            </Pane>
+            <Pane id="removeInfoItem" fx:id="removeInfoItemPane" layoutX="283.0" layoutY="230.0" prefHeight="92.0" prefWidth="289.0" stylesheets="@CSS/TabPane.css" visible="false">
+               <children>
+                  <Button id="backButton" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#noRemoveClicked" prefHeight="29.0" prefWidth="46.0" stylesheets="@CSS/TabPane.css" text="NO" />
+                  <Button id="btnConfirm" layoutX="229.0" layoutY="50.0" mnemonicParsing="false" onAction="#yesRemoveClicked" prefHeight="29.0" prefWidth="46.0" stylesheets="@CSS/TabPane.css" text="YES" />
+                  <Label layoutX="14.0" layoutY="14.0" text="REMOVE ITEM: " textFill="#eeeeee" />
+                  <Label id="removeItemLabel" fx:id="removeItemLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="99.0" layoutY="12.0" stylesheets="@CSS/TabPane.css" text="ITEM                                           " textFill="#eeeeee" />
                </children>
             </Pane>
          </children>
