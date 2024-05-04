@@ -1020,7 +1020,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button id="btnConfirm" fx:id="btnTopInfoConfirm1" layoutX="14.0" layoutY="509.0" mnemonicParsing="false" onAction="#btnTopInfoConfirmClicked" prefHeight="29.0" prefWidth="47.0" stylesheets="@CSS/TabPane.css" text="ADD" />
+                        <Button id="btnConfirm" layoutX="14.0" layoutY="509.0" mnemonicParsing="false" onAction="#btnAddOutfit" prefHeight="29.0" prefWidth="47.0" stylesheets="@CSS/TabPane.css" text="ADD" />
                         <Button id="backButton" layoutX="323.0" layoutY="509.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="29.0" prefWidth="54.0" stylesheets="@CSS/TabPane.css" text="BACK" />
                         <Pane id="pickItemMainPane" fx:id="pickItemPane" layoutX="34.0" layoutY="133.0" minHeight="272.0" minWidth="325.0" prefHeight="230.0" prefWidth="325.0" stylesheets="@CSS/TabPane.css" visible="false">
                            <children>

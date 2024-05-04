@@ -1229,6 +1229,12 @@ public class WardrobeController implements Initializable {
         pickItemPane.setVisible(false);
         pickItemScroll.setHvalue(0);
         itemsScroll.setVvalue(0);
+        pickHeadGrid.getChildren().clear();
+        pickNeckGrid.getChildren().clear();
+        pickHandGrid.getChildren().clear();
+        pickTopGrid.getChildren().clear();
+        pickBotGrid.getChildren().clear();
+        pickFootGrid.getChildren().clear();
     }
 
     @FXML
@@ -1286,8 +1292,6 @@ public class WardrobeController implements Initializable {
             labelPickItem.setText("HEAD ACCESSORIES");
             addPickItems(trackHeadItems, currItemPick);
             pickItemScroll.setHvalue(0);
-
-
         }
     }
 
@@ -1815,6 +1819,12 @@ public class WardrobeController implements Initializable {
         }
         removeInfoItemPane.setVisible(false);
     }
+
+    @FXML
+    protected void btnAddOutfit() {
+
+    }
+
 
 
 
