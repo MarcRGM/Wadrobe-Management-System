@@ -32,7 +32,7 @@
             <Insets bottom="-20.0" left="-20.0" right="-20.0" top="-20.0" />
          </VBox.margin>
          <children>
-            <TabPane id="tabPane" fx:id="mainTabPane" prefHeight="552.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE" visible="false">
+            <TabPane id="tabPane" fx:id="mainTabPane" prefHeight="552.0" prefWidth="849.0" stylesheets="@CSS/TabPane.css" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab id="clothTab" fx:id="clothTab" onSelectionChanged="#clothTabClicked" text="👕   CLOTHING">
                      <content>
@@ -967,7 +967,7 @@
                </graphic>
             </Button>
             <Button id="btnOutfit" fx:id="btnCreateOutfit" layoutX="715.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnCreateOutfitClicked" prefHeight="37.0" prefWidth="54.0" stylesheets="@CSS/TabPane.css" text="➕" textFill="#eeeeee" />
-            <Pane id="outfitCreationPane" fx:id="outfitCreationPane" layoutX="-3.0" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css">
+            <Pane id="outfitCreationPane" fx:id="outfitCreationPane" layoutX="-3.0" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css" visible="false">
                <children>
                   <Pane id="addOutfitPane" layoutX="465.0" prefHeight="552.0" prefWidth="393.0" stylesheets="@CSS/TabPane.css">
                      <children>
@@ -1161,46 +1161,128 @@
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4f4a45" height="6.0" layoutX="183.0" layoutY="311.0" onMouseClicked="#handClicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
                         <Label layoutX="159.0" layoutY="325.0" onMouseClicked="#handClicked" prefHeight="18.0" prefWidth="83.0" text="HANDWEARS" textFill="#4f4a45" />
-                        <Pane id="wardrobeCover" layoutX="14.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
+                        <Pane id="wardrobeCover" layoutX="14.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" onMouseClicked="#outfit1Clicked" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4f4a45" height="192.0" layoutX="99.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
-                              <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="EMPTY" textFill="#4f4a45">
+                              <Label fx:id="lblOutfit1" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="14.0" text="OUTFIT 1" textFill="#4f4a45">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
-                        <Pane id="wardrobeCover" layoutX="146.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
+                        <Pane id="wardrobeCover" layoutX="146.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" onMouseClicked="#outfit2Clicked" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4f4a45" height="192.0" layoutX="99.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
-                              <Label alignment="CENTER" layoutX="30.0" layoutY="14.0" text="EMPTY" textFill="#4f4a45">
+                              <Label fx:id="lblOutfit2" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="14.0" text="OUTFIT 2" textFill="#4f4a45">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
-                        <Pane id="wardrobeCover" layoutX="278.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
+                        <Pane id="wardrobeCover" layoutX="278.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" onMouseClicked="#outfit3Clicked" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4f4a45" height="192.0" layoutX="99.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
-                              <Label alignment="CENTER" layoutX="31.0" layoutY="11.0" text="EMPTY" textFill="#4f4a45">
+                              <Label fx:id="lblOutfit3" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="14.0" text="OUTFIT 3" textFill="#4f4a45">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
-                        <Pane id="wardrobeCover" layoutX="411.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
+                        <Pane id="wardrobeCover" layoutX="411.0" layoutY="13.0" maxHeight="412.0" maxWidth="129.0" minHeight="107.0" minWidth="122.0" onMouseClicked="#outfit4Clicked" prefHeight="412.0" prefWidth="122.0" stylesheets="@CSS/TabPane.css">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4f4a45" height="192.0" layoutX="99.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="9.0" />
-                              <Label alignment="CENTER" layoutX="28.0" layoutY="14.0" text="EMPTY" textFill="#4f4a45">
+                              <Label alignment="CENTER" layoutX="28.0" layoutY="14.0" textFill="#4f4a45">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblOutfit4" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="14.0" text="OUTFIT 4" textFill="#4f4a45">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
+                        <ScrollPane id="showOutfitItems" fx:id="showOutfitItems" layoutX="86.0" layoutY="20.0" prefHeight="399.0" prefWidth="365.0" stylesheets="@CSS/TabPane.css" visible="false">
+                           <content>
+                              <Pane id="itemsBackPane" minHeight="1081.0" minWidth="349.0" prefHeight="1081.0" prefWidth="349.0" stylesheets="@CSS/TabPane.css">
+                                 <children>
+                                    <Pane id="showBackItems" prefHeight="1081.0" prefWidth="349.0" stylesheets="@CSS/TabPane.css">
+                                       <children>
+                                          <GridPane id="showOuts" fx:id="showFootGrid" alignment="CENTER" layoutX="21.0" layoutY="917.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <Label alignment="CENTER" layoutX="21.0" layoutY="900.0" text="FOOTWEAR" textFill="#6c5f5b" />
+                                          <GridPane id="showOuts" fx:id="showBotGrid" alignment="CENTER" layoutX="21.0" layoutY="743.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <Label alignment="CENTER" layoutX="21.0" layoutY="726.0" text="BOTTOM" textFill="#6c5f5b" />
+                                          <GridPane id="showOuts" fx:id="showTopGrid" alignment="CENTER" layoutX="21.0" layoutY="569.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <Label alignment="CENTER" layoutX="21.0" layoutY="552.0" text="TOP" textFill="#6c5f5b" />
+                                          <GridPane id="showOuts" fx:id="showHandGrid" alignment="CENTER" layoutX="21.0" layoutY="394.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <GridPane id="showOuts" fx:id="showNeckGrid" alignment="CENTER" layoutX="21.0" layoutY="221.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <Label alignment="CENTER" layoutX="21.0" layoutY="378.0" text="HAND ACCESORIES" textFill="#6c5f5b" />
+                                          <Label alignment="CENTER" layoutX="21.0" layoutY="204.0" text="NECK ACCESORIES" textFill="#6c5f5b" />
+                                          <GridPane id="showOuts" fx:id="showHeadGrid" alignment="CENTER" layoutX="21.0" layoutY="46.0" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="300.0" prefHeight="150.0" prefWidth="300.0" stylesheets="@CSS/TabPane.css">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <Label alignment="CENTER" layoutX="21.0" layoutY="29.0" text="HEAD ACCESSORIES" textFill="#6c5f5b" />
+                                          <Button id="btnBackShowScroll" layoutX="318.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnBackOutfitClicked" prefHeight="25.0" prefWidth="25.0" stylesheets="@CSS/TabPane.css" text="✖" textFill="#6c5f5b">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </Pane>
                   <Label id="titleLabel" fx:id="titleLabel1" alignment="CENTER" layoutX="372.0" layoutY="65.0" maxHeight="53.0" minHeight="48.0" prefHeight="53.0" prefWidth="203.0" stylesheets="@CSS/TabPane.css" text="OUTFITS" textFill="#6c5f5b">
@@ -1214,13 +1296,18 @@
                   <Rectangle fx:id="shadow112" arcWidth="5.0" fill="#c2dddb" height="420.0" layoutX="32.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="115.0" />
                </children>
             </Pane>
-            <Pane id="chooseWardrobeSpace" fx:id="wardrobeOption" layoutX="413.0" layoutY="408.0" prefHeight="99.0" prefWidth="172.0" stylesheets="@CSS/TabPane.css">
+            <Pane id="chooseWardrobeSpace" fx:id="wardrobeOption" layoutX="408.0" layoutY="382.0" prefHeight="118.0" prefWidth="183.0" stylesheets="@CSS/TabPane.css" visible="false">
                <children>
-                  <Label layoutX="14.0" layoutY="6.0" text="Choose wardrobe space:" textFill="#eeeeee" />
-                  <Button id="wardrobeOption" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="30.0" stylesheets="@CSS/TabPane.css" text="1" />
-                  <Button id="wardrobeOption" layoutX="52.0" layoutY="23.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="30.0" stylesheets="@CSS/TabPane.css" text="2" />
-                  <Button id="wardrobeOption" layoutX="90.0" layoutY="23.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="30.0" stylesheets="@CSS/TabPane.css" text="3" />
-                  <Button id="wardrobeOption" layoutX="128.0" layoutY="23.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="30.0" stylesheets="@CSS/TabPane.css" text="4" />
+                  <Label layoutX="14.0" layoutY="6.0" text="Choose wardrobe space" textFill="#eeeeee" />
+                  <Button id="wardrobeOption" layoutX="15.0" layoutY="30.0" mnemonicParsing="false" onAction="#space1Clicked" prefHeight="75.0" prefWidth="32.0" stylesheets="@CSS/TabPane.css" text="1" />
+                  <Button id="wardrobeOption" layoutX="56.0" layoutY="30.0" mnemonicParsing="false" onAction="#space2Clicked" prefHeight="75.0" prefWidth="32.0" stylesheets="@CSS/TabPane.css" text="2" />
+                  <Button id="wardrobeOption" layoutX="96.0" layoutY="30.0" mnemonicParsing="false" onAction="#space3Clicked" prefHeight="75.0" prefWidth="32.0" stylesheets="@CSS/TabPane.css" text="3" />
+                  <Button id="wardrobeOption" layoutX="136.0" layoutY="30.0" mnemonicParsing="false" onAction="#space4Clicked" prefHeight="75.0" prefWidth="32.0" stylesheets="@CSS/TabPane.css" text="4" />
+                  <Button id="btnBackOption" layoutX="160.0" layoutY="5.0" maxHeight="18.0" maxWidth="18.0" minWidth="1.0" mnemonicParsing="false" onAction="#btnBackOptionClicked" prefHeight="18.0" prefWidth="18.0" stylesheets="@CSS/TabPane.css" text="X">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
             <Pane id="removeInfoItem" fx:id="removeInfoItemPane" layoutX="283.0" layoutY="230.0" prefHeight="92.0" prefWidth="289.0" stylesheets="@CSS/TabPane.css" visible="false">

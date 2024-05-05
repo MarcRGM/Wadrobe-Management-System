@@ -244,17 +244,18 @@ public class WardrobeController implements Initializable {
 
 
 
-    // Show Outfit
-    int outfitCount = 0;
+    // Show Outfits
 
     String[] wardrobeSpace = new String[4];
 
     Outfit[] outfits = new Outfit[4];
 
+    @FXML
+    private GridPane showHeadGrid, showNeckGrid, showHandGrid,
+    showTopGrid, showBotGrid, showFootGrid;
 
-
-
-
+    @FXML
+    private ScrollPane showOutfitItems;
 
 
 
@@ -1837,18 +1838,15 @@ public class WardrobeController implements Initializable {
         wardrobeOption.setVisible(true);
     }
 
-    // ---------- Outfit Creation END ----------
-
-
-
-
-
-    // ---------- Show Outfits ----------
-
-
+    @FXML
+    protected void btnBackOptionClicked() {
+        wardrobeOption.setVisible(false);
+    }
 
     @FXML
     protected void space1Clicked() {
+        outfits[0] = new Outfit();
+
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[0].setHeadAcc(accessories.get(headItemsCreate[i]), i);
@@ -1890,11 +1888,13 @@ public class WardrobeController implements Initializable {
             }
         }
         pickFootGrid.getChildren().clear();
+        wardrobeOption.setVisible(false);
     }
 
 
     @FXML
     protected void space2Clicked() {
+        outfits[1] = new Outfit();
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[1].setHeadAcc(accessories.get(headItemsCreate[i]), i);
@@ -1942,6 +1942,8 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void space3Clicked() {
+        outfits[2] = new Outfit();
+
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[2].setHeadAcc(accessories.get(headItemsCreate[i]), i);
@@ -1988,6 +1990,8 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void space4Clicked() {
+        outfits[3] = new Outfit();
+
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[3].setHeadAcc(accessories.get(headItemsCreate[i]), i);
@@ -2031,9 +2035,169 @@ public class WardrobeController implements Initializable {
         pickFootGrid.getChildren().clear();
     }
 
+    // ---------- Outfit Creation END ----------
 
 
 
+
+
+    // ---------- Show Outfits ----------
+
+
+    @FXML
+    protected void btnBackOutfitClicked() {
+        showOutfitItems.setVisible(false);
+        showOutfitItems.setVvalue(0);
+    }
+
+    @FXML
+    protected void outfit1Clicked() {
+
+        for (Outfit outfit : outfits) {
+            if (outfit != null) {
+                for(int i = 0; i < 2; i++){
+                    if (outfit.getHeadAcc(i) != null) {
+                        outfitsPane.setVisible(false); // NULLLLLLLLLLL
+                        ItemButton headItemButton = new ItemButton(new ImageView(outfit.getHeadAcc(i).getImage()),
+                                outfit.getHeadAcc(i).getName());
+                        headItemButton.setImageViewSize(100, 100);
+                        Button buttonHead = headItemButton.getButton();
+                        buttonHead.setMinWidth(125);
+                        buttonHead.setMaxWidth(125);
+                        buttonHead.setPrefWidth(125);
+                        buttonHead.setMinHeight(125);
+                        buttonHead.setMaxHeight(125);
+                        buttonHead.setPrefHeight(125);
+
+
+                        buttonHead.setOnAction(e -> {
+                        });
+
+                        showHeadGrid.add(buttonHead, i, 0);
+                        setGridMargins(buttonHead);
+
+                    }
+
+                    if (outfit.getNeckAcc(i) != null) {
+                        ItemButton neckItemButton = new ItemButton(new ImageView(outfit.getNeckAcc(i).getImage()),
+                                outfit.getNeckAcc(i).getName());
+                        neckItemButton.setImageViewSize(100, 100);
+                        Button buttonNeck = neckItemButton.getButton();
+                        buttonNeck.setMinWidth(125);
+                        buttonNeck.setMaxWidth(125);
+                        buttonNeck.setPrefWidth(125);
+                        buttonNeck.setMinHeight(125);
+                        buttonNeck.setMaxHeight(125);
+                        buttonNeck.setPrefHeight(125);
+
+
+                        buttonNeck.setOnAction(e -> {
+                        });
+
+                        showNeckGrid.add(buttonNeck, i, 0);
+                        setGridMargins(buttonNeck);
+                    }
+
+                    if (outfit.getHandAcc(i) != null) {
+                        ItemButton handItemButton = new ItemButton(new ImageView(outfit.getHandAcc(i).getImage()),
+                                outfit.getHandAcc(i).getName());
+                        handItemButton.setImageViewSize(100, 100);
+                        Button buttonHand = handItemButton.getButton();
+                        buttonHand.setMinWidth(125);
+                        buttonHand.setMaxWidth(125);
+                        buttonHand.setPrefWidth(125);
+                        buttonHand.setMinHeight(125);
+                        buttonHand.setMaxHeight(125);
+                        buttonHand.setPrefHeight(125);
+
+
+                        buttonHand.setOnAction(e -> {
+                        });
+
+                        showHeadGrid.add(buttonHand, i, 0);
+                        setGridMargins(buttonHand);
+                    }
+
+
+                    if (outfit.getTopClothes(i) != null) {
+                        ItemButton topItemButton = new ItemButton(new ImageView(outfit.getTopClothes(i).getImage()),
+                                outfit.getTopClothes(i).getName());
+                        topItemButton.setImageViewSize(100, 100);
+                        Button buttonTop = topItemButton.getButton();
+                        buttonTop.setMinWidth(125);
+                        buttonTop.setMaxWidth(125);
+                        buttonTop.setPrefWidth(125);
+                        buttonTop.setMinHeight(125);
+                        buttonTop.setMaxHeight(125);
+                        buttonTop.setPrefHeight(125);
+
+
+                        buttonTop.setOnAction(e -> {
+                        });
+
+                        showTopGrid.add(buttonTop, i, 0);
+                        setGridMargins(buttonTop);
+                    }
+
+
+                    if (outfit.getBotClothes(i) != null) {
+                        ItemButton botItemButton = new ItemButton(new ImageView(outfit.getBotClothes(i).getImage()),
+                                outfit.getBotClothes(i).getName());
+                        botItemButton.setImageViewSize(100, 100);
+                        Button buttonBot = botItemButton.getButton();
+                        buttonBot.setMinWidth(125);
+                        buttonBot.setMaxWidth(125);
+                        buttonBot.setPrefWidth(125);
+                        buttonBot.setMinHeight(125);
+                        buttonBot.setMaxHeight(125);
+                        buttonBot.setPrefHeight(125);
+
+
+                        buttonBot.setOnAction(e -> {
+                        });
+
+                        showBotGrid.add(buttonBot, i, 0);
+                        setGridMargins(buttonBot);
+                    }
+
+                    if (outfit.getFootwears(i) != null) {
+                        ItemButton footItemButton = new ItemButton(new ImageView(outfit.getFootwears(i).getImage()),
+                                outfit.getFootwears(i).getName());
+                        footItemButton.setImageViewSize(100, 100);
+                        Button buttonFoot = footItemButton.getButton();
+                        buttonFoot.setMinWidth(125);
+                        buttonFoot.setMaxWidth(125);
+                        buttonFoot.setPrefWidth(125);
+                        buttonFoot.setMinHeight(125);
+                        buttonFoot.setMaxHeight(125);
+                        buttonFoot.setPrefHeight(125);
+
+
+                        buttonFoot.setOnAction(e -> {
+                        });
+
+                        showFootGrid.add(buttonFoot, i, 0);
+                        setGridMargins(buttonFoot);
+                    }
+                }
+            }
+        }
+    }
+
+    @FXML
+    protected void outfit2Clicked() {
+
+    }
+
+    @FXML
+    protected void outfit3Clicked() {
+
+    }
+
+    @FXML
+    protected void outfit4Clicked() {
+
+    }
 
 
 

@@ -264,22 +264,19 @@
     -fx-text-fill: #dedddd;
 }
 
-/* ScrollBar Track */
 .scroll-bar > .track {
     -fx-background-color: #B4B4B8; /* Track color */
     -fx-background-radius: 3px;
     -fx-border-radius: 3px;
 }
 
-/* ScrollBar Thumb */
 .scroll-bar > .thumb {
-    -fx-background-color: #98989a; /* Thumb color */
+    -fx-background-color: #98989a;
 }
 
-/* ScrollBar Buttons */
 .scroll-bar > .increment-button,
 .scroll-bar > .decrement-button {
-    -fx-background-color: #B4B4B8; /* Button color */
+    -fx-background-color: #B4B4B8;
     -fx-background-radius: 3px;
     -fx-border-radius: 3px;
 }
@@ -433,13 +430,15 @@
 
 #chooseWardrobeSpace {
     -fx-background-color: #222831;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
 }
 
 #wardrobeOption {
     -fx-background-color: #6c5f5b;
     -fx-text-fill: #4F4A45;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
 }
 
 #wardrobeOption:hover {
@@ -447,6 +446,35 @@
     -fx-translate-y: -3px;
 }
 
+#btnBackOption {
+    -fx-background-color: #FA7070;
+    -fx-text-fill: #EEEEEE;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+#btnBackOption:hover {
+    -fx-background-color: #e76464;
+    -fx-text-fill: #dedddd;
+}
+
+#showOutfitItems,
+#showBackItems,
+#showItemsBackPane {
+    -fx-background-color: #4F4A45;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+#btnBackShowScroll {
+    -fx-background-color: #6c5f5b;
+    -fx-text-fill: #4F4A45;
+}
+
+#btnBackShowScroll:hover {
+    -fx-background-color: #655956;
+    -fx-text-fill: #494541;
+}
 
 
 
