@@ -195,7 +195,7 @@ public class WardrobeController implements Initializable {
 
     // OUTFIT CREATION
     @FXML
-    private Pane selectGenderPane, outfitCreationPane, outfitsPane, pickItemPane, removeInfoItemPane;
+    private Pane selectGenderPane, outfitCreationPane, outfitsPane, pickItemPane, removeInfoItemPane, wardrobeOption;
 
     @FXML
     private Button btnShowOutfit, btnCreateOutfit, currRemoveButton;
@@ -225,8 +225,6 @@ public class WardrobeController implements Initializable {
     private Button[] botItemsCreateButton = new Button[2];
     private Button[] footItemsCreateButton = new Button[2];
 
-
-
     Image maleFigure = new Image(new File("src/main/java/com/icons8-body-600.png").toURI().toString());
     Image femaleFigure = new Image(new File("src/main/java/com/icons8-girl-body-600.png").toURI().toString());
 
@@ -243,6 +241,19 @@ public class WardrobeController implements Initializable {
 
     @FXML
     private Label labelPickItem, removeItemLabel;
+
+
+
+    // Show Outfit
+    int outfitCount = 0;
+
+    String[] wardrobeSpace = new String[4];
+
+    Outfit[] outfits = new Outfit[4];
+
+
+
+
 
 
 
@@ -1235,6 +1246,7 @@ public class WardrobeController implements Initializable {
         pickTopGrid.getChildren().clear();
         pickBotGrid.getChildren().clear();
         pickFootGrid.getChildren().clear();
+        wardrobeOption.setVisible(false);
     }
 
     @FXML
@@ -1822,15 +1834,221 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void btnAddOutfit() {
+        wardrobeOption.setVisible(true);
+    }
 
+    // ---------- Outfit Creation END ----------
+
+
+
+
+
+    // ---------- Show Outfits ----------
+
+
+
+    @FXML
+    protected void space1Clicked() {
+        for (int i = 0; i < headItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[0].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+            }
+        }
+        pickHeadGrid.getChildren().clear();
+
+        for (int i = 0; i < neckItemsCreate.length; i++){
+            if (neckItemsCreate[i] != null) {
+                outfits[0].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+            }
+        }
+        pickNeckGrid.getChildren().clear();
+
+        for (int i = 0; i < handItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[0].setHandAcc(accessories.get(handItemsCreate[i]), i);
+            }
+        }
+        pickHandGrid.getChildren().clear();
+
+        for (int i = 0; i < topItemsCreate.length; i++){
+            if (topItemsCreate[i] != null) {
+                outfits[0].setTopCloth(clothes.get(topItemsCreate[i]), i);
+            }
+        }
+        pickTopGrid.getChildren().clear();
+
+        for (int i = 0; i < botItemsCreate.length; i++){
+            if (botItemsCreate[i] != null) {
+                outfits[0].setBotCloth(clothes.get(botItemsCreate[i]), i);
+            }
+        }
+        pickBotGrid.getChildren().clear();
+
+        for (int i = 0; i < footItemsCreate.length; i++){
+            if (footItemsCreate[i] != null) {
+                outfits[0].setFootwears(footwears.get(footItemsCreate[i]), i);
+            }
+        }
+        pickFootGrid.getChildren().clear();
+    }
+
+
+    @FXML
+    protected void space2Clicked() {
+        for (int i = 0; i < headItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[1].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+            }
+        }
+        pickHeadGrid.getChildren().clear();
+
+        for (int i = 0; i < neckItemsCreate.length; i++){
+            if (neckItemsCreate[i] != null) {
+                outfits[1].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+            }
+        }
+        pickNeckGrid.getChildren().clear();
+
+        for (int i = 0; i < handItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[1].setHandAcc(accessories.get(handItemsCreate[i]), i);
+            }
+        }
+        pickHandGrid.getChildren().clear();
+
+        for (int i = 0; i < topItemsCreate.length; i++){
+            if (topItemsCreate[i] != null) {
+                outfits[1].setTopCloth(clothes.get(topItemsCreate[i]), i);
+            }
+        }
+        pickTopGrid.getChildren().clear();
+
+        for (int i = 0; i < botItemsCreate.length; i++){
+            if (botItemsCreate[i] != null) {
+                outfits[1].setBotCloth(clothes.get(botItemsCreate[i]), i);
+            }
+        }
+        pickBotGrid.getChildren().clear();
+
+        for (int i = 0; i < footItemsCreate.length; i++){
+            if (footItemsCreate[i] != null) {
+                outfits[1].setFootwears(footwears.get(footItemsCreate[i]), i);
+            }
+        }
+        pickFootGrid.getChildren().clear();
+    }
+
+
+
+    @FXML
+    protected void space3Clicked() {
+        for (int i = 0; i < headItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[2].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+            }
+        }
+        pickHeadGrid.getChildren().clear();
+
+        for (int i = 0; i < neckItemsCreate.length; i++){
+            if (neckItemsCreate[i] != null) {
+                outfits[2].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+            }
+        }
+        pickNeckGrid.getChildren().clear();
+
+        for (int i = 0; i < handItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[2].setHandAcc(accessories.get(handItemsCreate[i]), i);
+            }
+        }
+        pickHandGrid.getChildren().clear();
+
+        for (int i = 0; i < topItemsCreate.length; i++){
+            if (topItemsCreate[i] != null) {
+                outfits[2].setTopCloth(clothes.get(topItemsCreate[i]), i);
+            }
+        }
+        pickTopGrid.getChildren().clear();
+
+        for (int i = 0; i < botItemsCreate.length; i++){
+            if (botItemsCreate[i] != null) {
+                outfits[2].setBotCloth(clothes.get(botItemsCreate[i]), i);
+            }
+        }
+        pickBotGrid.getChildren().clear();
+
+        for (int i = 0; i < footItemsCreate.length; i++){
+            if (footItemsCreate[i] != null) {
+                outfits[2].setFootwears(footwears.get(footItemsCreate[i]), i);
+            }
+        }
+        pickFootGrid.getChildren().clear();
+    }
+
+
+    @FXML
+    protected void space4Clicked() {
+        for (int i = 0; i < headItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[3].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+            }
+        }
+        pickHeadGrid.getChildren().clear();
+
+        for (int i = 0; i < neckItemsCreate.length; i++){
+            if (neckItemsCreate[i] != null) {
+                outfits[3].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+            }
+        }
+        pickNeckGrid.getChildren().clear();
+
+        for (int i = 0; i < handItemsCreate.length; i++){
+            if (headItemsCreate[i] != null) {
+                outfits[3].setHandAcc(accessories.get(handItemsCreate[i]), i);
+            }
+        }
+        pickHandGrid.getChildren().clear();
+
+        for (int i = 0; i < topItemsCreate.length; i++){
+            if (topItemsCreate[i] != null) {
+                outfits[3].setTopCloth(clothes.get(topItemsCreate[i]), i);
+            }
+        }
+        pickTopGrid.getChildren().clear();
+
+        for (int i = 0; i < botItemsCreate.length; i++){
+            if (botItemsCreate[i] != null) {
+                outfits[3].setBotCloth(clothes.get(botItemsCreate[i]), i);
+            }
+        }
+        pickBotGrid.getChildren().clear();
+
+        for (int i = 0; i < footItemsCreate.length; i++){
+            if (footItemsCreate[i] != null) {
+                outfits[3].setFootwears(footwears.get(footItemsCreate[i]), i);
+            }
+        }
+        pickFootGrid.getChildren().clear();
     }
 
 
 
 
-    // ---------- Outfit Creation END ----------
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // ---------- Show Outfits Creation ----------
 
 
 

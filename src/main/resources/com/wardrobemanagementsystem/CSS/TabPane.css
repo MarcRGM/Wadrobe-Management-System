@@ -430,3 +430,25 @@
     -fx-border-radius: 5px;
     -fx-padding: 2px;
 }
+
+#chooseWardrobeSpace {
+    -fx-background-color: #222831;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+#wardrobeOption {
+    -fx-background-color: #6c5f5b;
+    -fx-text-fill: #4F4A45;
+}
+
+#wardrobeOption:hover {
+    -fx-background-color: #645955;
+    -fx-translate-y: -3px;
+}
+
+
+
+
+
+
