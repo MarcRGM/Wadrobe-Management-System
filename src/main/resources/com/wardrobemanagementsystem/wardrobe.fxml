@@ -1153,7 +1153,7 @@
                   </ScrollPane>
                </children>
             </Pane>
-            <Pane id="outfitsPane" fx:id="outfitsPane" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css" visible="false">
+            <Pane id="outfitsPane" fx:id="outfitsPane" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css">
                <children>
                   <Line endX="7.928928375244141" endY="141.59561157226562" layoutX="21.0" layoutY="136.0" startX="-23.66665267944336" startY="414.928955078125" stroke="#3f3b37" strokeWidth="10.0" />
                   <Button id="backButton" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="37.0" prefWidth="63.0" stylesheets="@CSS/TabPane.css" text="BACK" />
@@ -1206,7 +1206,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <ScrollPane id="showOutfitItems" fx:id="showOutfitItems" layoutX="86.0" layoutY="20.0" prefHeight="399.0" prefWidth="365.0" stylesheets="@CSS/TabPane.css" visible="false">
+                        <ScrollPane id="showOutfitItems" fx:id="showOutfitItems" layoutX="86.0" layoutY="20.0" prefHeight="399.0" prefWidth="365.0" stylesheets="@CSS/TabPane.css">
                            <content>
                               <Pane id="itemsBackPane" minHeight="1081.0" minWidth="349.0" prefHeight="1081.0" prefWidth="349.0" stylesheets="@CSS/TabPane.css">
                                  <children>
@@ -1272,7 +1272,7 @@
                                              </rowConstraints>
                                           </GridPane>
                                           <Label alignment="CENTER" layoutX="21.0" layoutY="29.0" text="HEAD ACCESSORIES" textFill="#6c5f5b" />
-                                          <Button id="btnBackShowScroll" layoutX="318.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnBackOutfitClicked" prefHeight="25.0" prefWidth="25.0" stylesheets="@CSS/TabPane.css" text="✖" textFill="#6c5f5b">
+                                          <Button id="btnBackShowScroll" layoutX="318.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnBackOutfitClicked" prefHeight="26.0" prefWidth="26.0" stylesheets="@CSS/TabPane.css" text="✖" textFill="#6c5f5b">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
