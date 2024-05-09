@@ -191,6 +191,8 @@ public class WardrobeController implements Initializable {
     private Pane handGetInfoPane, handShowInfoPane;
     @FXML
     ImageView tempHandImage, showHandImg;
+    @FXML
+    private Button btnOpt1, btnOpt2, btnOpt3, btnOpt4;
 
 
     // OUTFIT CREATION
@@ -256,6 +258,13 @@ public class WardrobeController implements Initializable {
 
     @FXML
     private ScrollPane showOutfitItems;
+
+    @FXML
+    private Label lblCatOrMat, lblShowItem, lblShowName, lblShowBrand, lblShowColor, lblShowCatOrMat;
+
+    @FXML
+    private Pane showInfoPane;
+
 
 
 
@@ -1845,6 +1854,8 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void space1Clicked() {
+        wardrobeOption.setVisible(false);
+        btnOpt1.setDisable(true);
         outfits[0] = new Outfit();
 
         for (int i = 0; i < headItemsCreate.length; i++){
@@ -1864,6 +1875,13 @@ public class WardrobeController implements Initializable {
 
 
                 buttonHead.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Head Accessories");
+                    lblShowName.setText(tempHeadAcc.getName());
+                    lblShowBrand.setText(tempHeadAcc.getBrand());
+                    lblShowColor.setText(tempHeadAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempHeadAcc.getCategory());
                 });
 
                 showHeadGrid.add(buttonHead, i, 0);
@@ -1875,6 +1893,7 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < neckItemsCreate.length; i++){
             if (neckItemsCreate[i] != null) {
                 outfits[0].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+                System.out.println(accessories.get(neckItemsCreate[i]).getName());
                 Accessories tempNeckAcc = outfits[0].getNeckAcc(i);
                 ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
                         tempNeckAcc.getName());
@@ -1889,6 +1908,13 @@ public class WardrobeController implements Initializable {
 
 
                 buttonNeck.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Neck Accessories");
+                    lblShowName.setText(tempNeckAcc.getName());
+                    lblShowBrand.setText(tempNeckAcc.getBrand());
+                    lblShowColor.setText(tempNeckAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempNeckAcc.getCategory());
                 });
 
                 showNeckGrid.add(buttonNeck, i, 0);
@@ -1915,6 +1941,13 @@ public class WardrobeController implements Initializable {
 
 
                 buttonHand.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Hand Accessories");
+                    lblShowName.setText(tempHandAcc.getName());
+                    lblShowBrand.setText(tempHandAcc.getBrand());
+                    lblShowColor.setText(tempHandAcc.getColor());
+                    lblCatOrMat.setText("Material:");
+                    lblShowCatOrMat.setText(tempHandAcc.getCategory());
                 });
 
                 showHandGrid.add(buttonHand, i, 0);
@@ -1941,6 +1974,13 @@ public class WardrobeController implements Initializable {
 
 
                 buttonTop.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Top Clothing/s");
+                    lblShowName.setText(tempTopCloth.getName());
+                    lblShowBrand.setText(tempTopCloth.getBrand());
+                    lblShowColor.setText(tempTopCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempTopCloth.getCategory());
                 });
 
                 showTopGrid.add(buttonTop, i, 0);
@@ -1966,6 +2006,13 @@ public class WardrobeController implements Initializable {
 
 
                 buttonBot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Bot Clothing/s");
+                    lblShowName.setText(tempBotCloth.getName());
+                    lblShowBrand.setText(tempBotCloth.getBrand());
+                    lblShowColor.setText(tempBotCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempBotCloth.getCategory());
                 });
 
                 showBotGrid.add(buttonBot, i, 0);
@@ -1991,6 +2038,13 @@ public class WardrobeController implements Initializable {
 
 
                 buttonFoot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Footwears");
+                    lblShowName.setText(tempFoot.getName());
+                    lblShowBrand.setText(tempFoot.getBrand());
+                    lblShowColor.setText(tempFoot.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempFoot.getCategory());
                 });
 
                 showFootGrid.add(buttonFoot, i, 0);
@@ -2004,10 +2058,38 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void space2Clicked() {
+        wardrobeOption.setVisible(false);
+        btnOpt2.setDisable(true);
         outfits[1] = new Outfit();
+
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[1].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+                Accessories tempHeadAcc = outfits[1].getHeadAcc(i);
+                ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
+                            tempHeadAcc.getName());
+                headItemButton.setImageViewSize(100, 100);
+                Button buttonHead = headItemButton.getButton();
+                buttonHead.setMinWidth(125);
+                buttonHead.setMaxWidth(125);
+                buttonHead.setPrefWidth(125);
+                buttonHead.setMinHeight(125);
+                buttonHead.setMaxHeight(125);
+                buttonHead.setPrefHeight(125);
+
+
+                buttonHead.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Head Accessories");
+                    lblShowName.setText(tempHeadAcc.getName());
+                    lblShowBrand.setText(tempHeadAcc.getBrand());
+                    lblShowColor.setText(tempHeadAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempHeadAcc.getCategory());
+                });
+
+                showHeadGrid.add(buttonHead, i, 0);
+                setGridMargins(buttonHead);
             }
         }
         pickHeadGrid.getChildren().clear();
@@ -2015,20 +2097,98 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < neckItemsCreate.length; i++){
             if (neckItemsCreate[i] != null) {
                 outfits[1].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+                Accessories tempNeckAcc = outfits[1].getNeckAcc(i);
+                ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
+                        tempNeckAcc.getName());
+                neckItemButton.setImageViewSize(100, 100);
+                Button buttonNeck = neckItemButton.getButton();
+                buttonNeck.setMinWidth(125);
+                buttonNeck.setMaxWidth(125);
+                buttonNeck.setPrefWidth(125);
+                buttonNeck.setMinHeight(125);
+                buttonNeck.setMaxHeight(125);
+                buttonNeck.setPrefHeight(125);
+
+
+                buttonNeck.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Neck Accessories");
+                    lblShowName.setText(tempNeckAcc.getName());
+                    lblShowBrand.setText(tempNeckAcc.getBrand());
+                    lblShowColor.setText(tempNeckAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempNeckAcc.getCategory());
+                });
+
+                showNeckGrid.add(buttonNeck, i, 0);
+                setGridMargins(buttonNeck);
             }
         }
         pickNeckGrid.getChildren().clear();
 
+
         for (int i = 0; i < handItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
+            if (handItemsCreate[i] != null) {
                 outfits[1].setHandAcc(accessories.get(handItemsCreate[i]), i);
+                Accessories tempHandAcc = outfits[1].getHandAcc(i);
+                ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
+                        tempHandAcc.getName());
+                handItemButton.setImageViewSize(100, 100);
+                Button buttonHand = handItemButton.getButton();
+                buttonHand.setMinWidth(125);
+                buttonHand.setMaxWidth(125);
+                buttonHand.setPrefWidth(125);
+                buttonHand.setMinHeight(125);
+                buttonHand.setMaxHeight(125);
+                buttonHand.setPrefHeight(125);
+
+
+                buttonHand.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Hand Accessories");
+                    lblShowName.setText(tempHandAcc.getName());
+                    lblShowBrand.setText(tempHandAcc.getBrand());
+                    lblShowColor.setText(tempHandAcc.getColor());
+                    lblCatOrMat.setText("Material:");
+                    lblShowCatOrMat.setText(tempHandAcc.getCategory());
+                });
+
+                showHandGrid.add(buttonHand, i, 0);
+                setGridMargins(buttonHand);
             }
         }
         pickHandGrid.getChildren().clear();
 
+
         for (int i = 0; i < topItemsCreate.length; i++){
             if (topItemsCreate[i] != null) {
                 outfits[1].setTopCloth(clothes.get(topItemsCreate[i]), i);
+                Clothing tempTopCloth = outfits[1].getTopClothes(i);
+                ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
+                        tempTopCloth.getName());
+                topItemButton.setImageViewSize(100, 100);
+                Button buttonTop = topItemButton.getButton();
+                buttonTop.setMinWidth(125);
+                buttonTop.setMaxWidth(125);
+                buttonTop.setPrefWidth(125);
+                buttonTop.setMinHeight(125);
+                buttonTop.setMaxHeight(125);
+                buttonTop.setPrefHeight(125);
+
+
+                buttonTop.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Top Clothing/s");
+                    lblShowName.setText(tempTopCloth.getName());
+                    lblShowBrand.setText(tempTopCloth.getBrand());
+                    lblShowColor.setText(tempTopCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempTopCloth.getCategory());
+                });
+
+                showTopGrid.add(buttonTop, i, 0);
+                setGridMargins(buttonTop);
             }
         }
         pickTopGrid.getChildren().clear();
@@ -2036,6 +2196,31 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < botItemsCreate.length; i++){
             if (botItemsCreate[i] != null) {
                 outfits[1].setBotCloth(clothes.get(botItemsCreate[i]), i);
+                Clothing tempBotCloth = outfits[1].getBotClothes(i);
+                ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
+                        tempBotCloth.getName());
+                botItemButton.setImageViewSize(100, 100);
+                Button buttonBot = botItemButton.getButton();
+                buttonBot.setMinWidth(125);
+                buttonBot.setMaxWidth(125);
+                buttonBot.setPrefWidth(125);
+                buttonBot.setMinHeight(125);
+                buttonBot.setMaxHeight(125);
+                buttonBot.setPrefHeight(125);
+
+
+                buttonBot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Bot Clothing/s");
+                    lblShowName.setText(tempBotCloth.getName());
+                    lblShowBrand.setText(tempBotCloth.getBrand());
+                    lblShowColor.setText(tempBotCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempBotCloth.getCategory());
+                });
+
+                showBotGrid.add(buttonBot, i, 0);
+                setGridMargins(buttonBot);
             }
         }
         pickBotGrid.getChildren().clear();
@@ -2043,20 +2228,73 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < footItemsCreate.length; i++){
             if (footItemsCreate[i] != null) {
                 outfits[1].setFootwears(footwears.get(footItemsCreate[i]), i);
+                Footwear tempFoot = outfits[1].getFootwears(i);
+                ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
+                        tempFoot.getName());
+                footItemButton.setImageViewSize(100, 100);
+                Button buttonFoot = footItemButton.getButton();
+                buttonFoot.setMinWidth(125);
+                buttonFoot.setMaxWidth(125);
+                buttonFoot.setPrefWidth(125);
+                buttonFoot.setMinHeight(125);
+                buttonFoot.setMaxHeight(125);
+                buttonFoot.setPrefHeight(125);
+
+
+                buttonFoot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Footwears");
+                    lblShowName.setText(tempFoot.getName());
+                    lblShowBrand.setText(tempFoot.getBrand());
+                    lblShowColor.setText(tempFoot.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempFoot.getCategory());
+                });
+
+                showFootGrid.add(buttonFoot, i, 0);
+                setGridMargins(buttonFoot);
             }
         }
         pickFootGrid.getChildren().clear();
+        wardrobeOption.setVisible(false);
     }
 
 
 
     @FXML
     protected void space3Clicked() {
+        wardrobeOption.setVisible(false);
+        btnOpt3.setDisable(true);
         outfits[2] = new Outfit();
 
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[2].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+                Accessories tempHeadAcc = outfits[2].getHeadAcc(i);
+                ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
+                            tempHeadAcc.getName());
+                headItemButton.setImageViewSize(100, 100);
+                Button buttonHead = headItemButton.getButton();
+                buttonHead.setMinWidth(125);
+                buttonHead.setMaxWidth(125);
+                buttonHead.setPrefWidth(125);
+                buttonHead.setMinHeight(125);
+                buttonHead.setMaxHeight(125);
+                buttonHead.setPrefHeight(125);
+
+
+                buttonHead.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Head Accessories");
+                    lblShowName.setText(tempHeadAcc.getName());
+                    lblShowBrand.setText(tempHeadAcc.getBrand());
+                    lblShowColor.setText(tempHeadAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempHeadAcc.getCategory());
+                });
+
+                showHeadGrid.add(buttonHead, i, 0);
+                setGridMargins(buttonHead);
             }
         }
         pickHeadGrid.getChildren().clear();
@@ -2064,20 +2302,98 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < neckItemsCreate.length; i++){
             if (neckItemsCreate[i] != null) {
                 outfits[2].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+                Accessories tempNeckAcc = outfits[2].getNeckAcc(i);
+                ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
+                        tempNeckAcc.getName());
+                neckItemButton.setImageViewSize(100, 100);
+                Button buttonNeck = neckItemButton.getButton();
+                buttonNeck.setMinWidth(125);
+                buttonNeck.setMaxWidth(125);
+                buttonNeck.setPrefWidth(125);
+                buttonNeck.setMinHeight(125);
+                buttonNeck.setMaxHeight(125);
+                buttonNeck.setPrefHeight(125);
+
+
+                buttonNeck.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Neck Accessories");
+                    lblShowName.setText(tempNeckAcc.getName());
+                    lblShowBrand.setText(tempNeckAcc.getBrand());
+                    lblShowColor.setText(tempNeckAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempNeckAcc.getCategory());
+                });
+
+                showNeckGrid.add(buttonNeck, i, 0);
+                setGridMargins(buttonNeck);
             }
         }
         pickNeckGrid.getChildren().clear();
 
+
         for (int i = 0; i < handItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
+            if (handItemsCreate[i] != null) {
                 outfits[2].setHandAcc(accessories.get(handItemsCreate[i]), i);
+                Accessories tempHandAcc = outfits[2].getHandAcc(i);
+                ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
+                        tempHandAcc.getName());
+                handItemButton.setImageViewSize(100, 100);
+                Button buttonHand = handItemButton.getButton();
+                buttonHand.setMinWidth(125);
+                buttonHand.setMaxWidth(125);
+                buttonHand.setPrefWidth(125);
+                buttonHand.setMinHeight(125);
+                buttonHand.setMaxHeight(125);
+                buttonHand.setPrefHeight(125);
+
+
+                buttonHand.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Hand Accessories");
+                    lblShowName.setText(tempHandAcc.getName());
+                    lblShowBrand.setText(tempHandAcc.getBrand());
+                    lblShowColor.setText(tempHandAcc.getColor());
+                    lblCatOrMat.setText("Material:");
+                    lblShowCatOrMat.setText(tempHandAcc.getCategory());
+                });
+
+                showHandGrid.add(buttonHand, i, 0);
+                setGridMargins(buttonHand);
             }
         }
         pickHandGrid.getChildren().clear();
 
+
         for (int i = 0; i < topItemsCreate.length; i++){
             if (topItemsCreate[i] != null) {
                 outfits[2].setTopCloth(clothes.get(topItemsCreate[i]), i);
+                Clothing tempTopCloth = outfits[2].getTopClothes(i);
+                ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
+                        tempTopCloth.getName());
+                topItemButton.setImageViewSize(100, 100);
+                Button buttonTop = topItemButton.getButton();
+                buttonTop.setMinWidth(125);
+                buttonTop.setMaxWidth(125);
+                buttonTop.setPrefWidth(125);
+                buttonTop.setMinHeight(125);
+                buttonTop.setMaxHeight(125);
+                buttonTop.setPrefHeight(125);
+
+
+                buttonTop.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Top Clothing/s");
+                    lblShowName.setText(tempTopCloth.getName());
+                    lblShowBrand.setText(tempTopCloth.getBrand());
+                    lblShowColor.setText(tempTopCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempTopCloth.getCategory());
+                });
+
+                showTopGrid.add(buttonTop, i, 0);
+                setGridMargins(buttonTop);
             }
         }
         pickTopGrid.getChildren().clear();
@@ -2085,6 +2401,31 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < botItemsCreate.length; i++){
             if (botItemsCreate[i] != null) {
                 outfits[2].setBotCloth(clothes.get(botItemsCreate[i]), i);
+                Clothing tempBotCloth = outfits[2].getBotClothes(i);
+                ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
+                        tempBotCloth.getName());
+                botItemButton.setImageViewSize(100, 100);
+                Button buttonBot = botItemButton.getButton();
+                buttonBot.setMinWidth(125);
+                buttonBot.setMaxWidth(125);
+                buttonBot.setPrefWidth(125);
+                buttonBot.setMinHeight(125);
+                buttonBot.setMaxHeight(125);
+                buttonBot.setPrefHeight(125);
+
+
+                buttonBot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Bot Clothing/s");
+                    lblShowName.setText(tempBotCloth.getName());
+                    lblShowBrand.setText(tempBotCloth.getBrand());
+                    lblShowColor.setText(tempBotCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempBotCloth.getCategory());
+                });
+
+                showBotGrid.add(buttonBot, i, 0);
+                setGridMargins(buttonBot);
             }
         }
         pickBotGrid.getChildren().clear();
@@ -2092,19 +2433,73 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < footItemsCreate.length; i++){
             if (footItemsCreate[i] != null) {
                 outfits[2].setFootwears(footwears.get(footItemsCreate[i]), i);
+                Footwear tempFoot = outfits[2].getFootwears(i);
+                ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
+                        tempFoot.getName());
+                footItemButton.setImageViewSize(100, 100);
+                Button buttonFoot = footItemButton.getButton();
+                buttonFoot.setMinWidth(125);
+                buttonFoot.setMaxWidth(125);
+                buttonFoot.setPrefWidth(125);
+                buttonFoot.setMinHeight(125);
+                buttonFoot.setMaxHeight(125);
+                buttonFoot.setPrefHeight(125);
+
+
+                buttonFoot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Footwears");
+                    lblShowName.setText(tempFoot.getName());
+                    lblShowBrand.setText(tempFoot.getBrand());
+                    lblShowColor.setText(tempFoot.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempFoot.getCategory());
+                });
+
+                showFootGrid.add(buttonFoot, i, 0);
+                setGridMargins(buttonFoot);
             }
         }
         pickFootGrid.getChildren().clear();
+        wardrobeOption.setVisible(false);
     }
 
 
     @FXML
     protected void space4Clicked() {
+        wardrobeOption.setVisible(false);
+        btnOpt4.setDisable(true);
+
         outfits[3] = new Outfit();
 
         for (int i = 0; i < headItemsCreate.length; i++){
             if (headItemsCreate[i] != null) {
                 outfits[3].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+                Accessories tempHeadAcc = outfits[3].getHeadAcc(i);
+                ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
+                            tempHeadAcc.getName());
+                headItemButton.setImageViewSize(100, 100);
+                Button buttonHead = headItemButton.getButton();
+                buttonHead.setMinWidth(125);
+                buttonHead.setMaxWidth(125);
+                buttonHead.setPrefWidth(125);
+                buttonHead.setMinHeight(125);
+                buttonHead.setMaxHeight(125);
+                buttonHead.setPrefHeight(125);
+
+
+                buttonHead.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Head Accessories");
+                    lblShowName.setText(tempHeadAcc.getName());
+                    lblShowBrand.setText(tempHeadAcc.getBrand());
+                    lblShowColor.setText(tempHeadAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempHeadAcc.getCategory());
+                });
+
+                showHeadGrid.add(buttonHead, i, 0);
+                setGridMargins(buttonHead);
             }
         }
         pickHeadGrid.getChildren().clear();
@@ -2112,20 +2507,98 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < neckItemsCreate.length; i++){
             if (neckItemsCreate[i] != null) {
                 outfits[3].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
+                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+                Accessories tempNeckAcc = outfits[3].getNeckAcc(i);
+                ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
+                        tempNeckAcc.getName());
+                neckItemButton.setImageViewSize(100, 100);
+                Button buttonNeck = neckItemButton.getButton();
+                buttonNeck.setMinWidth(125);
+                buttonNeck.setMaxWidth(125);
+                buttonNeck.setPrefWidth(125);
+                buttonNeck.setMinHeight(125);
+                buttonNeck.setMaxHeight(125);
+                buttonNeck.setPrefHeight(125);
+
+
+                buttonNeck.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Neck Accessories");
+                    lblShowName.setText(tempNeckAcc.getName());
+                    lblShowBrand.setText(tempNeckAcc.getBrand());
+                    lblShowColor.setText(tempNeckAcc.getColor());
+                    lblCatOrMat.setText("Material");
+                    lblShowCatOrMat.setText(tempNeckAcc.getCategory());
+                });
+
+                showNeckGrid.add(buttonNeck, i, 0);
+                setGridMargins(buttonNeck);
             }
         }
         pickNeckGrid.getChildren().clear();
 
+
         for (int i = 0; i < handItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
+            if (handItemsCreate[i] != null) {
                 outfits[3].setHandAcc(accessories.get(handItemsCreate[i]), i);
+                Accessories tempHandAcc = outfits[3].getHandAcc(i);
+                ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
+                        tempHandAcc.getName());
+                handItemButton.setImageViewSize(100, 100);
+                Button buttonHand = handItemButton.getButton();
+                buttonHand.setMinWidth(125);
+                buttonHand.setMaxWidth(125);
+                buttonHand.setPrefWidth(125);
+                buttonHand.setMinHeight(125);
+                buttonHand.setMaxHeight(125);
+                buttonHand.setPrefHeight(125);
+
+
+                buttonHand.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Hand Accessories");
+                    lblShowName.setText(tempHandAcc.getName());
+                    lblShowBrand.setText(tempHandAcc.getBrand());
+                    lblShowColor.setText(tempHandAcc.getColor());
+                    lblCatOrMat.setText("Material:");
+                    lblShowCatOrMat.setText(tempHandAcc.getCategory());
+                });
+
+                showHandGrid.add(buttonHand, i, 0);
+                setGridMargins(buttonHand);
             }
         }
         pickHandGrid.getChildren().clear();
 
+
         for (int i = 0; i < topItemsCreate.length; i++){
             if (topItemsCreate[i] != null) {
                 outfits[3].setTopCloth(clothes.get(topItemsCreate[i]), i);
+                Clothing tempTopCloth = outfits[3].getTopClothes(i);
+                ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
+                        tempTopCloth.getName());
+                topItemButton.setImageViewSize(100, 100);
+                Button buttonTop = topItemButton.getButton();
+                buttonTop.setMinWidth(125);
+                buttonTop.setMaxWidth(125);
+                buttonTop.setPrefWidth(125);
+                buttonTop.setMinHeight(125);
+                buttonTop.setMaxHeight(125);
+                buttonTop.setPrefHeight(125);
+
+
+                buttonTop.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Top Clothing/s");
+                    lblShowName.setText(tempTopCloth.getName());
+                    lblShowBrand.setText(tempTopCloth.getBrand());
+                    lblShowColor.setText(tempTopCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempTopCloth.getCategory());
+                });
+
+                showTopGrid.add(buttonTop, i, 0);
+                setGridMargins(buttonTop);
             }
         }
         pickTopGrid.getChildren().clear();
@@ -2133,6 +2606,31 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < botItemsCreate.length; i++){
             if (botItemsCreate[i] != null) {
                 outfits[3].setBotCloth(clothes.get(botItemsCreate[i]), i);
+                Clothing tempBotCloth = outfits[3].getBotClothes(i);
+                ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
+                        tempBotCloth.getName());
+                botItemButton.setImageViewSize(100, 100);
+                Button buttonBot = botItemButton.getButton();
+                buttonBot.setMinWidth(125);
+                buttonBot.setMaxWidth(125);
+                buttonBot.setPrefWidth(125);
+                buttonBot.setMinHeight(125);
+                buttonBot.setMaxHeight(125);
+                buttonBot.setPrefHeight(125);
+
+
+                buttonBot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Bot Clothing/s");
+                    lblShowName.setText(tempBotCloth.getName());
+                    lblShowBrand.setText(tempBotCloth.getBrand());
+                    lblShowColor.setText(tempBotCloth.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempBotCloth.getCategory());
+                });
+
+                showBotGrid.add(buttonBot, i, 0);
+                setGridMargins(buttonBot);
             }
         }
         pickBotGrid.getChildren().clear();
@@ -2140,9 +2638,40 @@ public class WardrobeController implements Initializable {
         for (int i = 0; i < footItemsCreate.length; i++){
             if (footItemsCreate[i] != null) {
                 outfits[3].setFootwears(footwears.get(footItemsCreate[i]), i);
+                Footwear tempFoot = outfits[3].getFootwears(i);
+                ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
+                        tempFoot.getName());
+                footItemButton.setImageViewSize(100, 100);
+                Button buttonFoot = footItemButton.getButton();
+                buttonFoot.setMinWidth(125);
+                buttonFoot.setMaxWidth(125);
+                buttonFoot.setPrefWidth(125);
+                buttonFoot.setMinHeight(125);
+                buttonFoot.setMaxHeight(125);
+                buttonFoot.setPrefHeight(125);
+
+
+                buttonFoot.setOnAction(e -> {
+                    showInfoPane.setVisible(true);
+                    lblShowItem.setText("Footwears");
+                    lblShowName.setText(tempFoot.getName());
+                    lblShowBrand.setText(tempFoot.getBrand());
+                    lblShowColor.setText(tempFoot.getColor());
+                    lblCatOrMat.setText("Category:");
+                    lblShowCatOrMat.setText(tempFoot.getCategory());
+                });
+
+                showFootGrid.add(buttonFoot, i, 0);
+                setGridMargins(buttonFoot);
             }
         }
         pickFootGrid.getChildren().clear();
+        wardrobeOption.setVisible(false);
+    }
+
+    @FXML
+    protected void backShowItemInfo() {
+        showInfoPane.setVisible(false);
     }
 
     // ---------- Outfit Creation END ----------

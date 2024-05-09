@@ -8,7 +8,8 @@ public class Footwear extends Item{
         BOOTS("Boots"),
         SANDALS("Sandals"),
         HEELS("Heels"),
-        SLIPPERS("Slippers");
+        SLIPPERS("Slippers"),
+        SOCKS("Socks");
 
         private final String displayName;
 

@@ -16,7 +16,7 @@ public class Outfit {
     }
 
     public void setBotCloth(Clothing clothes, int index) {
-        this.topClothes[index] = clothes;
+        this.botClothes[index] = clothes;
     }
 
     public void setHeadAcc(Accessories accessories, int index) {
@@ -24,11 +24,11 @@ public class Outfit {
     }
 
     public void setNeckAcc(Accessories accessories, int index) {
-        this.headAcc[index] = accessories;
+        this.neckAcc[index] = accessories;
     }
 
     public void setHandAcc(Accessories accessories, int index) {
-        this.headAcc[index] = accessories;
+        this.handAcc[index] = accessories;
     }
 
     public void setFootwears(Footwear footwears, int index) {

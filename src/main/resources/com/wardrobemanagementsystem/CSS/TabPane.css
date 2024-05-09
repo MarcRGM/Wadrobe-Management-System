@@ -381,6 +381,9 @@
     -fx-background-color: #222831;
 }
 
+#labelCover {
+    -fx-font-size: 15;
+}
 
 
 #pickItemPane,
@@ -466,9 +469,14 @@
     -fx-border-radius: 5px;
 }
 
+#showBackItems .button {
+    -fx-background-color: #7a6c67;
+}
+
 #btnBackShowScroll {
     -fx-background-color: #6c5f5b;
     -fx-text-fill: #4F4A45;
+    -fx-font-size: 10;
 }
 
 #btnBackShowScroll:hover {
@@ -476,6 +484,16 @@
     -fx-text-fill: #494541;
 }
 
+#showInfoPane {
+    -fx-background-color: #31363F;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+#showInfoPane .button {
+    -fx-text-fill: #31363F;
+    -fx-background-color: #EEEEEE;
+}
 
 
 
