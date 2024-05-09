@@ -265,7 +265,37 @@ public class WardrobeController implements Initializable {
     @FXML
     private Pane showInfoPane;
 
+    // space 1
+    String[] tempHead1 = headItemsCreate;
+    String[] tempNeck1 = neckItemsCreate;
+    String[] tempHand1 = handItemsCreate;
+    String[] tempTop1 = topItemsCreate;
+    String[] tempBot1 = botItemsCreate;
+    String[] tempFoot1 = footItemsCreate;
 
+    // space 2
+    String[] tempHead2 = headItemsCreate;
+    String[] tempNeck2 = neckItemsCreate;
+    String[] tempHand2 = handItemsCreate;
+    String[] tempTop2 = topItemsCreate;
+    String[] tempBot2 = botItemsCreate;
+    String[] tempFoot2 = footItemsCreate;
+
+    // space 3
+    String[] tempHead3 = headItemsCreate;
+    String[] tempNeck3 = neckItemsCreate;
+    String[] tempHand3 = handItemsCreate;
+    String[] tempTop3 = topItemsCreate;
+    String[] tempBot3 = botItemsCreate;
+    String[] tempFoot3 = footItemsCreate;
+
+    // space 4
+    String[] tempHead4 = headItemsCreate;
+    String[] tempNeck4 = neckItemsCreate;
+    String[] tempHand4 = handItemsCreate;
+    String[] tempTop4 = topItemsCreate;
+    String[] tempBot4 = botItemsCreate;
+    String[] tempFoot4 = footItemsCreate;
 
 
     @Override
@@ -1257,6 +1287,18 @@ public class WardrobeController implements Initializable {
         pickBotGrid.getChildren().clear();
         pickFootGrid.getChildren().clear();
         wardrobeOption.setVisible(false);
+        headPickItems = 0;
+        neckPickItems = 0;
+        handPickItems = 0;
+        topPickItems = 0;
+        botPickItems = 0;
+        footPickItems = 0;
+        headItemsCreate = new String[2];
+        neckItemsCreate = new String[2];
+        handItemsCreate = new String[2];
+        topItemsCreate = new String[2];
+        botItemsCreate = new String[2];
+        footItemsCreate = new String[2];
     }
 
     @FXML
@@ -1858,9 +1900,30 @@ public class WardrobeController implements Initializable {
         btnOpt1.setDisable(true);
         outfits[0] = new Outfit();
 
-        for (int i = 0; i < headItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
-                outfits[0].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+        headPickItems = 0;
+        neckPickItems = 0;
+        handPickItems = 0;
+        topPickItems = 0;
+        botPickItems = 0;
+        footPickItems = 0;
+
+        tempHead1 = headItemsCreate;
+        tempNeck1 = neckItemsCreate;
+        tempHand1 = handItemsCreate;
+        tempTop1 = topItemsCreate;
+        tempBot1 = botItemsCreate;
+        tempFoot1 = footItemsCreate;
+
+        headItemsCreate = new String[2];
+        neckItemsCreate = new String[2];
+        handItemsCreate = new String[2];
+        topItemsCreate = new String[2];
+        botItemsCreate = new String[2];
+        footItemsCreate = new String[2];
+
+        for (int i = 0; i < tempHead1.length; i++){
+            if (tempHead1[i] != null) {
+                outfits[0].setHeadAcc(accessories.get(tempHead1[i]), i);
                 Accessories tempHeadAcc = outfits[0].getHeadAcc(i);
                 ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
                             tempHeadAcc.getName());
@@ -1890,10 +1953,9 @@ public class WardrobeController implements Initializable {
         }
         pickHeadGrid.getChildren().clear();
 
-        for (int i = 0; i < neckItemsCreate.length; i++){
-            if (neckItemsCreate[i] != null) {
-                outfits[0].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
-                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+        for (int i = 0; i < tempNeck1.length; i++){
+            if (tempNeck1[i] != null) {
+                outfits[0].setNeckAcc(accessories.get(tempNeck1[i]), i);
                 Accessories tempNeckAcc = outfits[0].getNeckAcc(i);
                 ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
                         tempNeckAcc.getName());
@@ -1924,9 +1986,9 @@ public class WardrobeController implements Initializable {
         pickNeckGrid.getChildren().clear();
 
 
-        for (int i = 0; i < handItemsCreate.length; i++){
-            if (handItemsCreate[i] != null) {
-                outfits[0].setHandAcc(accessories.get(handItemsCreate[i]), i);
+        for (int i = 0; i < tempHand1.length; i++){
+            if (tempHand1[i] != null) {
+                outfits[0].setHandAcc(accessories.get(tempHand1[i]), i);
                 Accessories tempHandAcc = outfits[0].getHandAcc(i);
                 ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
                         tempHandAcc.getName());
@@ -1957,9 +2019,9 @@ public class WardrobeController implements Initializable {
         pickHandGrid.getChildren().clear();
         
 
-        for (int i = 0; i < topItemsCreate.length; i++){
-            if (topItemsCreate[i] != null) {
-                outfits[0].setTopCloth(clothes.get(topItemsCreate[i]), i);
+        for (int i = 0; i < tempTop1.length; i++){
+            if (tempTop1[i] != null) {
+                outfits[0].setTopCloth(clothes.get(tempTop1[i]), i);
                 Clothing tempTopCloth = outfits[0].getTopClothes(i);
                 ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
                         tempTopCloth.getName());
@@ -1989,9 +2051,9 @@ public class WardrobeController implements Initializable {
         }
         pickTopGrid.getChildren().clear();
 
-        for (int i = 0; i < botItemsCreate.length; i++){
-            if (botItemsCreate[i] != null) {
-                outfits[0].setBotCloth(clothes.get(botItemsCreate[i]), i);
+        for (int i = 0; i < tempBot1.length; i++){
+            if (tempBot1[i] != null) {
+                outfits[0].setBotCloth(clothes.get(tempBot1[i]), i);
                 Clothing tempBotCloth = outfits[0].getBotClothes(i);
                 ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
                         tempBotCloth.getName());
@@ -2021,9 +2083,9 @@ public class WardrobeController implements Initializable {
         }
         pickBotGrid.getChildren().clear();
 
-        for (int i = 0; i < footItemsCreate.length; i++){
-            if (footItemsCreate[i] != null) {
-                outfits[0].setFootwears(footwears.get(footItemsCreate[i]), i);
+        for (int i = 0; i < tempFoot1.length; i++){
+            if (tempFoot1[i] != null) {
+                outfits[0].setFootwears(footwears.get(tempFoot1[i]), i);
                 Footwear tempFoot = outfits[0].getFootwears(i);
                 ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
                         tempFoot.getName());
@@ -2062,9 +2124,30 @@ public class WardrobeController implements Initializable {
         btnOpt2.setDisable(true);
         outfits[1] = new Outfit();
 
-        for (int i = 0; i < headItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
-                outfits[1].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+        headPickItems = 0;
+        neckPickItems = 0;
+        handPickItems = 0;
+        topPickItems = 0;
+        botPickItems = 0;
+        footPickItems = 0;
+
+        tempHead2 = headItemsCreate;
+        tempNeck2 = neckItemsCreate;
+        tempHand2 = handItemsCreate;
+        tempTop2 = topItemsCreate;
+        tempBot2 = botItemsCreate;
+        tempFoot2 = footItemsCreate;
+
+        headItemsCreate = new String[2];
+        neckItemsCreate = new String[2];
+        handItemsCreate = new String[2];
+        topItemsCreate = new String[2];
+        botItemsCreate = new String[2];
+        footItemsCreate = new String[2];
+
+        for (int i = 0; i < tempHead2.length; i++){
+            if (tempHead2[i] != null) {
+                outfits[1].setHeadAcc(accessories.get(tempHead2[i]), i);
                 Accessories tempHeadAcc = outfits[1].getHeadAcc(i);
                 ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
                             tempHeadAcc.getName());
@@ -2094,10 +2177,9 @@ public class WardrobeController implements Initializable {
         }
         pickHeadGrid.getChildren().clear();
 
-        for (int i = 0; i < neckItemsCreate.length; i++){
-            if (neckItemsCreate[i] != null) {
-                outfits[1].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
-                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+        for (int i = 0; i < tempNeck2.length; i++){
+            if (tempNeck2[i] != null) {
+                outfits[1].setNeckAcc(accessories.get(tempNeck2[i]), i);
                 Accessories tempNeckAcc = outfits[1].getNeckAcc(i);
                 ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
                         tempNeckAcc.getName());
@@ -2128,9 +2210,9 @@ public class WardrobeController implements Initializable {
         pickNeckGrid.getChildren().clear();
 
 
-        for (int i = 0; i < handItemsCreate.length; i++){
-            if (handItemsCreate[i] != null) {
-                outfits[1].setHandAcc(accessories.get(handItemsCreate[i]), i);
+        for (int i = 0; i < tempHand2.length; i++){
+            if (tempHand2[i] != null) {
+                outfits[1].setHandAcc(accessories.get(tempHand2[i]), i);
                 Accessories tempHandAcc = outfits[1].getHandAcc(i);
                 ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
                         tempHandAcc.getName());
@@ -2161,9 +2243,9 @@ public class WardrobeController implements Initializable {
         pickHandGrid.getChildren().clear();
 
 
-        for (int i = 0; i < topItemsCreate.length; i++){
-            if (topItemsCreate[i] != null) {
-                outfits[1].setTopCloth(clothes.get(topItemsCreate[i]), i);
+        for (int i = 0; i < tempTop2.length; i++){
+            if (tempTop2[i] != null) {
+                outfits[1].setTopCloth(clothes.get(tempTop2[i]), i);
                 Clothing tempTopCloth = outfits[1].getTopClothes(i);
                 ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
                         tempTopCloth.getName());
@@ -2193,9 +2275,9 @@ public class WardrobeController implements Initializable {
         }
         pickTopGrid.getChildren().clear();
 
-        for (int i = 0; i < botItemsCreate.length; i++){
-            if (botItemsCreate[i] != null) {
-                outfits[1].setBotCloth(clothes.get(botItemsCreate[i]), i);
+        for (int i = 0; i < tempBot2.length; i++){
+            if (tempBot2[i] != null) {
+                outfits[1].setBotCloth(clothes.get(tempBot2[i]), i);
                 Clothing tempBotCloth = outfits[1].getBotClothes(i);
                 ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
                         tempBotCloth.getName());
@@ -2225,9 +2307,9 @@ public class WardrobeController implements Initializable {
         }
         pickBotGrid.getChildren().clear();
 
-        for (int i = 0; i < footItemsCreate.length; i++){
-            if (footItemsCreate[i] != null) {
-                outfits[1].setFootwears(footwears.get(footItemsCreate[i]), i);
+        for (int i = 0; i < tempFoot2.length; i++){
+            if (tempFoot2[i] != null) {
+                outfits[1].setFootwears(footwears.get(tempFoot2[i]), i);
                 Footwear tempFoot = outfits[1].getFootwears(i);
                 ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
                         tempFoot.getName());
@@ -2267,9 +2349,30 @@ public class WardrobeController implements Initializable {
         btnOpt3.setDisable(true);
         outfits[2] = new Outfit();
 
-        for (int i = 0; i < headItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
-                outfits[2].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+        headPickItems = 0;
+        neckPickItems = 0;
+        handPickItems = 0;
+        topPickItems = 0;
+        botPickItems = 0;
+        footPickItems = 0;
+
+        tempHead3 = headItemsCreate;
+        tempNeck3 = neckItemsCreate;
+        tempHand3 = handItemsCreate;
+        tempTop3 = topItemsCreate;
+        tempBot3 = botItemsCreate;
+        tempFoot3 = footItemsCreate;
+
+        headItemsCreate = new String[2];
+        neckItemsCreate = new String[2];
+        handItemsCreate = new String[2];
+        topItemsCreate = new String[2];
+        botItemsCreate = new String[2];
+        footItemsCreate = new String[2];
+
+        for (int i = 0; i < tempHead3.length; i++){
+            if (tempHead3[i] != null) {
+                outfits[2].setHeadAcc(accessories.get(tempHead3[i]), i);
                 Accessories tempHeadAcc = outfits[2].getHeadAcc(i);
                 ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
                             tempHeadAcc.getName());
@@ -2299,10 +2402,9 @@ public class WardrobeController implements Initializable {
         }
         pickHeadGrid.getChildren().clear();
 
-        for (int i = 0; i < neckItemsCreate.length; i++){
-            if (neckItemsCreate[i] != null) {
-                outfits[2].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
-                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+        for (int i = 0; i < tempNeck3.length; i++){
+            if (tempNeck3[i] != null) {
+                outfits[2].setNeckAcc(accessories.get(tempNeck3[i]), i);
                 Accessories tempNeckAcc = outfits[2].getNeckAcc(i);
                 ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
                         tempNeckAcc.getName());
@@ -2333,9 +2435,9 @@ public class WardrobeController implements Initializable {
         pickNeckGrid.getChildren().clear();
 
 
-        for (int i = 0; i < handItemsCreate.length; i++){
-            if (handItemsCreate[i] != null) {
-                outfits[2].setHandAcc(accessories.get(handItemsCreate[i]), i);
+        for (int i = 0; i < tempHand3.length; i++){
+            if (tempHand3[i] != null) {
+                outfits[2].setHandAcc(accessories.get(tempHand3[i]), i);
                 Accessories tempHandAcc = outfits[2].getHandAcc(i);
                 ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
                         tempHandAcc.getName());
@@ -2366,9 +2468,9 @@ public class WardrobeController implements Initializable {
         pickHandGrid.getChildren().clear();
 
 
-        for (int i = 0; i < topItemsCreate.length; i++){
-            if (topItemsCreate[i] != null) {
-                outfits[2].setTopCloth(clothes.get(topItemsCreate[i]), i);
+        for (int i = 0; i < tempTop3.length; i++){
+            if (tempTop3[i] != null) {
+                outfits[2].setTopCloth(clothes.get(tempTop3[i]), i);
                 Clothing tempTopCloth = outfits[2].getTopClothes(i);
                 ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
                         tempTopCloth.getName());
@@ -2398,9 +2500,9 @@ public class WardrobeController implements Initializable {
         }
         pickTopGrid.getChildren().clear();
 
-        for (int i = 0; i < botItemsCreate.length; i++){
-            if (botItemsCreate[i] != null) {
-                outfits[2].setBotCloth(clothes.get(botItemsCreate[i]), i);
+        for (int i = 0; i < tempBot3.length; i++){
+            if (tempBot3[i] != null) {
+                outfits[2].setBotCloth(clothes.get(tempBot3[i]), i);
                 Clothing tempBotCloth = outfits[2].getBotClothes(i);
                 ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
                         tempBotCloth.getName());
@@ -2430,9 +2532,9 @@ public class WardrobeController implements Initializable {
         }
         pickBotGrid.getChildren().clear();
 
-        for (int i = 0; i < footItemsCreate.length; i++){
-            if (footItemsCreate[i] != null) {
-                outfits[2].setFootwears(footwears.get(footItemsCreate[i]), i);
+        for (int i = 0; i < tempFoot3.length; i++){
+            if (tempFoot3[i] != null) {
+                outfits[2].setFootwears(footwears.get(tempFoot3[i]), i);
                 Footwear tempFoot = outfits[2].getFootwears(i);
                 ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
                         tempFoot.getName());
@@ -2469,12 +2571,32 @@ public class WardrobeController implements Initializable {
     protected void space4Clicked() {
         wardrobeOption.setVisible(false);
         btnOpt4.setDisable(true);
-
         outfits[3] = new Outfit();
 
-        for (int i = 0; i < headItemsCreate.length; i++){
-            if (headItemsCreate[i] != null) {
-                outfits[3].setHeadAcc(accessories.get(headItemsCreate[i]), i);
+        headPickItems = 0;
+        neckPickItems = 0;
+        handPickItems = 0;
+        topPickItems = 0;
+        botPickItems = 0;
+        footPickItems = 0;
+
+        tempHead4 = headItemsCreate;
+        tempNeck4 = neckItemsCreate;
+        tempHand4 = handItemsCreate;
+        tempTop4 = topItemsCreate;
+        tempBot4 = botItemsCreate;
+        tempFoot4 = footItemsCreate;
+
+        headItemsCreate = new String[2];
+        neckItemsCreate = new String[2];
+        handItemsCreate = new String[2];
+        topItemsCreate = new String[2];
+        botItemsCreate = new String[2];
+        footItemsCreate = new String[2];
+
+        for (int i = 0; i < tempHead4.length; i++){
+            if (tempHead4[i] != null) {
+                outfits[3].setHeadAcc(accessories.get(tempHead4[i]), i);
                 Accessories tempHeadAcc = outfits[3].getHeadAcc(i);
                 ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
                             tempHeadAcc.getName());
@@ -2504,10 +2626,9 @@ public class WardrobeController implements Initializable {
         }
         pickHeadGrid.getChildren().clear();
 
-        for (int i = 0; i < neckItemsCreate.length; i++){
-            if (neckItemsCreate[i] != null) {
-                outfits[3].setNeckAcc(accessories.get(neckItemsCreate[i]), i);
-                System.out.println(accessories.get(neckItemsCreate[i]).getName());
+        for (int i = 0; i < tempNeck4.length; i++){
+            if (tempNeck4[i] != null) {
+                outfits[3].setNeckAcc(accessories.get(tempNeck4[i]), i);
                 Accessories tempNeckAcc = outfits[3].getNeckAcc(i);
                 ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
                         tempNeckAcc.getName());
@@ -2538,9 +2659,9 @@ public class WardrobeController implements Initializable {
         pickNeckGrid.getChildren().clear();
 
 
-        for (int i = 0; i < handItemsCreate.length; i++){
-            if (handItemsCreate[i] != null) {
-                outfits[3].setHandAcc(accessories.get(handItemsCreate[i]), i);
+        for (int i = 0; i < tempHand4.length; i++){
+            if (tempHand4[i] != null) {
+                outfits[3].setHandAcc(accessories.get(tempHand4[i]), i);
                 Accessories tempHandAcc = outfits[3].getHandAcc(i);
                 ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
                         tempHandAcc.getName());
@@ -2571,9 +2692,9 @@ public class WardrobeController implements Initializable {
         pickHandGrid.getChildren().clear();
 
 
-        for (int i = 0; i < topItemsCreate.length; i++){
-            if (topItemsCreate[i] != null) {
-                outfits[3].setTopCloth(clothes.get(topItemsCreate[i]), i);
+        for (int i = 0; i < tempTop4.length; i++){
+            if (tempTop4[i] != null) {
+                outfits[3].setTopCloth(clothes.get(tempTop4[i]), i);
                 Clothing tempTopCloth = outfits[3].getTopClothes(i);
                 ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
                         tempTopCloth.getName());
@@ -2603,9 +2724,9 @@ public class WardrobeController implements Initializable {
         }
         pickTopGrid.getChildren().clear();
 
-        for (int i = 0; i < botItemsCreate.length; i++){
-            if (botItemsCreate[i] != null) {
-                outfits[3].setBotCloth(clothes.get(botItemsCreate[i]), i);
+        for (int i = 0; i < tempBot4.length; i++){
+            if (tempBot4[i] != null) {
+                outfits[3].setBotCloth(clothes.get(tempBot4[i]), i);
                 Clothing tempBotCloth = outfits[3].getBotClothes(i);
                 ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
                         tempBotCloth.getName());
@@ -2635,9 +2756,9 @@ public class WardrobeController implements Initializable {
         }
         pickBotGrid.getChildren().clear();
 
-        for (int i = 0; i < footItemsCreate.length; i++){
-            if (footItemsCreate[i] != null) {
-                outfits[3].setFootwears(footwears.get(footItemsCreate[i]), i);
+        for (int i = 0; i < tempFoot4.length; i++){
+            if (tempFoot4[i] != null) {
+                outfits[3].setFootwears(footwears.get(tempFoot4[i]), i);
                 Footwear tempFoot = outfits[3].getFootwears(i);
                 ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
                         tempFoot.getName());
@@ -2677,6 +2798,9 @@ public class WardrobeController implements Initializable {
     // ---------- Outfit Creation END ----------
 
 
+    // When wardrobe spaces are clicked, latest items added are the only one showing
+    // Need remove outfit function
+
 
 
 
@@ -2700,17 +2824,29 @@ public class WardrobeController implements Initializable {
 
     @FXML
     protected void outfit2Clicked() {
-
+        if (outfits[1] != null) {
+            for(int i = 0; i < 2; i++) {
+                showOutfitItems.setVisible(true);
+            }
+        }
     }
 
     @FXML
     protected void outfit3Clicked() {
-
+        if (outfits[2] != null) {
+            for(int i = 0; i < 2; i++) {
+                showOutfitItems.setVisible(true);
+            }
+        }
     }
 
     @FXML
     protected void outfit4Clicked() {
-
+        if (outfits[3] != null) {
+            for(int i = 0; i < 2; i++) {
+                showOutfitItems.setVisible(true);
+            }
+        }
     }
 
 

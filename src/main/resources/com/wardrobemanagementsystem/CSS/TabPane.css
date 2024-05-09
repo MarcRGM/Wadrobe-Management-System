@@ -469,7 +469,7 @@
     -fx-border-radius: 5px;
 }
 
-#showBackItems .button {
+#showBackItems #showOuts .button {
     -fx-background-color: #7a6c67;
 }
 
@@ -495,6 +495,16 @@
     -fx-background-color: #EEEEEE;
 }
 
+#btnRemoveOutfit {
+    -fx-background-color: #FA7070;
+    -fx-text-fill: #EEEEEE;
+    -fx-font-size: 10;
+}
+
+#btnRemoveOutfit:hover {
+    -fx-background-color: #e76464;
+    -fx-text-fill: #dedddd;
+}
 
 
 

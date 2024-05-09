@@ -1153,7 +1153,7 @@
                   </ScrollPane>
                </children>
             </Pane>
-            <Pane id="outfitsPane" fx:id="outfitsPane" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css">
+            <Pane id="outfitsPane" fx:id="outfitsPane" prefHeight="552.0" prefWidth="856.0" stylesheets="@CSS/TabPane.css" visible="false">
                <children>
                   <Line endX="7.928928375244141" endY="141.59561157226562" layoutX="21.0" layoutY="136.0" startX="-23.66665267944336" startY="414.928955078125" stroke="#3f3b37" strokeWidth="10.0" />
                   <Button id="backButton" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="37.0" prefWidth="63.0" stylesheets="@CSS/TabPane.css" text="BACK" />
@@ -1277,13 +1277,18 @@
                                                 <Font name="Tw Cen MT Bold" size="10.0" />
                                              </font>
                                           </Button>
+                                          <Button id="btnRemoveOutfit" layoutX="244.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnBackOutfitClicked" prefHeight="26.0" prefWidth="63.0" stylesheets="@CSS/TabPane.css" text="REMOVE" textFill="#6c5f5b">
+                                             <font>
+                                                <Font name="Tw Cen MT Bold" size="10.0" />
+                                             </font>
+                                          </Button>
                                        </children>
                                     </Pane>
                                  </children>
                               </Pane>
                            </content>
                         </ScrollPane>
-                        <Pane id="showInfoPane" fx:id="showInfoPAne" layoutX="142.0" layoutY="83.0" prefHeight="192.0" prefWidth="252.0" stylesheets="@CSS/TabPane.css" visible="false">
+                        <Pane id="showInfoPane" fx:id="showInfoPane" layoutX="142.0" layoutY="83.0" prefHeight="192.0" prefWidth="252.0" stylesheets="@CSS/TabPane.css" visible="false">
                            <children>
                               <Button id="btnClose" layoutX="210.0" layoutY="14.0" mnemonicParsing="false" onAction="#backShowItemInfo" stylesheets="@CSS/TabPane.css" text="✖" />
                               <Label layoutX="16.0" layoutY="50.0" prefHeight="27.0" prefWidth="60.0" text="Name:" textFill="#eeeeee">
