@@ -3,8 +3,35 @@
 }
 
 #lblTitle {
-    -fx-font-size: 30;
+    -fx-font-size: 28;
     -fx-font-family: "Tw Cen MT";
     -fx-text-fill: #EEEEEE;
-    
+    -fx-font-weight: bold;
+    -fx-background-color: #31363F;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+#backPane {
+    -fx-background-color: #EEEEEE;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+#lblItem {
+    -fx-font-size: 18;
+    -fx-font-family: "Tw Cen MT";
+    -fx-text-fill: #222831;
+    -fx-font-weight: bold;
+}
+
+#items {
+    -fx-background-color: #76ABAE;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+#covers {
+    -fx-background-color: #4F4A45;
 }
