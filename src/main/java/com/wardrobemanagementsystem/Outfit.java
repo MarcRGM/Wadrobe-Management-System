@@ -59,6 +59,30 @@ public class Outfit {
         return footwears[index];
     }
 
+    public void removeTopClothes(int index) {
+        this.topClothes[index] = null;
+    }
+
+    public void removeBotClothes(int index) {
+        this.botClothes[index] = null;
+    }
+
+    public void removeHeadAcc(int index) {
+        this.headAcc[index] = null;
+    }
+
+    public void removeNeckAcc(int index) {
+        this.neckAcc[index] = null;
+    }
+
+    public void removeHandAcc(int index) {
+        this.handAcc[index] = null;
+    }
+
+    public void removeFootwears(int index) {
+        this.footwears[index] = null;
+    }
+
 }
 
 

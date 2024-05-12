@@ -2,7 +2,6 @@ package com.wardrobemanagementsystem;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -19,7 +18,6 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 import java.io.File;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -230,7 +228,9 @@ public class WardrobeController implements Initializable {
     Image maleFigure = new Image(new File("src/main/java/com/icons8-body-600.png").toURI().toString());
     Image femaleFigure = new Image(new File("src/main/java/com/icons8-girl-body-600.png").toURI().toString());
 
-    String currItemPick, currGenderOutfitCreation, currRemovePlace, currRemoveItem;
+    String currItemPick, currGenderOutfitCreation, currRemovePlace, currRemoveItem,
+        wardrobe1Gender, wardrobe2Gender, wardrobe3Gender, wardrobe4Gender;
+
 
     @FXML
     private ImageView imgViewMale, imgViewFemale;
@@ -244,11 +244,7 @@ public class WardrobeController implements Initializable {
     @FXML
     private Label labelPickItem, removeItemLabel;
 
-
-
     // Show Outfits
-
-    String[] wardrobeSpace = new String[4];
 
     Outfit[] outfits = new Outfit[4];
 
@@ -260,7 +256,8 @@ public class WardrobeController implements Initializable {
     private ScrollPane showOutfitItems;
 
     @FXML
-    private Label lblCatOrMat, lblShowItem, lblShowName, lblShowBrand, lblShowColor, lblShowCatOrMat;
+    private Label lblCatOrMat, lblShowItem, lblShowName, lblShowBrand, lblShowColor, lblShowCatOrMat,
+    lblGender;
 
     @FXML
     private Pane showInfoPane;
@@ -347,35 +344,35 @@ public class WardrobeController implements Initializable {
     // ---------- Wardrobe click ----------
 
     @FXML
-    protected void clothingTopClicked() {
+    private void clothingTopClicked() {
         clearControls();
         mainTabPane.getSelectionModel().select(clothTab);
         clothCategoryTab.getSelectionModel().select(clothTopTab);
     }
 
     @FXML
-    protected void clothingBottomClicked() {
+    private void clothingBottomClicked() {
         clearControls();
         mainTabPane.getSelectionModel().select(clothTab);
         clothCategoryTab.getSelectionModel().select(clothBottomTab);
     }
 
     @FXML
-    protected void headClicked() {
+    private void headClicked() {
         clearControls();
         mainTabPane.getSelectionModel().select(accTab);
         accCategoryTab.getSelectionModel().select(headTab);
     }
 
     @FXML
-    protected void neckClicked() {
+    private void neckClicked() {
         clearControls();
         mainTabPane.getSelectionModel().select(accTab);
         accCategoryTab.getSelectionModel().select(neckTab);
     }
 
     @FXML
-    protected void handClicked() {
+    private void handClicked() {
         clearControls();
         mainTabPane.getSelectionModel().select(accTab);
         accCategoryTab.getSelectionModel().select(handTab);
@@ -383,48 +380,48 @@ public class WardrobeController implements Initializable {
 
 
     @FXML
-    protected void footClicked() {
+    private void footClicked() {
         clearControls();
         mainTabPane.getSelectionModel().select(footTab);
     }
 
     @FXML
-    protected void clothTabClicked() {
+    private void clothTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void accTabClicked() {
+    private void accTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void footTabClicked() {
+    private void footTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void topTabClicked() {
+    private void topTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void botTabClicked() {
+    private void botTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void headTabClicked() {
+    private void headTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void neckTabClicked() {
+    private void neckTabClicked() {
         clearControls();
     }
 
     @FXML
-    protected void handTabClicked() {
+    private void handTabClicked() {
         clearControls();
     }
 
@@ -450,14 +447,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddTopClicked() {
+    private void btnAddTopClicked() {
         clearControls();
         topGetInfoPane.setVisible(true);
         tempTopImage.setImage(null);
     }
 
     @FXML
-    protected void btnTopInfoConfirmClicked () {
+    private void btnTopInfoConfirmClicked () {
         if (clothes.containsKey(txtFieldTopName.getText())) {
             txtFieldTopName.setText("NAME ALREADY EXISTS!");
             btnTopInfoConfirm.disableProperty().setValue(true);
@@ -517,7 +514,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void removeTopItem() {
+    private void removeTopItem() {
         topShowInfoPane.setVisible(false);
 
         int index = 0;
@@ -590,14 +587,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddBotClicked() {
+    private void btnAddBotClicked() {
         clearControls();
         botGetInfoPane.setVisible(true);
         tempBotImage.setImage(null);
     }
 
     @FXML
-    protected void btnBotInfoConfirmClicked () {
+    private void btnBotInfoConfirmClicked () {
         if (clothes.containsKey(txtFieldBotName.getText())) {
             txtFieldBotName.setText("NAME ALREADY EXISTS!");                           // NOT SHOWING
             btnBotInfoConfirm.disableProperty().setValue(true);
@@ -657,7 +654,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void removeBotItem() {
+    private void removeBotItem() {
         botShowInfoPane.setVisible(false);
 
         int index = 0;
@@ -731,14 +728,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddFootClicked() {
+    private void btnAddFootClicked() {
         clearControls();
         footGetInfoPane.setVisible(true);
         tempFootImage.setImage(null);
     }
 
     @FXML
-    protected void btnFootInfoConfirmClicked () {
+    private void btnFootInfoConfirmClicked () {
         if (footwears.containsKey(txtFieldFootName.getText())) {
             txtFieldFootName.setText("NAME ALREADY EXISTS!");
             btnFootInfoConfirm.disableProperty().setValue(true);
@@ -797,7 +794,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void removeFootItem() {
+    private void removeFootItem() {
         footShowInfoPane.setVisible(false);
 
         int index = 0;
@@ -871,14 +868,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddHeadClicked() {
+    private void btnAddHeadClicked() {
         clearControls();
         headGetInfoPane.setVisible(true);
         tempHeadImage.setImage(null);
     }
 
     @FXML
-    protected void btnHeadInfoConfirmClicked () {
+    private void btnHeadInfoConfirmClicked () {
         if (accessories.containsKey(txtFieldHeadName.getText())) {
             txtFieldHeadName.setText("NAME ALREADY EXISTS!");
             btnHeadInfoConfirm.disableProperty().setValue(true);
@@ -937,7 +934,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void removeHeadItem() {
+    private void removeHeadItem() {
         headShowInfoPane.setVisible(false);
 
         int index = 0;
@@ -1009,14 +1006,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddNeckClicked() {
+    private void btnAddNeckClicked() {
         clearControls();
         neckGetInfoPane.setVisible(true);
         tempNeckImage.setImage(null);
     }
 
     @FXML
-    protected void btnNeckInfoConfirmClicked () {
+    private void btnNeckInfoConfirmClicked () {
         if (clothes.containsKey(txtFieldNeckName.getText())) {
             txtFieldNeckName.setText("NAME ALREADY EXISTS!");
             btnNeckInfoConfirm.disableProperty().setValue(true);
@@ -1076,7 +1073,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void removeNeckItem() {
+    private void removeNeckItem() {
         neckShowInfoPane.setVisible(false);
 
         int index = 0;
@@ -1149,14 +1146,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddHandClicked() {
+    private void btnAddHandClicked() {
         clearControls();
         handGetInfoPane.setVisible(true);
         tempHandImage.setImage(null);
     }
 
     @FXML
-    protected void btnHandInfoConfirmClicked () {
+    private void btnHandInfoConfirmClicked () {
         if (accessories.containsKey(txtFieldHandName.getText())) {
             txtFieldHandName.setText("NAME ALREADY EXISTS!");
             btnHandInfoConfirm.disableProperty().setValue(true);
@@ -1216,7 +1213,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void removeHandItem() {
+    private void removeHandItem() {
         handShowInfoPane.setVisible(false);
 
         int index = 0;
@@ -1271,7 +1268,7 @@ public class WardrobeController implements Initializable {
     // ---------- Outfit Creation ----------
 
     @FXML
-    protected void backClicked() {
+    private void backClicked() {
         mainTabPane.setVisible(true);
         titleLabel.setVisible(true);
         shadow.setVisible(true);
@@ -1305,7 +1302,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnCreateOutfitClicked() {
+    private void btnCreateOutfitClicked() {
         titleLabel.setVisible(false);
         shadow.setVisible(false);
         selectGenderPane.setVisible(true);
@@ -1313,14 +1310,14 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnShowOutfitClicked() {
+    private void btnShowOutfitClicked() {
         titleLabel.setVisible(false);
         shadow.setVisible(false);
         outfitsPane.setVisible(true);
     }
 
     @FXML
-    protected void btnCreateMaleOutfit() {
+    private void btnCreateMaleOutfit() {
         itemsScroll.setVvalue(0);
         selectGenderPane.setVisible(false);
         currGenderOutfitCreation = "Male";
@@ -1329,7 +1326,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnCreateFemaleOutfit() {
+    private void btnCreateFemaleOutfit() {
         itemsScroll.setVvalue(0);
         selectGenderPane.setVisible(false);
         currGenderOutfitCreation = "Female";
@@ -1339,14 +1336,14 @@ public class WardrobeController implements Initializable {
 
 
     @FXML
-    protected void btnBackPick() {
+    private void btnBackPick() {
         pickItemsGrid.getChildren().clear();
         pickItemPane.setVisible(false);
         pickItemScroll.setHvalue(0);
     }
 
     @FXML
-    protected void btnPickHead() {
+    private void btnPickHead() {
         if (trackHeadItems != 0 && headPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Head";
@@ -1357,7 +1354,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnPickNeck() {
+    private void btnPickNeck() {
         if (trackNeckItems != 0 && neckPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Neck";
@@ -1368,7 +1365,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnPickHand() {
+    private void btnPickHand() {
         if (trackHandItems != 0 && handPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Hand";
@@ -1379,7 +1376,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnPickTop() {
+    private void btnPickTop() {
         if (trackTopItems != 0 && topPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Top";
@@ -1390,7 +1387,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnPickBot() {
+    private void btnPickBot() {
         if (trackBotItems != 0 && botPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Bot";
@@ -1401,7 +1398,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnPickFoot() {
+    private void btnPickFoot() {
         if (trackFootItems != 0 && footPickItems != 2) {
             pickItemPane.setVisible(true);
             currItemPick = "Foot";
@@ -1411,7 +1408,7 @@ public class WardrobeController implements Initializable {
         }
     }
 
-    protected void addPickItems(int count, String itemPick) {
+    private void addPickItems(int count, String itemPick) {
         ItemButton tempItemButton1;
         Button button1;
         pickItemsGrid.getChildren().clear();
@@ -1744,12 +1741,12 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void noRemoveClicked() {
+    private void noRemoveClicked() {
         removeInfoItemPane.setVisible(false);
     }
 
     @FXML
-    protected void yesRemoveClicked() {
+    private void yesRemoveClicked() {
         switch (currRemovePlace) {
             case "Head":
                 pickHeadGrid.getChildren().remove(currRemoveButton);
@@ -1771,6 +1768,60 @@ public class WardrobeController implements Initializable {
                     }
                 }
                 headPickItems--;
+
+                for (int i = 0; i < outfits.length; i ++) {
+                    for (int j = 0; j < 2; j++) {
+                        if (outfits[i] != null && outfits[ i ].getHeadAcc(j) != null) {
+                            if (outfits[ i ].getHeadAcc(j).getName().equals(currRemoveItem)) {
+                                if (j == 0) {
+                                    outfits[ i ].setHeadAcc(outfits[ i ].getHeadAcc(j + 1), j);
+                                    outfits[ i ].setHeadAcc(null, j + 1);
+                                } else {
+                                    outfits[ i ].setHeadAcc(null, j);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (int j = 0; j < 2; j++) {
+                    if (tempHead1[j] != null && tempHead1[ j ].equals(currRemoveItem)) {
+                        if (j == 0) {
+                            tempHead1[ j ] = tempHead1[ j + 1 ];
+                            tempHead1[ j + 1 ] = null;
+                        } else {
+                            tempHead1[ j ] = null;
+                        }
+                    }
+
+                    if(tempHead2[j] != null && tempHead2[j].equals(currRemoveItem)) {
+                        if (j == 0) {
+                            tempHead2[j] = tempHead2[j+1];
+                            tempHead2[j+1] = null;
+                        } else {
+                            tempHead2[j] = null;
+                        }
+                    }
+
+                    if(tempHead3[j] != null && tempHead3[j].equals(currRemoveItem)) {
+                        if (j == 0) {
+                            tempHead3[j] = tempHead3[j+1];
+                            tempHead3[j+1] = null;
+                        } else {
+                            tempHead3[j] = null;
+                        }
+                    }
+
+                    if(tempHead4[j] != null && tempHead4[j].equals(currRemoveItem)) {
+                        if (j == 0) {
+                            tempHead4[j] = tempHead4[j+1];
+                            tempHead4[j+1] = null;
+                        } else {
+                            tempHead4[j] = null;
+                        }
+                    }
+                }
+
                 break;
             case "Neck":
                 pickNeckGrid.getChildren().remove(currRemoveButton);
@@ -1882,17 +1933,17 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnAddOutfit() {
+    private void btnAddOutfit() {
         wardrobeOption.setVisible(true);
     }
 
     @FXML
-    protected void btnBackOptionClicked() {
+    private void btnBackOptionClicked() {
         wardrobeOption.setVisible(false);
     }
 
     @FXML
-    protected void space1Clicked() {
+    private void space1Clicked() {
         wardrobeOption.setVisible(false);
         btnOpt1.setDisable(true);
         outfits[0] = new Outfit();
@@ -1908,12 +1959,14 @@ public class WardrobeController implements Initializable {
         resetItemCreationArrays();
         clearAndInitializeGrids();
 
+        wardrobe1Gender = currGenderOutfitCreation;
+
         wardrobeOption.setVisible(false);
     }
 
 
     @FXML
-    protected void space2Clicked() {
+    private void space2Clicked() {
         wardrobeOption.setVisible(false);
         btnOpt2.setDisable(true);
         outfits[1] = new Outfit();
@@ -1929,13 +1982,15 @@ public class WardrobeController implements Initializable {
         resetItemCreationArrays();
         clearAndInitializeGrids();
 
+        wardrobe2Gender = currGenderOutfitCreation;
+
         wardrobeOption.setVisible(false);
     }
 
 
 
     @FXML
-    protected void space3Clicked() {
+    private void space3Clicked() {
         wardrobeOption.setVisible(false);
         btnOpt3.setDisable(true);
         outfits[2] = new Outfit();
@@ -1951,14 +2006,14 @@ public class WardrobeController implements Initializable {
         resetItemCreationArrays();
         clearAndInitializeGrids();
 
-        System.out.println(headItemsCreate[0]);
+        wardrobe3Gender = currGenderOutfitCreation;
 
         wardrobeOption.setVisible(false);
     }
 
 
     @FXML
-    protected void space4Clicked() {
+    private void space4Clicked() {
         wardrobeOption.setVisible(false);
         btnOpt4.setDisable(true);
         outfits[3] = new Outfit();
@@ -1973,6 +2028,8 @@ public class WardrobeController implements Initializable {
         clearSelections();
         resetItemCreationArrays();
         clearAndInitializeGrids();
+
+        wardrobe4Gender = currGenderOutfitCreation;
 
         wardrobeOption.setVisible(false);
     }
@@ -2006,7 +2063,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void backShowItemInfo() {
+    private void backShowItemInfo() {
         showInfoPane.setVisible(false);
     }
 
@@ -2021,7 +2078,7 @@ public class WardrobeController implements Initializable {
 
 
     @FXML
-    protected void btnBackOutfitClicked() {
+    private void btnBackOutfitClicked() {
         showOutfitItems.setVisible(false);
         showOutfitItems.setVvalue(0);
         clearOutfitShowGrids();
@@ -2037,7 +2094,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void btnBackShowClicked() {
+    private void btnBackShowClicked() {
         clearOutfitShowGrids();
         showOutfitItems.setVisible(false);
         outfitsPane.setVisible(false);
@@ -2045,8 +2102,10 @@ public class WardrobeController implements Initializable {
 
 
     @FXML
-    protected void outfit1Clicked() {
+    private void outfit1Clicked() {
         currOutfitClicked = 0;
+
+        lblGender.setText(wardrobe1Gender);
 
         if (outfits[0] != null) {
             showOutfitItems.setVisible(true);
@@ -2054,30 +2113,32 @@ public class WardrobeController implements Initializable {
                 if (tempHead1[i] != null) {
                     outfits[0].setHeadAcc(accessories.get(tempHead1[i]), i);
                     Accessories tempHeadAcc = outfits[0].getHeadAcc(i);
-                    ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
+                    if (tempHeadAcc != null) {
+                        ItemButton headItemButton = new ItemButton(new ImageView(tempHeadAcc.getImage()),
                                 tempHeadAcc.getName());
-                    headItemButton.setImageViewSize(100, 100);
-                    Button buttonHead = headItemButton.getButton();
-                    buttonHead.setMinWidth(125);
-                    buttonHead.setMaxWidth(125);
-                    buttonHead.setPrefWidth(125);
-                    buttonHead.setMinHeight(125);
-                    buttonHead.setMaxHeight(125);
-                    buttonHead.setPrefHeight(125);
+                        headItemButton.setImageViewSize(100, 100);
+                        Button buttonHead = headItemButton.getButton();
+                        buttonHead.setMinWidth(125);
+                        buttonHead.setMaxWidth(125);
+                        buttonHead.setPrefWidth(125);
+                        buttonHead.setMinHeight(125);
+                        buttonHead.setMaxHeight(125);
+                        buttonHead.setPrefHeight(125);
 
 
-                    buttonHead.setOnAction(e -> {
-                        showInfoPane.setVisible(true);
-                        lblShowItem.setText("Head Accessory");
-                        lblShowName.setText(tempHeadAcc.getName());
-                        lblShowBrand.setText(tempHeadAcc.getBrand());
-                        lblShowColor.setText(tempHeadAcc.getColor());
-                        lblCatOrMat.setText("Material");
-                        lblShowCatOrMat.setText(tempHeadAcc.getCategory());
-                    });
+                        buttonHead.setOnAction(e -> {
+                            showInfoPane.setVisible(true);
+                            lblShowItem.setText("Head Accessory");
+                            lblShowName.setText(tempHeadAcc.getName());
+                            lblShowBrand.setText(tempHeadAcc.getBrand());
+                            lblShowColor.setText(tempHeadAcc.getColor());
+                            lblCatOrMat.setText("Material");
+                            lblShowCatOrMat.setText(tempHeadAcc.getCategory());
+                        });
 
-                    showHeadGrid.add(buttonHead, i, 0);
-                    setGridMargins(buttonHead);
+                        showHeadGrid.add(buttonHead, i, 0);
+                        setGridMargins(buttonHead);
+                    }
                 }
             }
 
@@ -2085,30 +2146,32 @@ public class WardrobeController implements Initializable {
                 if (tempNeck1[i] != null) {
                     outfits[0].setNeckAcc(accessories.get(tempNeck1[i]), i);
                     Accessories tempNeckAcc = outfits[0].getNeckAcc(i);
-                    ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
+                    if (tempNeckAcc != null) {
+                        ItemButton neckItemButton = new ItemButton(new ImageView(tempNeckAcc.getImage()),
                             tempNeckAcc.getName());
-                    neckItemButton.setImageViewSize(100, 100);
-                    Button buttonNeck = neckItemButton.getButton();
-                    buttonNeck.setMinWidth(125);
-                    buttonNeck.setMaxWidth(125);
-                    buttonNeck.setPrefWidth(125);
-                    buttonNeck.setMinHeight(125);
-                    buttonNeck.setMaxHeight(125);
-                    buttonNeck.setPrefHeight(125);
+                        neckItemButton.setImageViewSize(100, 100);
+                        Button buttonNeck = neckItemButton.getButton();
+                        buttonNeck.setMinWidth(125);
+                        buttonNeck.setMaxWidth(125);
+                        buttonNeck.setPrefWidth(125);
+                        buttonNeck.setMinHeight(125);
+                        buttonNeck.setMaxHeight(125);
+                        buttonNeck.setPrefHeight(125);
 
 
-                    buttonNeck.setOnAction(e -> {
-                        showInfoPane.setVisible(true);
-                        lblShowItem.setText("Neck Accessory");
-                        lblShowName.setText(tempNeckAcc.getName());
-                        lblShowBrand.setText(tempNeckAcc.getBrand());
-                        lblShowColor.setText(tempNeckAcc.getColor());
-                        lblCatOrMat.setText("Material");
-                        lblShowCatOrMat.setText(tempNeckAcc.getCategory());
-                    });
+                        buttonNeck.setOnAction(e -> {
+                            showInfoPane.setVisible(true);
+                            lblShowItem.setText("Neck Accessory");
+                            lblShowName.setText(tempNeckAcc.getName());
+                            lblShowBrand.setText(tempNeckAcc.getBrand());
+                            lblShowColor.setText(tempNeckAcc.getColor());
+                            lblCatOrMat.setText("Material");
+                            lblShowCatOrMat.setText(tempNeckAcc.getCategory());
+                        });
 
-                    showNeckGrid.add(buttonNeck, i, 0);
-                    setGridMargins(buttonNeck);
+                        showNeckGrid.add(buttonNeck, i, 0);
+                        setGridMargins(buttonNeck);
+                    }
                 }
             }
 
@@ -2116,30 +2179,32 @@ public class WardrobeController implements Initializable {
                 if (tempHand1[i] != null) {
                     outfits[0].setHandAcc(accessories.get(tempHand1[i]), i);
                     Accessories tempHandAcc = outfits[0].getHandAcc(i);
-                    ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
+                    if (tempHandAcc != null) {
+                        ItemButton handItemButton = new ItemButton(new ImageView(tempHandAcc.getImage()),
                             tempHandAcc.getName());
-                    handItemButton.setImageViewSize(100, 100);
-                    Button buttonHand = handItemButton.getButton();
-                    buttonHand.setMinWidth(125);
-                    buttonHand.setMaxWidth(125);
-                    buttonHand.setPrefWidth(125);
-                    buttonHand.setMinHeight(125);
-                    buttonHand.setMaxHeight(125);
-                    buttonHand.setPrefHeight(125);
+                        handItemButton.setImageViewSize(100, 100);
+                        Button buttonHand = handItemButton.getButton();
+                        buttonHand.setMinWidth(125);
+                        buttonHand.setMaxWidth(125);
+                        buttonHand.setPrefWidth(125);
+                        buttonHand.setMinHeight(125);
+                        buttonHand.setMaxHeight(125);
+                        buttonHand.setPrefHeight(125);
 
 
-                    buttonHand.setOnAction(e -> {
-                        showInfoPane.setVisible(true);
-                        lblShowItem.setText("Hand Accessory");
-                        lblShowName.setText(tempHandAcc.getName());
-                        lblShowBrand.setText(tempHandAcc.getBrand());
-                        lblShowColor.setText(tempHandAcc.getColor());
-                        lblCatOrMat.setText("Material:");
-                        lblShowCatOrMat.setText(tempHandAcc.getCategory());
-                    });
+                        buttonHand.setOnAction(e -> {
+                            showInfoPane.setVisible(true);
+                            lblShowItem.setText("Hand Accessory");
+                            lblShowName.setText(tempHandAcc.getName());
+                            lblShowBrand.setText(tempHandAcc.getBrand());
+                            lblShowColor.setText(tempHandAcc.getColor());
+                            lblCatOrMat.setText("Material:");
+                            lblShowCatOrMat.setText(tempHandAcc.getCategory());
+                        });
 
-                    showHandGrid.add(buttonHand, i, 0);
-                    setGridMargins(buttonHand);
+                        showHandGrid.add(buttonHand, i, 0);
+                        setGridMargins(buttonHand);
+                    }
                 }
             }
 
@@ -2147,30 +2212,32 @@ public class WardrobeController implements Initializable {
                 if (tempTop1[i] != null) {
                     outfits[0].setTopCloth(clothes.get(tempTop1[i]), i);
                     Clothing tempTopCloth = outfits[0].getTopClothes(i);
-                    ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
+                    if (tempTopCloth != null) {
+                        ItemButton topItemButton = new ItemButton(new ImageView(tempTopCloth.getImage()),
                             tempTopCloth.getName());
-                    topItemButton.setImageViewSize(100, 100);
-                    Button buttonTop = topItemButton.getButton();
-                    buttonTop.setMinWidth(125);
-                    buttonTop.setMaxWidth(125);
-                    buttonTop.setPrefWidth(125);
-                    buttonTop.setMinHeight(125);
-                    buttonTop.setMaxHeight(125);
-                    buttonTop.setPrefHeight(125);
+                        topItemButton.setImageViewSize(100, 100);
+                        Button buttonTop = topItemButton.getButton();
+                        buttonTop.setMinWidth(125);
+                        buttonTop.setMaxWidth(125);
+                        buttonTop.setPrefWidth(125);
+                        buttonTop.setMinHeight(125);
+                        buttonTop.setMaxHeight(125);
+                        buttonTop.setPrefHeight(125);
 
 
-                    buttonTop.setOnAction(e -> {
-                        showInfoPane.setVisible(true);
-                        lblShowItem.setText("Top Clothing");
-                        lblShowName.setText(tempTopCloth.getName());
-                        lblShowBrand.setText(tempTopCloth.getBrand());
-                        lblShowColor.setText(tempTopCloth.getColor());
-                        lblCatOrMat.setText("Category:");
-                        lblShowCatOrMat.setText(tempTopCloth.getCategory());
-                    });
+                        buttonTop.setOnAction(e -> {
+                            showInfoPane.setVisible(true);
+                            lblShowItem.setText("Top Clothing");
+                            lblShowName.setText(tempTopCloth.getName());
+                            lblShowBrand.setText(tempTopCloth.getBrand());
+                            lblShowColor.setText(tempTopCloth.getColor());
+                            lblCatOrMat.setText("Category:");
+                            lblShowCatOrMat.setText(tempTopCloth.getCategory());
+                        });
 
-                    showTopGrid.add(buttonTop, i, 0);
-                    setGridMargins(buttonTop);
+                        showTopGrid.add(buttonTop, i, 0);
+                        setGridMargins(buttonTop);
+                    }
                 }
             }
 
@@ -2178,30 +2245,32 @@ public class WardrobeController implements Initializable {
                 if (tempBot1[i] != null) {
                     outfits[0].setBotCloth(clothes.get(tempBot1[i]), i);
                     Clothing tempBotCloth = outfits[0].getBotClothes(i);
-                    ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
+                    if (tempBotCloth != null) {
+                        ItemButton botItemButton = new ItemButton(new ImageView(tempBotCloth.getImage()),
                             tempBotCloth.getName());
-                    botItemButton.setImageViewSize(100, 100);
-                    Button buttonBot = botItemButton.getButton();
-                    buttonBot.setMinWidth(125);
-                    buttonBot.setMaxWidth(125);
-                    buttonBot.setPrefWidth(125);
-                    buttonBot.setMinHeight(125);
-                    buttonBot.setMaxHeight(125);
-                    buttonBot.setPrefHeight(125);
+                        botItemButton.setImageViewSize(100, 100);
+                        Button buttonBot = botItemButton.getButton();
+                        buttonBot.setMinWidth(125);
+                        buttonBot.setMaxWidth(125);
+                        buttonBot.setPrefWidth(125);
+                        buttonBot.setMinHeight(125);
+                        buttonBot.setMaxHeight(125);
+                        buttonBot.setPrefHeight(125);
 
 
-                    buttonBot.setOnAction(e -> {
-                        showInfoPane.setVisible(true);
-                        lblShowItem.setText("Bot Clothing");
-                        lblShowName.setText(tempBotCloth.getName());
-                        lblShowBrand.setText(tempBotCloth.getBrand());
-                        lblShowColor.setText(tempBotCloth.getColor());
-                        lblCatOrMat.setText("Category:");
-                        lblShowCatOrMat.setText(tempBotCloth.getCategory());
-                    });
+                        buttonBot.setOnAction(e -> {
+                            showInfoPane.setVisible(true);
+                            lblShowItem.setText("Bot Clothing");
+                            lblShowName.setText(tempBotCloth.getName());
+                            lblShowBrand.setText(tempBotCloth.getBrand());
+                            lblShowColor.setText(tempBotCloth.getColor());
+                            lblCatOrMat.setText("Category:");
+                            lblShowCatOrMat.setText(tempBotCloth.getCategory());
+                        });
 
-                    showBotGrid.add(buttonBot, i, 0);
-                    setGridMargins(buttonBot);
+                        showBotGrid.add(buttonBot, i, 0);
+                        setGridMargins(buttonBot);
+                    }
                 }
             }
 
@@ -2209,38 +2278,42 @@ public class WardrobeController implements Initializable {
                 if (tempFoot1[i] != null) {
                     outfits[0].setFootwears(footwears.get(tempFoot1[i]), i);
                     Footwear tempFoot = outfits[0].getFootwears(i);
-                    ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
+                    if (tempFoot != null) {
+                        ItemButton footItemButton = new ItemButton(new ImageView(tempFoot.getImage()),
                             tempFoot.getName());
-                    footItemButton.setImageViewSize(100, 100);
-                    Button buttonFoot = footItemButton.getButton();
-                    buttonFoot.setMinWidth(125);
-                    buttonFoot.setMaxWidth(125);
-                    buttonFoot.setPrefWidth(125);
-                    buttonFoot.setMinHeight(125);
-                    buttonFoot.setMaxHeight(125);
-                    buttonFoot.setPrefHeight(125);
+                        footItemButton.setImageViewSize(100, 100);
+                        Button buttonFoot = footItemButton.getButton();
+                        buttonFoot.setMinWidth(125);
+                        buttonFoot.setMaxWidth(125);
+                        buttonFoot.setPrefWidth(125);
+                        buttonFoot.setMinHeight(125);
+                        buttonFoot.setMaxHeight(125);
+                        buttonFoot.setPrefHeight(125);
 
 
-                    buttonFoot.setOnAction(e -> {
-                        showInfoPane.setVisible(true);
-                        lblShowItem.setText("Footwear");
-                        lblShowName.setText(tempFoot.getName());
-                        lblShowBrand.setText(tempFoot.getBrand());
-                        lblShowColor.setText(tempFoot.getColor());
-                        lblCatOrMat.setText("Category:");
-                        lblShowCatOrMat.setText(tempFoot.getCategory());
-                    });
+                        buttonFoot.setOnAction(e -> {
+                            showInfoPane.setVisible(true);
+                            lblShowItem.setText("Footwear");
+                            lblShowName.setText(tempFoot.getName());
+                            lblShowBrand.setText(tempFoot.getBrand());
+                            lblShowColor.setText(tempFoot.getColor());
+                            lblCatOrMat.setText("Category:");
+                            lblShowCatOrMat.setText(tempFoot.getCategory());
+                        });
 
-                    showFootGrid.add(buttonFoot, i, 0);
-                    setGridMargins(buttonFoot);
+                        showFootGrid.add(buttonFoot, i, 0);
+                        setGridMargins(buttonFoot);
+                    }
                 }
             }
         }
     }
 
     @FXML
-    protected void outfit2Clicked() {
+    private void outfit2Clicked() {
         currOutfitClicked = 1;
+
+        lblGender.setText(wardrobe2Gender);
 
         if (outfits[1] != null) {
             showOutfitItems.setVisible(true);
@@ -2432,8 +2505,10 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void outfit3Clicked() {
+    private void outfit3Clicked() {
         currOutfitClicked = 2;
+
+        lblGender.setText(wardrobe3Gender);
 
         if (outfits[2] != null) {
             showOutfitItems.setVisible(true);
@@ -2627,8 +2702,10 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void outfit4Clicked() {
+    private void outfit4Clicked() {
         currOutfitClicked = 3;
+
+        lblGender.setText(wardrobe4Gender);
 
         if (outfits[3] != null) {
             showOutfitItems.setVisible(true);
@@ -2821,8 +2898,32 @@ public class WardrobeController implements Initializable {
         }
     }
 
+    private Button setBtnOutfits(ItemButton ItemButton, String type, String name,
+                               String brand, String color, String category, int index) {
+        Button tempButton = ItemButton.getButton();
+        tempButton.setMinWidth(125);
+        tempButton.setMaxWidth(125);
+        tempButton.setPrefWidth(125);
+        tempButton.setMinHeight(125);
+        tempButton.setMaxHeight(125);
+        tempButton.setPrefHeight(125);
+
+
+        tempButton.setOnAction(e -> {
+            showInfoPane.setVisible(true);
+            lblShowItem.setText("Footwear");
+            lblShowName.setText(name);
+            lblShowBrand.setText(brand);
+            lblShowColor.setText(color);
+            lblCatOrMat.setText("Category:");
+            lblShowCatOrMat.setText(category);
+        });
+
+        return tempButton;
+    }
+
     @FXML
-    protected void btnRemoveOutfit() {
+    private void btnRemoveOutfit() {
         showOutfitItems.setVisible(false);
 
         switch (currOutfitClicked) {
@@ -2891,7 +2992,7 @@ public class WardrobeController implements Initializable {
 
 
 
-    protected void setGridMargins(Node item) {
+    private void setGridMargins(Node item) {
         GridPane.setMargin(item, new Insets(10));
         GridPane.setHalignment(item, HPos.CENTER);
         GridPane.setValignment(item, VPos.CENTER);
@@ -2899,7 +3000,7 @@ public class WardrobeController implements Initializable {
 
 
     @FXML
-    protected void btnSetImage() {
+    private void btnSetImage() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Image File");
         fileChooser.getExtensionFilters().addAll(
@@ -2920,7 +3021,7 @@ public class WardrobeController implements Initializable {
     }
 
     @FXML
-    protected void clearControls() {
+    private void clearControls() {
         if (tempImage != null) {
             tempFootImage.setImage(null);
             tempTopImage.setImage(null);
